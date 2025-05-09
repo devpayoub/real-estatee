@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Certificate, MapPin, Star, User } from "lucide-react";
+import { Calendar, BadgeCheck, MapPin, Star, User } from "lucide-react";
 
 const About = () => {
   return (
@@ -62,15 +62,15 @@ const About = () => {
               <h3 className="text-xl font-semibold mb-4">Certifications</h3>
               <div className="flex flex-wrap gap-3 mb-8">
                 <div className="flex items-center gap-2 bg-gray-50 rounded-full px-4 py-2">
-                  <Certificate size={16} className="text-realestate-blue" />
+                  <BadgeCheck size={16} className="text-realestate-blue" />
                   <span>Licensed Real Estate Agent</span>
                 </div>
                 <div className="flex items-center gap-2 bg-gray-50 rounded-full px-4 py-2">
-                  <Certificate size={16} className="text-realestate-blue" />
+                  <BadgeCheck size={16} className="text-realestate-blue" />
                   <span>Certified Residential Specialist</span>
                 </div>
                 <div className="flex items-center gap-2 bg-gray-50 rounded-full px-4 py-2">
-                  <Certificate size={16} className="text-realestate-blue" />
+                  <BadgeCheck size={16} className="text-realestate-blue" />
                   <span>Accredited Buyer's Representative</span>
                 </div>
               </div>
