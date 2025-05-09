@@ -1,9 +1,17 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, Search, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +46,27 @@ const Header = () => {
         <div className="flex items-center space-x-8">
           <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Home</Link>
           <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">About Us</Link>
-          <Link to="/services" className="font-medium hover:text-realestate-blue transition-colors">Services</Link>
+          
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="font-medium hover:text-realestate-blue bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent p-0">
+                  Services <ChevronDown className="h-4 w-4 ml-1" />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-4 w-[200px] bg-white">
+                    <Link to="/services?type=rent" className="block p-2 hover:bg-gray-50 rounded-md">
+                      Rent a House
+                    </Link>
+                    <Link to="/services?type=buy" className="block p-2 hover:bg-gray-50 rounded-md">
+                      Buy a House
+                    </Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+          
           <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Facilities</Link>
           <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blogs</Link>
         </div>
@@ -57,9 +85,11 @@ const Header = () => {
           <Button className="bg-transparent hover:bg-gray-100 text-realestate-blue border border-realestate-blue rounded-full">
             Visit Now
           </Button>
-          <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full">
-            Contact Us
-          </Button>
+          <Link to="/contact">
+            <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full">
+              Contact Us
+            </Button>
+          </Link>
         </div>
         <button 
           className="lg:hidden text-gray-600 hover:text-realestate-blue"
@@ -75,16 +105,30 @@ const Header = () => {
           <nav className="flex flex-col space-y-4">
             <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Home</Link>
             <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">About Us</Link>
-            <Link to="/services" className="font-medium hover:text-realestate-blue transition-colors">Services</Link>
+            
+            <div className="space-y-2">
+              <div className="font-medium">Services</div>
+              <div className="pl-4 space-y-2">
+                <Link to="/services?type=rent" className="block text-sm hover:text-realestate-blue">
+                  Rent a House
+                </Link>
+                <Link to="/services?type=buy" className="block text-sm hover:text-realestate-blue">
+                  Buy a House
+                </Link>
+              </div>
+            </div>
+            
             <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Facilities</Link>
             <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blogs</Link>
             <div className="pt-3 flex flex-col space-y-3">
               <Button className="bg-transparent hover:bg-gray-100 text-realestate-blue border border-realestate-blue rounded-full w-full">
                 Visit Now
               </Button>
-              <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full w-full">
-                Contact Us
-              </Button>
+              <Link to="/contact" className="w-full">
+                <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full w-full">
+                  Contact Us
+                </Button>
+              </Link>
             </div>
           </nav>
         </div>

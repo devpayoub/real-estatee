@@ -6,9 +6,15 @@ import FeaturesSection from "@/components/FeaturesSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import StepsSection from "@/components/StepsSection";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
+import PropertyCardDetailed from "@/components/PropertyCardDetailed";
+import { properties, Property } from "@/data/properties";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Index = () => {
+  const [featuredProperties, setFeaturedProperties] = useState<Property[]>([]);
+  
   // Simulate scroll animations effect
   useEffect(() => {
     const animateOnScroll = () => {
@@ -24,6 +30,9 @@ const Index = () => {
         }
       });
     };
+
+    // Get 3 random properties for the featured section
+    setFeaturedProperties(properties.slice(0, 3));
 
     // Run once on mount
     animateOnScroll();
@@ -53,6 +62,31 @@ const Index = () => {
         
         <div className="animate-on-scroll opacity-0">
           <BenefitsSection />
+        </div>
+        
+        <div className="animate-on-scroll opacity-0">
+          <section className="container mx-auto px-6 py-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">Featured Properties</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Explore our selection of premium properties available for rent or purchase
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProperties.map(property => (
+                <PropertyCardDetailed key={property.id} property={property} />
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center">
+              <Link to="/services">
+                <Button className="bg-realestate-blue hover:bg-realestate-darkblue rounded-full">
+                  View All Properties
+                </Button>
+              </Link>
+            </div>
+          </section>
         </div>
         
         <div className="animate-on-scroll opacity-0">
