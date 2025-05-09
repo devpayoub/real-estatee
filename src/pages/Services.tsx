@@ -1,6 +1,7 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Property, PropertyType, getPropertiesByType } from "@/data/properties";
@@ -22,6 +23,11 @@ const Services = () => {
     
     const filteredProperties = getPropertiesByType(activeTab);
     setProperties(filteredProperties);
+    
+    // Initialize AOS animations
+    if (typeof window !== 'undefined' && window.AOS) {
+      window.AOS.refresh();
+    }
   }, [searchParams, activeTab]);
 
   const handleTabChange = (value: string) => {
@@ -35,7 +41,7 @@ const Services = () => {
       
       <main className="flex-1 pt-24">
         <section className="container mx-auto px-6 py-12">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Whether you're looking to rent or buy, we have the perfect property options for you.
@@ -43,7 +49,7 @@ const Services = () => {
           </div>
           
           <Tabs defaultValue={activeTab} onValueChange={handleTabChange} className="w-full">
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
               <TabsList className="grid grid-cols-2 w-[400px]">
                 <TabsTrigger value="rent" className="data-[state=active]:bg-realestate-blue data-[state=active]:text-white">
                   Rent a House
@@ -55,14 +61,14 @@ const Services = () => {
             </div>
             
             <TabsContent value="rent" className="mt-0">
-              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg">
+              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
                 <h2 className="text-2xl font-bold mb-3">Renting with Ozalams</h2>
                 <p className="text-gray-700 mb-4">
                   Renting a house has never been easier. We offer a variety of rental properties to suit your needs and budget.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mt-6">
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
                     <div className="bg-white p-2 rounded-full">
                       <Home className="text-realestate-blue h-5 w-5" />
                     </div>
@@ -72,7 +78,7 @@ const Services = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
                     <div className="bg-white p-2 rounded-full">
                       <DollarSign className="text-realestate-blue h-5 w-5" />
                     </div>
@@ -82,7 +88,7 @@ const Services = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
                     <div className="bg-white p-2 rounded-full">
                       <Map className="text-realestate-blue h-5 w-5" />
                     </div>
@@ -95,21 +101,23 @@ const Services = () => {
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {properties.map(property => (
-                  <PropertyCardDetailed key={property.id} property={property} />
+                {properties.map((property, index) => (
+                  <div key={property.id} data-aos="fade-up" data-aos-delay={350 + (index * 50)}>
+                    <PropertyCardDetailed property={property} />
+                  </div>
                 ))}
               </div>
             </TabsContent>
             
             <TabsContent value="buy" className="mt-0">
-              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg">
+              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
                 <h2 className="text-2xl font-bold mb-3">Buying with Ozalams</h2>
                 <p className="text-gray-700 mb-4">
                   Find your dream home with our expert guidance. We'll help you through every step of the buying process.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mt-6">
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
                     <div className="bg-white p-2 rounded-full">
                       <Building className="text-realestate-blue h-5 w-5" />
                     </div>
@@ -119,7 +127,7 @@ const Services = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
                     <div className="bg-white p-2 rounded-full">
                       <DollarSign className="text-realestate-blue h-5 w-5" />
                     </div>
@@ -129,7 +137,7 @@ const Services = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
                     <div className="bg-white p-2 rounded-full">
                       <Map className="text-realestate-blue h-5 w-5" />
                     </div>
@@ -142,13 +150,17 @@ const Services = () => {
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {properties.map(property => (
-                  <PropertyCardDetailed key={property.id} property={property} />
+                {properties.map((property, index) => (
+                  <div key={property.id} data-aos="fade-up" data-aos-delay={350 + (index * 50)}>
+                    <PropertyCardDetailed property={property} />
+                  </div>
                 ))}
               </div>
             </TabsContent>
           </Tabs>
         </section>
+        
+        <TestimonialsCarousel />
       </main>
       
       <Footer />
