@@ -2,45 +2,44 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Home, Calendar, Activity } from "lucide-react";
+import { CheckCircle, Star, Headphones } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row w-full py-16 px-6 md:px-12 gap-10">
+    <div className="flex flex-col lg:flex-row w-full pt-28 pb-16 px-6 md:px-12 gap-10">
       <div className="flex-1 pt-6">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           Find Your Perfect <br />
-          <span className="text-realestate-blue">Dream Home</span> <br />
-          With Us
+          Home with <span className="text-realestate-blue">Ozalams</span>
         </h1>
         <p className="mt-5 text-gray-600 max-w-[500px]">
           We help you find your dream home that suits your budget. Get connected with the best agents to make this happen quickly and with ease.
         </p>
         
         <div className="mt-10 flex flex-wrap gap-8 md:gap-12">
-          <div className="flex flex-col items-center">
-            <div className="bg-realestate-lightblue p-3 rounded-full">
-              <Home className="text-realestate-blue h-6 w-6" />
+          <div className="flex items-center gap-2">
+            <div className="bg-realestate-lightblue p-2 rounded-full">
+              <Star className="text-realestate-blue h-5 w-5" />
             </div>
-            <span className="mt-2 text-sm font-medium">Property Insurance</span>
+            <span className="text-sm font-medium">Trusted Partner</span>
           </div>
           
-          <div className="flex flex-col items-center">
-            <div className="bg-realestate-lightblue p-3 rounded-full">
-              <Calendar className="text-realestate-blue h-6 w-6" />
+          <div className="flex items-center gap-2">
+            <div className="bg-realestate-lightblue p-2 rounded-full">
+              <CheckCircle className="text-realestate-blue h-5 w-5" />
             </div>
-            <span className="mt-2 text-sm font-medium">Best Interest Rates</span>
+            <span className="text-sm font-medium">Verified Listings</span>
           </div>
           
-          <div className="flex flex-col items-center">
-            <div className="bg-realestate-lightblue p-3 rounded-full">
-              <Activity className="text-realestate-blue h-6 w-6" />
+          <div className="flex items-center gap-2">
+            <div className="bg-realestate-lightblue p-2 rounded-full">
+              <Headphones className="text-realestate-blue h-5 w-5" />
             </div>
-            <span className="mt-2 text-sm font-medium">24/7 Support</span>
+            <span className="text-sm font-medium">24/7 Support</span>
           </div>
         </div>
         
-        <div className="mt-10 bg-white p-5 rounded-xl shadow-lg max-w-[550px]">
+        <div className="mt-10 bg-white p-5 rounded-xl shadow-lg max-w-[550px] border border-gray-100">
           <div className="flex flex-wrap gap-4">
             <div className="flex-1 min-w-[200px]">
               <label className="text-sm text-gray-500">Location</label>
@@ -76,15 +75,15 @@ const HeroSection = () => {
         </div>
       </div>
       
-      <div className="flex-1 relative ml-auto">
-        <div className="relative mx-auto max-w-[420px]">
-          <div className="absolute top-8 right-[-20px] bg-realestate-blue text-white text-xs py-1 px-3 rounded-full">
-            Featured
+      <div className="flex-1 relative mt-10 lg:mt-0">
+        <div className="relative mx-auto max-w-[520px]">
+          <div className="absolute -top-4 -right-4 bg-realestate-blue text-white py-3 px-5 rounded-lg z-10 shadow-lg">
+            <span className="text-xl font-bold">Super Sale$</span>
           </div>
           <div className="bg-white rounded-3xl p-3 shadow-xl">
             <img 
-              src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-              alt="Luxury apartment" 
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+              alt="Luxury home" 
               className="w-full rounded-2xl h-[420px] object-cover"
             />
             <div className="p-4 space-y-3">
@@ -134,6 +133,25 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Floating feature cards */}
+          <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-md z-10">
+            <div className="flex items-center gap-2">
+              <div className="bg-realestate-lightblue p-2 rounded-full">
+                <CheckCircle className="text-realestate-blue h-4 w-4" />
+              </div>
+              <span className="text-xs font-medium">Premium Location</span>
+            </div>
+          </div>
+
+          <div className="absolute top-1/2 -right-8 transform -translate-y-1/2 bg-white p-4 rounded-lg shadow-md z-10">
+            <div className="flex items-center gap-2">
+              <div className="bg-realestate-lightblue p-2 rounded-full">
+                <Star className="text-realestate-blue h-4 w-4" />
+              </div>
+              <span className="text-xs font-medium">Top Rated</span>
             </div>
           </div>
         </div>
