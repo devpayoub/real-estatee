@@ -64,9 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				realestate: {
-					blue: '#3466e8',
+					blue: '#375de7',
 					lightblue: '#e8f1fd',
-					darkblue: '#1d4ed8',
+					darkblue: '#2043c0',
 					tag: '#4f92fd'
 				}
 			},

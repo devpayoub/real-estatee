@@ -2,54 +2,46 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Home, Calendar, Activity } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col lg:flex-row w-full py-10 px-6 md:px-12 gap-10">
-      <div className="flex-1 pt-10">
+    <div className="flex flex-col lg:flex-row w-full py-16 px-6 md:px-12 gap-10">
+      <div className="flex-1 pt-6">
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">
           Find Your Perfect <br />
-          <span className="text-realestate-blue">Home</span> with Ozalams
+          <span className="text-realestate-blue">Dream Home</span> <br />
+          With Us
         </h1>
-        <p className="mt-4 text-gray-600 max-w-[500px]">
-          We help you find your dream home that suits your budget. Get connected with the best agent to make this happen quickly and with ease.
+        <p className="mt-5 text-gray-600 max-w-[500px]">
+          We help you find your dream home that suits your budget. Get connected with the best agents to make this happen quickly and with ease.
         </p>
         
         <div className="mt-10 flex flex-wrap gap-8 md:gap-12">
           <div className="flex flex-col items-center">
             <div className="bg-realestate-lightblue p-3 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
+              <Home className="text-realestate-blue h-6 w-6" />
             </div>
-            <span className="mt-2 text-sm font-medium">Featured Homes</span>
+            <span className="mt-2 text-sm font-medium">Property Insurance</span>
           </div>
           
           <div className="flex flex-col items-center">
             <div className="bg-realestate-lightblue p-3 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
+              <Calendar className="text-realestate-blue h-6 w-6" />
             </div>
-            <span className="mt-2 text-sm font-medium">New Listings</span>
+            <span className="mt-2 text-sm font-medium">Best Interest Rates</span>
           </div>
           
           <div className="flex flex-col items-center">
             <div className="bg-realestate-lightblue p-3 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-              </svg>
+              <Activity className="text-realestate-blue h-6 w-6" />
             </div>
             <span className="mt-2 text-sm font-medium">24/7 Support</span>
           </div>
         </div>
         
-        <div className="mt-10 bg-white p-4 rounded-xl shadow-lg max-w-[550px]">
-          <div className="flex flex-wrap gap-3">
+        <div className="mt-10 bg-white p-5 rounded-xl shadow-lg max-w-[550px]">
+          <div className="flex flex-wrap gap-4">
             <div className="flex-1 min-w-[200px]">
               <label className="text-sm text-gray-500">Location</label>
               <Input placeholder="Enter location" className="mt-1" />
@@ -64,35 +56,43 @@ const HeroSection = () => {
                   <SelectItem value="apartment">Apartment</SelectItem>
                   <SelectItem value="house">House</SelectItem>
                   <SelectItem value="condo">Condo</SelectItem>
-                  <SelectItem value="land">Land</SelectItem>
+                  <SelectItem value="villa">Villa</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
           
-          <div className="mt-3">
-            <label className="text-sm text-gray-500">Keywords</label>
-            <div className="flex gap-2 mt-1">
-              <Input placeholder="Enter keywords" className="flex-1" />
-              <Button className="bg-realestate-blue hover:bg-realestate-darkblue">Search</Button>
+          <div className="mt-4">
+            <label className="text-sm text-gray-500">Price Range</label>
+            <div className="flex gap-3 mt-1">
+              <Input placeholder="Min" className="flex-1" />
+              <Input placeholder="Max" className="flex-1" />
             </div>
+          </div>
+          
+          <div className="mt-4 flex">
+            <Button className="w-full bg-realestate-blue hover:bg-realestate-darkblue text-white">Search</Button>
           </div>
         </div>
       </div>
       
       <div className="flex-1 relative ml-auto">
-        <div className="relative mx-auto max-w-[380px]">
-          <div className="absolute top-16 right-[-20px] bg-realestate-blue text-white text-xs py-1 px-3 rounded-full">
-            Super Sale
+        <div className="relative mx-auto max-w-[420px]">
+          <div className="absolute top-8 right-[-20px] bg-realestate-blue text-white text-xs py-1 px-3 rounded-full">
+            Featured
           </div>
-          <div className="bg-white rounded-3xl p-2 shadow-xl">
+          <div className="bg-white rounded-3xl p-3 shadow-xl">
             <img 
               src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
               alt="Luxury apartment" 
-              className="w-full rounded-2xl h-[400px] object-cover"
+              className="w-full rounded-2xl h-[420px] object-cover"
             />
-            <div className="p-4 space-y-2">
-              <div className="space-y-1">
+            <div className="p-4 space-y-3">
+              <div className="flex justify-between items-center">
+                <h3 className="font-semibold text-lg">Modern Villa</h3>
+                <span className="font-bold text-realestate-blue">$1.5M</span>
+              </div>
+              <div className="space-y-2">
                 <div className="flex items-center space-x-2">
                   <div className="bg-gray-100 rounded-full p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
@@ -100,36 +100,38 @@ const HeroSection = () => {
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </div>
-                  <span className="text-sm text-gray-500">Los Angeles</span>
+                  <span className="text-sm text-gray-500">Los Angeles, CA</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <div className="bg-gray-100 rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                      <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
-                      <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-                      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                      <path d="M12 20h.01"></path>
-                    </svg>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <div className="bg-gray-100 rounded-full p-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                      </svg>
+                    </div>
+                    <span className="text-sm text-gray-500">4 Beds</span>
                   </div>
-                  <span className="text-sm text-gray-500">Fully Furnished</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="bg-gray-100 rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                      <path d="M12 8v8"></path>
-                      <path d="M8 12h8"></path>
-                    </svg>
+                  
+                  <div className="flex items-center space-x-2">
+                    <div className="bg-gray-100 rounded-full p-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
+                        <path d="M22 2H2v20h20V2Z"></path>
+                        <path d="M22 8H2"></path>
+                        <path d="M8 2v20"></path>
+                      </svg>
+                    </div>
+                    <span className="text-sm text-gray-500">3 Baths</span>
                   </div>
-                  <span className="text-sm text-gray-500">On-Site Parking</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="bg-gray-100 rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                      <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"></path>
-                    </svg>
+                  
+                  <div className="flex items-center space-x-2">
+                    <div className="bg-gray-100 rounded-full p-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      </svg>
+                    </div>
+                    <span className="text-sm text-gray-500">2500 sq ft</span>
                   </div>
-                  <span className="text-sm text-gray-500">Property Taxes</span>
                 </div>
               </div>
             </div>

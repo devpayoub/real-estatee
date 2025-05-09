@@ -1,34 +1,28 @@
 
 import PropertyCard from "./PropertyCard";
+import { Button } from "@/components/ui/button";
 
 const SellSection = () => {
   return (
     <div className="w-full py-16 px-6 md:px-12 bg-white">
       <div className="flex flex-col lg:flex-row gap-10">
-        <div className="flex-1 relative">
-          <div className="relative mx-auto max-w-[380px]">
-            <div className="absolute top-6 right-[-10px] bg-realestate-tag text-white text-xs py-1 px-3 rounded-full">
-              Super Sale
-            </div>
-            <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-              alt="Modern house" 
-              className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
-            />
-          </div>
-        </div>
-        
         <div className="flex-1">
           <h2 className="text-3xl font-bold">
-            Sell For More Than <br />
-            The Home <span className="text-realestate-blue">Next Door</span>
+            Find Your Dream <br />
+            <span className="text-realestate-blue">Property</span> With Us
           </h2>
           
           <p className="mt-4 text-gray-600 max-w-[500px]">
-            Ready to sell? Get an instant estimate of your home's value. Our market analysis data will help you get the perfect price for your property.
+            We have a wide range of properties for you to choose from. Our market analysis data will help you find the perfect property for your needs.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          <div className="mt-6 flex">
+            <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full px-8">
+              Explore More
+            </Button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
             <PropertyCard 
               imageUrl="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
               location="New York"
@@ -36,7 +30,6 @@ const SellSection = () => {
               bedrooms={3}
               bathrooms={2}
               squareFeet={1200}
-              buttonText="See a Home"
               tagText="New"
             />
             
@@ -47,7 +40,6 @@ const SellSection = () => {
               bedrooms={4}
               bathrooms={3}
               squareFeet={1800}
-              buttonText="See a Home"
               tagText="Hot"
             />
             
@@ -58,7 +50,6 @@ const SellSection = () => {
               bedrooms={2}
               bathrooms={2}
               squareFeet={1100}
-              buttonText="See a Home"
               tagText="Sale"
             />
           </div>
