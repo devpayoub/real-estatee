@@ -37,15 +37,14 @@ const Header = () => {
     >
       <div className="flex items-center">
         <Link to="/" className="flex items-center">
-          <img src="/public/lovable-uploads/4002b8f5-a08d-408c-af9e-4f28f584b8ca.png" alt="RentHome Logo" className="h-8 w-auto" />
-          <span className="font-bold text-xl ml-2 text-gray-800">OZALAMS</span>
+          <img src="/public/lovable-uploads/4e52e5c8-184b-4b0b-8aaa-f4475a33e028.png" alt="Kais Khayati Logo" className="h-12 w-auto" />
         </Link>
       </div>
       
       <nav className="hidden lg:flex items-center justify-center flex-1">
         <div className="flex items-center space-x-8">
-          <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Home</Link>
-          <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">About Us</Link>
+          <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Accueil</Link>
+          <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">À Propos</Link>
           
           <NavigationMenu>
             <NavigationMenuList>
@@ -56,10 +55,10 @@ const Header = () => {
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[200px] bg-white">
                     <Link to="/services?type=rent" className="block p-2 hover:bg-gray-50 rounded-md">
-                      Rent a House
+                      Louer une Propriété
                     </Link>
                     <Link to="/services?type=buy" className="block p-2 hover:bg-gray-50 rounded-md">
-                      Buy a House
+                      Acheter une Propriété
                     </Link>
                   </div>
                 </NavigationMenuContent>
@@ -67,8 +66,8 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
           
-          <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Facilities</Link>
-          <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blogs</Link>
+          <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Installations</Link>
+          <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blog</Link>
         </div>
       </nav>
       
@@ -76,18 +75,18 @@ const Header = () => {
         <div className="hidden md:flex items-center relative">
           <Input 
             type="text" 
-            placeholder="Search" 
+            placeholder="Recherche" 
             className="pl-8 w-[200px] rounded-full bg-gray-50 border-gray-200"
           />
           <Search className="absolute left-2 h-4 w-4 text-gray-500" />
         </div>
         <div className="hidden md:flex items-center gap-3">
           <Button className="bg-transparent hover:bg-gray-100 text-realestate-blue border border-realestate-blue rounded-full">
-            Visit Now
+            Visiter Maintenant
           </Button>
           <Link to="/contact">
-            <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full">
-              Contact Us
+            <Button className="bg-realestate-red hover:bg-realestate-red/80 text-white rounded-full">
+              Contactez-nous
             </Button>
           </Link>
         </div>
@@ -103,30 +102,30 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-5 px-6 lg:hidden animate-fade-in">
           <nav className="flex flex-col space-y-4">
-            <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Home</Link>
-            <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">About Us</Link>
+            <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Accueil</Link>
+            <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">À Propos</Link>
             
             <div className="space-y-2">
               <div className="font-medium">Services</div>
               <div className="pl-4 space-y-2">
                 <Link to="/services?type=rent" className="block text-sm hover:text-realestate-blue">
-                  Rent a House
+                  Louer une Propriété
                 </Link>
                 <Link to="/services?type=buy" className="block text-sm hover:text-realestate-blue">
-                  Buy a House
+                  Acheter une Propriété
                 </Link>
               </div>
             </div>
             
-            <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Facilities</Link>
-            <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blogs</Link>
+            <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Installations</Link>
+            <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blog</Link>
             <div className="pt-3 flex flex-col space-y-3">
               <Button className="bg-transparent hover:bg-gray-100 text-realestate-blue border border-realestate-blue rounded-full w-full">
-                Visit Now
+                Visiter Maintenant
               </Button>
               <Link to="/contact" className="w-full">
-                <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full w-full">
-                  Contact Us
+                <Button className="bg-realestate-red hover:bg-realestate-red/80 text-white rounded-full w-full">
+                  Contactez-nous
                 </Button>
               </Link>
             </div>

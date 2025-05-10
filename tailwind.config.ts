@@ -64,10 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				realestate: {
-					blue: '#4375ff',
+					blue: '#003DA5', // REMAX blue
 					lightblue: '#e8f1fd',
-					darkblue: '#2043c0',
-					tag: '#4f92fd'
+					darkblue: '#002C75',
+					red: '#e4002b', // REMAX red
+					black: '#000000e6',
+					tag: '#003DA5'
 				}
 			},
 			borderRadius: {
