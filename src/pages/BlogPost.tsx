@@ -1,9 +1,9 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Avatar } from "@/components/ui/avatar";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, User, Tag, Clock, ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
