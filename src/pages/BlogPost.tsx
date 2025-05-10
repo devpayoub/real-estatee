@@ -1,9 +1,10 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Avatar } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { useParams, Link } from "react-router-dom";
 import { Calendar, User, Tag, Clock, ArrowLeft } from "lucide-react";
 import { useEffect } from "react";
@@ -182,7 +183,7 @@ const BlogPost = () => {
           >
             <div className="flex items-center gap-4">
               <Avatar className="h-16 w-16">
-                <img 
+                <AvatarImage 
                   src={`https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop`}
                   alt={post.author}
                 />
