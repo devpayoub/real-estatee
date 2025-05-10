@@ -50,27 +50,33 @@ const Services = () => {
           
           <Tabs defaultValue={activeTab} onValueChange={handleTabChange} className="w-full">
             <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
-              <TabsList className="grid grid-cols-2 w-[400px]">
-                <TabsTrigger value="rent" className="data-[state=active]:bg-realestate-red data-[state=active]:text-white">
+              <TabsList className="grid grid-cols-2 w-[400px] border-2 border-realestate-blue">
+                <TabsTrigger 
+                  value="rent" 
+                  className="data-[state=active]:bg-realestate-blue data-[state=active]:text-white data-[state=inactive]:text-realestate-black font-semibold"
+                >
                   Louer une Maison
                 </TabsTrigger>
-                <TabsTrigger value="buy" className="data-[state=active]:bg-realestate-red data-[state=active]:text-white">
+                <TabsTrigger 
+                  value="buy" 
+                  className="data-[state=active]:bg-realestate-blue data-[state=active]:text-white data-[state=inactive]:text-realestate-black font-semibold"
+                >
                   Acheter une Maison
                 </TabsTrigger>
               </TabsList>
             </div>
             
             <TabsContent value="rent" className="mt-0">
-              <div className="mb-8 bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
-                <h2 className="text-2xl font-bold mb-3">Louer avec Kais Khayati</h2>
+              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg border-l-4 border-realestate-blue" data-aos="fade-up" data-aos-delay="150">
+                <h2 className="text-2xl font-bold mb-3 text-realestate-blue">Louer avec Kais Khayati</h2>
                 <p className="text-gray-700 mb-4">
                   Louer une maison n'a jamais été aussi facile. Nous offrons une variété de propriétés locatives pour répondre à vos besoins et à votre budget.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mt-6">
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
-                    <div className="bg-white p-2 rounded-full">
-                      <Home className="text-realestate-red h-5 w-5" />
+                    <div className="bg-realestate-blue text-white p-2 rounded-full">
+                      <Home className="h-5 w-5" />
                     </div>
                     <div>
                       <h3 className="font-semibold">Large Sélection</h3>
@@ -79,8 +85,8 @@ const Services = () => {
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
-                    <div className="bg-white p-2 rounded-full">
-                      <DollarSign className="text-realestate-red h-5 w-5" />
+                    <div className="bg-realestate-red text-white p-2 rounded-full">
+                      <DollarSign className="h-5 w-5" />
                     </div>
                     <div>
                       <h3 className="font-semibold">Conditions Flexibles</h3>
@@ -89,8 +95,8 @@ const Services = () => {
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
-                    <div className="bg-white p-2 rounded-full">
-                      <Map className="text-realestate-red h-5 w-5" />
+                    <div className="bg-realestate-blue text-white p-2 rounded-full">
+                      <Map className="h-5 w-5" />
                     </div>
                     <div>
                       <h3 className="font-semibold">Emplacements de Choix</h3>
@@ -110,16 +116,16 @@ const Services = () => {
             </TabsContent>
             
             <TabsContent value="buy" className="mt-0">
-              <div className="mb-8 bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
-                <h2 className="text-2xl font-bold mb-3">Acheter avec Kais Khayati</h2>
+              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg border-l-4 border-realestate-red" data-aos="fade-up" data-aos-delay="150">
+                <h2 className="text-2xl font-bold mb-3 text-realestate-red">Acheter avec Kais Khayati</h2>
                 <p className="text-gray-700 mb-4">
                   Trouvez votre maison de rêve avec nos conseils d'expert. Nous vous aiderons à chaque étape du processus d'achat.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mt-6">
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
-                    <div className="bg-white p-2 rounded-full">
-                      <Building className="text-realestate-red h-5 w-5" />
+                    <div className="bg-realestate-red text-white p-2 rounded-full">
+                      <Building className="h-5 w-5" />
                     </div>
                     <div>
                       <h3 className="font-semibold">Expertise Immobilière</h3>
@@ -128,8 +134,8 @@ const Services = () => {
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
-                    <div className="bg-white p-2 rounded-full">
-                      <DollarSign className="text-realestate-red h-5 w-5" />
+                    <div className="bg-realestate-blue text-white p-2 rounded-full">
+                      <DollarSign className="h-5 w-5" />
                     </div>
                     <div>
                       <h3 className="font-semibold">Conseils Financiers</h3>
@@ -138,8 +144,8 @@ const Services = () => {
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
-                    <div className="bg-white p-2 rounded-full">
-                      <Map className="text-realestate-red h-5 w-5" />
+                    <div className="bg-realestate-red text-white p-2 rounded-full">
+                      <Map className="h-5 w-5" />
                     </div>
                     <div>
                       <h3 className="font-semibold">Investissement Futur</h3>

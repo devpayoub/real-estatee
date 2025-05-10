@@ -71,7 +71,9 @@ export default {
 					lightred: '#ffebee', // Light red for backgrounds
 					darkred: '#b71c1c', // Dark red for hover effects
 					black: '#000000e6',
-					tag: '#e4002b' // Changed to red for more presence
+					tag: '#e4002b', // Changed to red for more presence
+					primary: '#003DA5', // Primary brand color - blue
+					secondary: '#e4002b' // Secondary brand color - red
 				}
 			},
 			borderRadius: {
@@ -107,6 +109,10 @@ export default {
 				'scale-in': {
 					from: { opacity: '0', transform: 'scale(0.95)' },
 					to: { opacity: '1', transform: 'scale(1)' }
+				},
+				'pulse': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
 				}
 			},
 			animation: {
@@ -114,7 +120,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out',
 				'slide-in': 'slide-in 0.5s ease-out',
-				'scale-in': 'scale-in 0.5s ease-out'
+				'scale-in': 'scale-in 0.5s ease-out',
+				'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
 			}
 		}
 	},
