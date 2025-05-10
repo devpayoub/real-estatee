@@ -1,3 +1,4 @@
+@import 'aos/dist/aos.css';
 
 @tailwind base;
 @tailwind components;
@@ -105,4 +106,27 @@
   .animate-fade-in {
     animation: fade-in 0.5s ease-out;
   }
+}
+
+/* AOS custom animations */
+[data-aos="custom-fade-up"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: transform, opacity;
+}
+
+[data-aos="custom-fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-aos="custom-fade-right"] {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition-property: transform, opacity;
+}
+
+[data-aos="custom-fade-right"].aos-animate {
+  opacity: 1;
+  transform: translateX(0);
 }
