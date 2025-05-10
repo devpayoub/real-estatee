@@ -8,19 +8,19 @@ const BenefitsSection = () => {
         <div className="flex-1">
           <img 
             src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-            alt="Modern house" 
+            alt="Maison moderne" 
             className="rounded-2xl shadow-lg w-full object-cover h-[450px]"
           />
         </div>
         
         <div className="flex-1">
           <h2 className="text-3xl font-bold">
-            We Help People Find <br />
-            <span className="text-realestate-blue">Perfect Homes</span>
+            Nous Aidons les Gens à Trouver <br />
+            <span className="text-realestate-blue">des Maisons Parfaites</span>
           </h2>
           
           <p className="mt-4 text-gray-600 max-w-[500px]">
-            Our experienced agents and market analysis tools help you find the perfect property match or sell your home for the best price.
+            Nos agents expérimentés et nos outils d'analyse de marché vous aident à trouver la propriété idéale ou à vendre votre maison au meilleur prix.
           </p>
           
           <div className="mt-10 space-y-8">
@@ -32,9 +32,9 @@ const BenefitsSection = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-lg">Exclusive Listings Access</h3>
+                <h3 className="font-semibold text-lg">Accès aux Annonces Exclusives</h3>
                 <p className="text-gray-600 mt-2">
-                  Get first access to newly listed properties before they hit the open market. Our network gives you a competitive edge.
+                  Obtenez un accès prioritaire aux propriétés nouvellement listées avant qu'elles ne soient sur le marché. Notre réseau vous donne un avantage concurrentiel.
                 </p>
               </div>
             </div>
@@ -49,16 +49,16 @@ const BenefitsSection = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="font-semibold text-lg">Expert Property Valuation</h3>
+                <h3 className="font-semibold text-lg">Évaluation Immobilière Experte</h3>
                 <p className="text-gray-600 mt-2">
-                  Our advanced algorithms and experienced agents provide accurate property valuations to maximize your investment.
+                  Nos algorithmes avancés et nos agents expérimentés fournissent des évaluations immobilières précises pour maximiser votre investissement.
                 </p>
               </div>
             </div>
             
             <div className="mt-8">
               <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full px-8">
-                Learn More
+                En Savoir Plus
               </Button>
             </div>
           </div>

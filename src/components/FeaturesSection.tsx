@@ -15,10 +15,10 @@ const FeaturesSection = () => {
     <div className="w-full py-16 px-6 md:px-12 bg-gray-50">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold">
-          Our <span className="text-realestate-blue">Features</span>
+          Nos <span className="text-realestate-blue">Fonctionnalités</span>
         </h2>
         <p className="mt-4 text-gray-600 max-w-[600px] mx-auto">
-          Discover all the features that make our properties stand out from the rest.
+          Découvrez toutes les caractéristiques qui distinguent nos propriétés des autres.
         </p>
       </div>
       
@@ -28,7 +28,7 @@ const FeaturesSection = () => {
             icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
               <path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
             </svg>}
-            title="Smart Lock"
+            title="Serrure Intelligente"
           />
           <FeatureCard 
             icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
@@ -39,7 +39,7 @@ const FeaturesSection = () => {
               <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
               <path d="M18.5 12c0 3.59-2.91 6.5-6.5 6.5S5.5 15.59 5.5 12 8.41 5.5 12 5.5s6.5 2.91 6.5 6.5Z"></path>
             </svg>}
-            title="Home Security"
+            title="Sécurité Domicile"
           />
           <FeatureCard 
             icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
@@ -48,7 +48,7 @@ const FeaturesSection = () => {
               <path d="m3 9 3 3-3 3"></path>
               <path d="M14 8V6c0-1.1.9-2 2-2h4a2 2 0 0 1 2 2v12c0 1.1-.9 2-2 2h-4a2 2 0 0 1-2-2v-2"></path>
             </svg>}
-            title="Remote Control"
+            title="Contrôle à Distance"
           />
           <FeatureCard 
             icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
@@ -58,7 +58,7 @@ const FeaturesSection = () => {
               <path d="M8.65 10.248A4 4 0 1 0 15.537 13"></path>
               <path d="M7.5 10.5c-1.667 1.167-2.5 3.833-2.5 8.5 3.879 0 6.381-.621 7.703-1.891"></path>
             </svg>}
-            title="Smart Air"
+            title="Air Intelligent"
           />
           <FeatureCard 
             icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
@@ -66,7 +66,7 @@ const FeaturesSection = () => {
               <circle cx="12" cy="8" r="2"></circle>
               <path d="M8.835 14H5a1 1 0 0 0-.9.7l-2 6c-.1.1-.1.2-.1.3 0 .6.4 1 1 1h18c.6 0 1-.4 1-1 0-.1 0-.2-.1-.3l-2-6a1 1 0 0 0-.9-.7h-3.835"></path>
             </svg>}
-            title="Pool Access"
+            title="Accès Piscine"
           />
           <FeatureCard 
             icon={<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
@@ -78,14 +78,14 @@ const FeaturesSection = () => {
               <path d="M12 22V7"></path>
               <path d="M10 22h4"></path>
             </svg>}
-            title="Garden View"
+            title="Vue sur Jardin"
           />
         </div>
         
         <div className="relative">
           <img 
             src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-            alt="Modern house" 
+            alt="Maison moderne" 
             className="rounded-2xl shadow-lg w-full h-[400px] object-cover"
           />
           <div className="absolute right-5 top-[35%] space-y-2">
@@ -96,7 +96,7 @@ const FeaturesSection = () => {
                   <polyline points="9 22 9 12 15 12 15 22"></polyline>
                 </svg>
               </div>
-              <span className="text-sm">3 Beds</span>
+              <span className="text-sm">3 Chambres</span>
             </div>
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center gap-2">
               <div className="bg-realestate-lightblue rounded-full p-1">
@@ -106,7 +106,7 @@ const FeaturesSection = () => {
                   <path d="M8 2v20"></path>
                 </svg>
               </div>
-              <span className="text-sm">2 Bath</span>
+              <span className="text-sm">2 Salles de Bain</span>
             </div>
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center gap-2">
               <div className="bg-realestate-lightblue rounded-full p-1">
@@ -114,7 +114,7 @@ const FeaturesSection = () => {
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                 </svg>
               </div>
-              <span className="text-sm">1500 sq ft</span>
+              <span className="text-sm">140 m²</span>
             </div>
             <div className="bg-white p-2 rounded-lg shadow-md flex items-center gap-2">
               <div className="bg-realestate-lightblue rounded-full p-1">
@@ -123,7 +123,7 @@ const FeaturesSection = () => {
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
               </div>
-              <span className="text-sm">Atlanta</span>
+              <span className="text-sm">Paris</span>
             </div>
           </div>
         </div>
