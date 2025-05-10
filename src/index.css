@@ -1,3 +1,4 @@
+
 @import 'aos/dist/aos.css';
 
 @tailwind base;
@@ -100,11 +101,53 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-900;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  a {
+    @apply transition-colors duration-200;
+  }
 }
 
 @layer components {
   .animate-fade-in {
     animation: fade-in 0.5s ease-out;
+  }
+  
+  .card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .card-shadow:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+  
+  .btn-primary {
+    @apply bg-realestate-blue text-white hover:bg-realestate-darkblue rounded-full px-6 py-2 font-medium shadow-md hover:shadow-lg transition-all;
+  }
+  
+  .btn-secondary {
+    @apply bg-realestate-red text-white hover:bg-realestate-darkred rounded-full px-6 py-2 font-medium shadow-md hover:shadow-lg transition-all;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-blue-red;
   }
 }
 

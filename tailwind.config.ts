@@ -67,11 +67,31 @@ export default {
 					blue: '#003DA5', // REMAX blue
 					lightblue: '#e8f1fd',
 					darkblue: '#002C75',
+					blue50: '#EBF1FA',
+					blue100: '#C6D8F0',
+					blue200: '#A1BFE6',
+					blue300: '#7BA7DC',
+					blue400: '#5B8ED2',
+					blue500: '#3B76C8',
+					blue600: '#3062AA',
+					blue700: '#254E8C',
+					blue800: '#1B3A6E',
+					blue900: '#112650',
 					red: '#e4002b', // REMAX red
-					lightred: '#ffebee', // Light red for backgrounds
-					darkred: '#b71c1c', // Dark red for hover effects
+					lightred: '#ffebee', 
+					darkred: '#b71c1c',
+					red50: '#FEEBEF',
+					red100: '#FBCCD5',
+					red200: '#F9ABB9',
+					red300: '#F6899E',
+					red400: '#F46783',
+					red500: '#F14668',
+					red600: '#E4002B',
+					red700: '#C1001F',
+					red800: '#9F0017',
+					red900: '#7D000F',
 					black: '#000000e6',
-					tag: '#e4002b', // Changed to red for more presence
+					tag: '#e4002b',
 					primary: '#003DA5', // Primary brand color - blue
 					secondary: '#e4002b' // Secondary brand color - red
 				}
@@ -80,6 +100,18 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				'card': '0 4px 20px rgba(0, 61, 165, 0.08)',
+				'card-hover': '0 8px 30px rgba(0, 61, 165, 0.15)',
+				'button': '0 4px 10px rgba(0, 61, 165, 0.3)',
+				'red-button': '0 4px 10px rgba(228, 0, 43, 0.3)',
+			},
+			backgroundImage: {
+				'gradient-blue-red': 'linear-gradient(135deg, #003DA5 0%, #e4002b 100%)',
+				'gradient-red-blue': 'linear-gradient(135deg, #e4002b 0%, #003DA5 100%)',
+				'gradient-blue': 'linear-gradient(135deg, #003DA5 0%, #002C75 100%)',
+				'gradient-red': 'linear-gradient(135deg, #e4002b 0%, #b71c1c 100%)',
 			},
 			keyframes: {
 				'accordion-down': {

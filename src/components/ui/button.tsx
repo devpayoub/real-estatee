@@ -19,8 +19,11 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        blue: "bg-realestate-blue text-white hover:bg-realestate-darkblue",
-        red: "bg-realestate-red text-white hover:bg-realestate-darkred",
+        blue: "bg-realestate-blue text-white hover:bg-realestate-darkblue shadow-md hover:shadow-lg border border-realestate-blue/80",
+        red: "bg-realestate-red text-white hover:bg-realestate-darkred shadow-md hover:shadow-lg border border-realestate-red/80",
+        outlineBlue: "bg-white text-realestate-blue border-2 border-realestate-blue hover:bg-realestate-lightblue",
+        outlineRed: "bg-white text-realestate-red border-2 border-realestate-red hover:bg-realestate-lightred",
+        gradient: "bg-gradient-to-r from-realestate-blue to-realestate-red text-white hover:from-realestate-darkblue hover:to-realestate-darkred shadow-md hover:shadow-lg",
       },
       size: {
         default: "h-10 px-4 py-2",
