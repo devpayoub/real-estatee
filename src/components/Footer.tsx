@@ -16,13 +16,13 @@ const Footer = () => {
             Nous vous aidons à trouver votre maison de rêve selon votre budget et vos préférences. Connectez-vous avec les meilleurs agents de votre région.
           </p>
           <div className="mt-6 flex items-center gap-4">
-            <a href="#" className="text-gray-500 hover:text-realestate-blue transition-colors bg-gray-100 p-2 rounded-full">
+            <a href="#" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
               <Facebook size={18} />
             </a>
-            <a href="#" className="text-gray-500 hover:text-realestate-blue transition-colors bg-gray-100 p-2 rounded-full">
+            <a href="#" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
               <Twitter size={18} />
             </a>
-            <a href="#" className="text-gray-500 hover:text-realestate-blue transition-colors bg-gray-100 p-2 rounded-full">
+            <a href="#" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
               <Instagram size={18} />
             </a>
           </div>
@@ -31,12 +31,12 @@ const Footer = () => {
         <div>
           <h3 className="font-semibold text-lg mb-4">Liens Rapides</h3>
           <ul className="space-y-3">
-            <li><Link to="/" className="text-gray-600 hover:text-realestate-blue transition-colors">Accueil</Link></li>
-            <li><Link to="/about" className="text-gray-600 hover:text-realestate-blue transition-colors">À Propos</Link></li>
-            <li><Link to="/services" className="text-gray-600 hover:text-realestate-blue transition-colors">Nos Services</Link></li>
-            <li><Link to="/facilities" className="text-gray-600 hover:text-realestate-blue transition-colors">Installations</Link></li>
-            <li><Link to="/blog" className="text-gray-600 hover:text-realestate-blue transition-colors">Blog & Actualités</Link></li>
-            <li><Link to="/contact" className="text-gray-600 hover:text-realestate-blue transition-colors">Contactez-nous</Link></li>
+            <li><Link to="/" className="text-gray-600 hover:text-realestate-red transition-colors">Accueil</Link></li>
+            <li><Link to="/about" className="text-gray-600 hover:text-realestate-red transition-colors">À Propos</Link></li>
+            <li><Link to="/services" className="text-gray-600 hover:text-realestate-red transition-colors">Nos Services</Link></li>
+            <li><Link to="/facilities" className="text-gray-600 hover:text-realestate-red transition-colors">Installations</Link></li>
+            <li><Link to="/blog" className="text-gray-600 hover:text-realestate-red transition-colors">Blog & Actualités</Link></li>
+            <li><Link to="/contact" className="text-gray-600 hover:text-realestate-red transition-colors">Contactez-nous</Link></li>
           </ul>
         </div>
         
@@ -45,11 +45,11 @@ const Footer = () => {
           <ul className="space-y-3">
             <li className="flex items-center gap-3">
               <MapPin size={18} className="text-realestate-red" />
-              <span className="text-gray-600">123 Rue Principale, Montréal, QC H1A 1A1</span>
+              <span className="text-gray-600">123 Rue Principale, Paris, 75001</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-realestate-red" />
-              <span className="text-gray-600">+1 (514) 123-4567</span>
+              <span className="text-gray-600">+33 01 23 45 67 89</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-realestate-red" />
@@ -67,9 +67,9 @@ const Footer = () => {
             <Input 
               type="email" 
               placeholder="Votre Email" 
-              className="rounded-full border-gray-300 focus:border-realestate-blue"
+              className="rounded-full border-gray-300 focus:border-realestate-red"
             />
-            <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full">
+            <Button className="bg-realestate-red hover:bg-realestate-darkred text-white rounded-full">
               S'abonner
             </Button>
           </div>
@@ -82,9 +82,9 @@ const Footer = () => {
           <p>2025 Kais Khayati - Courtier Immobilier. Tous droits réservés.</p>
         </div>
         <div className="flex items-center gap-4 mt-4 md:mt-0">
-          <Link to="/terms" className="hover:text-realestate-blue transition-colors">Conditions</Link>
-          <Link to="/privacy" className="hover:text-realestate-blue transition-colors">Confidentialité</Link>
-          <Link to="/cookies" className="hover:text-realestate-blue transition-colors">Cookies</Link>
+          <Link to="/terms" className="hover:text-realestate-red transition-colors">Conditions</Link>
+          <Link to="/privacy" className="hover:text-realestate-red transition-colors">Confidentialité</Link>
+          <Link to="/cookies" className="hover:text-realestate-red transition-colors">Cookies</Link>
         </div>
       </div>
     </footer>

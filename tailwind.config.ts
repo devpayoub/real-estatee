@@ -68,8 +68,10 @@ export default {
 					lightblue: '#e8f1fd',
 					darkblue: '#002C75',
 					red: '#e4002b', // REMAX red
+					lightred: '#ffebee', // Light red for backgrounds
+					darkred: '#b71c1c', // Dark red for hover effects
 					black: '#000000e6',
-					tag: '#003DA5'
+					tag: '#e4002b' // Changed to red for more presence
 				}
 			},
 			borderRadius: {

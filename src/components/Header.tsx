@@ -43,21 +43,21 @@ const Header = () => {
       
       <nav className="hidden lg:flex items-center justify-center flex-1">
         <div className="flex items-center space-x-8">
-          <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Accueil</Link>
-          <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">À Propos</Link>
+          <Link to="/" className="font-medium hover:text-realestate-red transition-colors">Accueil</Link>
+          <Link to="/about" className="font-medium hover:text-realestate-red transition-colors">À Propos</Link>
           
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="font-medium hover:text-realestate-blue bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent p-0">
+                <NavigationMenuTrigger className="font-medium hover:text-realestate-red bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent p-0">
                   Services <ChevronDown className="h-4 w-4 ml-1" />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[200px] bg-white">
-                    <Link to="/services?type=rent" className="block p-2 hover:bg-gray-50 rounded-md">
+                    <Link to="/services?type=rent" className="block p-2 hover:bg-realestate-lightred rounded-md">
                       Louer une Propriété
                     </Link>
-                    <Link to="/services?type=buy" className="block p-2 hover:bg-gray-50 rounded-md">
+                    <Link to="/services?type=buy" className="block p-2 hover:bg-realestate-lightred rounded-md">
                       Acheter une Propriété
                     </Link>
                   </div>
@@ -66,8 +66,8 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
           
-          <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Installations</Link>
-          <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blog</Link>
+          <Link to="/facilities" className="font-medium hover:text-realestate-red transition-colors">Installations</Link>
+          <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
         </div>
       </nav>
       
@@ -81,17 +81,17 @@ const Header = () => {
           <Search className="absolute left-2 h-4 w-4 text-gray-500" />
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Button className="bg-transparent hover:bg-gray-100 text-realestate-blue border border-realestate-blue rounded-full">
+          <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full">
             Visiter Maintenant
           </Button>
           <Link to="/contact">
-            <Button className="bg-realestate-red hover:bg-realestate-red/80 text-white rounded-full">
+            <Button className="bg-realestate-red hover:bg-realestate-darkred text-white rounded-full">
               Contactez-nous
             </Button>
           </Link>
         </div>
         <button 
-          className="lg:hidden text-gray-600 hover:text-realestate-blue"
+          className="lg:hidden text-gray-600 hover:text-realestate-red"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -102,29 +102,29 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-5 px-6 lg:hidden animate-fade-in">
           <nav className="flex flex-col space-y-4">
-            <Link to="/" className="font-medium hover:text-realestate-blue transition-colors">Accueil</Link>
-            <Link to="/about" className="font-medium hover:text-realestate-blue transition-colors">À Propos</Link>
+            <Link to="/" className="font-medium hover:text-realestate-red transition-colors">Accueil</Link>
+            <Link to="/about" className="font-medium hover:text-realestate-red transition-colors">À Propos</Link>
             
             <div className="space-y-2">
               <div className="font-medium">Services</div>
               <div className="pl-4 space-y-2">
-                <Link to="/services?type=rent" className="block text-sm hover:text-realestate-blue">
+                <Link to="/services?type=rent" className="block text-sm hover:text-realestate-red">
                   Louer une Propriété
                 </Link>
-                <Link to="/services?type=buy" className="block text-sm hover:text-realestate-blue">
+                <Link to="/services?type=buy" className="block text-sm hover:text-realestate-red">
                   Acheter une Propriété
                 </Link>
               </div>
             </div>
             
-            <Link to="/facilities" className="font-medium hover:text-realestate-blue transition-colors">Installations</Link>
-            <Link to="/blog" className="font-medium hover:text-realestate-blue transition-colors">Blog</Link>
+            <Link to="/facilities" className="font-medium hover:text-realestate-red transition-colors">Installations</Link>
+            <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
             <div className="pt-3 flex flex-col space-y-3">
-              <Button className="bg-transparent hover:bg-gray-100 text-realestate-blue border border-realestate-blue rounded-full w-full">
+              <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full w-full">
                 Visiter Maintenant
               </Button>
               <Link to="/contact" className="w-full">
-                <Button className="bg-realestate-red hover:bg-realestate-red/80 text-white rounded-full w-full">
+                <Button className="bg-realestate-red hover:bg-realestate-darkred text-white rounded-full w-full">
                   Contactez-nous
                 </Button>
               </Link>

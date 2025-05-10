@@ -13,69 +13,69 @@ import { useEffect } from "react";
 const blogPosts = [
   {
     id: "1",
-    title: "10 Tips for First-Time Home Buyers",
-    excerpt: "Buying your first home can be intimidating, but with these tips, you'll be prepared for success.",
+    title: "10 Conseils pour les Acheteurs d'une Première Maison",
+    excerpt: "Acheter votre première maison peut être intimidant, mais avec ces conseils, vous serez prêt pour réussir.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop",
-    author: "John Smith",
-    date: "May 5, 2025",
-    category: "Buying",
-    readTime: "5 min read",
+    author: "Kais Khayati",
+    date: "5 Mai 2025",
+    category: "Achat",
+    readTime: "5 min de lecture",
     content: `
-      <p class="mb-4">Buying your first home is a significant milestone in life, but it can also be a complex and overwhelming process. With careful planning and the right information, you can navigate this journey with confidence.</p>
+      <p class="mb-4">Acheter votre première maison est une étape importante dans la vie, mais cela peut aussi être un processus complexe et écrasant. Avec une planification minutieuse et les bonnes informations, vous pouvez naviguer dans ce voyage en toute confiance.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">1. Check Your Credit Score</h2>
-      <p class="mb-4">Your credit score plays a crucial role in determining your mortgage options and interest rates. Before you start house hunting, check your credit report and take steps to improve your score if necessary. Aim for a score of at least 620, though a score above 740 will qualify you for the best rates.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">1. Vérifiez Votre Cote de Crédit</h2>
+      <p class="mb-4">Votre cote de crédit joue un rôle crucial dans la détermination de vos options de prêt hypothécaire et des taux d'intérêt. Avant de commencer à chercher une maison, vérifiez votre rapport de crédit et prenez des mesures pour améliorer votre score si nécessaire. Visez un score d'au moins 620, bien qu'un score supérieur à 740 vous qualifiera pour les meilleurs taux.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">2. Determine Your Budget</h2>
-      <p class="mb-4">Assess your finances honestly to determine how much house you can afford. The general rule is that your housing expenses should not exceed 28% of your gross monthly income. Don't forget to consider additional costs beyond the mortgage payment, such as property taxes, insurance, utilities, and maintenance.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">2. Déterminez Votre Budget</h2>
+      <p class="mb-4">Évaluez honnêtement vos finances pour déterminer quelle maison vous pouvez vous permettre. La règle générale est que vos dépenses de logement ne devraient pas dépasser 28 % de votre revenu mensuel brut. N'oubliez pas de considérer les coûts supplémentaires au-delà du paiement hypothécaire, tels que les taxes foncières, l'assurance, les services publics et l'entretien.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">3. Save for a Down Payment</h2>
-      <p class="mb-4">While some loans allow for down payments as low as 3.5%, a 20% down payment helps you avoid private mortgage insurance (PMI) and reduces your monthly payment. Start saving early and explore down payment assistance programs that may be available to first-time buyers.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">3. Économisez pour un Acompte</h2>
+      <p class="mb-4">Bien que certains prêts permettent des acomptes aussi bas que 3,5 %, un acompte de 20 % vous aide à éviter l'assurance hypothécaire privée (PMI) et réduit votre paiement mensuel. Commencez à économiser tôt et explorez les programmes d'aide à l'acompte qui peuvent être disponibles pour les acheteurs d'une première maison.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">4. Get Pre-Approved for a Mortgage</h2>
-      <p class="mb-4">Before you start looking at homes, get pre-approved for a mortgage. This gives you a clear idea of how much you can borrow and makes your offer more competitive in the market. Shop around with different lenders to compare interest rates and terms.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">4. Obtenez une Pré-Approbation pour un Prêt Hypothécaire</h2>
+      <p class="mb-4">Avant de commencer à regarder des maisons, obtenez une pré-approbation pour un prêt hypothécaire. Cela vous donne une idée claire de combien vous pouvez emprunter et rend votre offre plus compétitive sur le marché. Comparez les offres de différents prêteurs pour comparer les taux d'intérêt et les conditions.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">5. Consider All Housing Expenses</h2>
-      <p class="mb-4">The mortgage payment is just one part of homeownership costs. Factor in property taxes, homeowner's insurance, possible HOA fees, utilities, maintenance, and repairs. A general rule is to budget 1-3% of your home's value annually for maintenance and repairs.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">5. Considérez Toutes les Dépenses de Logement</h2>
+      <p class="mb-4">Le paiement hypothécaire n'est qu'une partie des coûts de propriété. Prévoyez les taxes foncières, l'assurance habitation, les possibles frais de copropriété, les services publics, l'entretien et les réparations. Une règle générale est de budgétiser 1 à 3 % de la valeur de votre maison annuellement pour l'entretien et les réparations.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">6. Research Neighborhoods</h2>
-      <p class="mb-4">The location of your home affects not only your lifestyle but also your property's value over time. Research neighborhoods for safety, school quality, amenities, commute times, and future development plans. Visit potential neighborhoods at different times of the day to get a comprehensive feel.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">6. Recherchez les Quartiers</h2>
+      <p class="mb-4">L'emplacement de votre maison affecte non seulement votre style de vie, mais aussi la valeur de votre propriété au fil du temps. Recherchez des quartiers pour la sécurité, la qualité des écoles, les commodités, les temps de trajet et les plans de développement futurs. Visitez les quartiers potentiels à différents moments de la journée pour en avoir une idée complète.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">7. Make a Must-Have List</h2>
-      <p class="mb-4">Before you start viewing homes, create a list of must-have features versus nice-to-have amenities. This helps you focus your search and avoid being swayed by attractive but unnecessary features that might stretch your budget.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">7. Établissez une Liste d'Incontournables</h2>
+      <p class="mb-4">Avant de commencer à visiter des maisons, créez une liste de caractéristiques indispensables par rapport aux équipements agréables à avoir. Cela vous aide à concentrer votre recherche et à éviter d'être influencé par des caractéristiques attrayantes mais inutiles qui pourraient étirer votre budget.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">8. Hire a Knowledgeable Real Estate Agent</h2>
-      <p class="mb-4">An experienced agent who specializes in helping first-time buyers can guide you through the process, help you find suitable properties, negotiate on your behalf, and assist with paperwork. Their expertise can be invaluable, especially for newcomers to the real estate market.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">8. Engagez un Agent Immobilier Compétent</h2>
+      <p class="mb-4">Un agent expérimenté spécialisé dans l'aide aux acheteurs d'une première maison peut vous guider à travers le processus, vous aider à trouver des propriétés adaptées, négocier en votre nom et vous aider avec les formalités administratives. Leur expertise peut être inestimable, surtout pour les nouveaux venus sur le marché immobilier.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">9. Get a Home Inspection</h2>
-      <p class="mb-4">Never skip the home inspection. A professional inspector can identify issues with the house that might not be apparent during a showing. This information can help you negotiate repairs or price adjustments, or even decide to walk away from a problematic property.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">9. Obtenez une Inspection de la Maison</h2>
+      <p class="mb-4">Ne sautez jamais l'inspection de la maison. Un inspecteur professionnel peut identifier des problèmes avec la maison qui pourraient ne pas être apparents lors d'une visite. Cette information peut vous aider à négocier des réparations ou des ajustements de prix, ou même à décider d'abandonner une propriété problématique.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">10. Plan for the Future</h2>
-      <p class="mb-4">Consider your long-term plans when buying your first home. How long do you intend to live there? Is the space suitable for potential family growth? Is the property likely to appreciate in value? These considerations can help you make a more strategic purchase.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">10. Planifiez pour l'Avenir</h2>
+      <p class="mb-4">Considérez vos plans à long terme lors de l'achat de votre première maison. Combien de temps avez-vous l'intention d'y vivre ? L'espace convient-il à une croissance familiale potentielle ? La propriété est-elle susceptible de prendre de la valeur ? Ces considérations peuvent vous aider à faire un achat plus stratégique.</p>
       
-      <p class="mt-8">By following these tips, you'll be better prepared for the journey of buying your first home. Remember, homeownership is a significant investment, so take your time, do your research, and make informed decisions. With proper planning and guidance, you can find a home that meets your needs and fits your budget.</p>
+      <p class="mt-8">En suivant ces conseils, vous serez mieux préparé pour le voyage d'achat de votre première maison. Rappelez-vous, la propriété immobilière est un investissement important, alors prenez votre temps, faites vos recherches et prenez des décisions éclairées. Avec une planification et une guidance appropriées, vous pouvez trouver une maison qui répond à vos besoins et correspond à votre budget.</p>
     `
   },
   {
     id: "2",
-    title: "How to Stage Your Home for a Quick Sale",
-    excerpt: "Learn how to make your property more attractive to potential buyers and sell faster.",
+    title: "Comment Préparer Votre Maison pour une Vente Rapide",
+    excerpt: "Apprenez comment rendre votre propriété plus attrayante pour les acheteurs potentiels et vendre plus rapidement.",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000&auto=format&fit=crop",
-    author: "Emily Johnson",
-    date: "April 28, 2025",
-    category: "Selling",
-    readTime: "6 min read",
+    author: "Émilie Martin",
+    date: "28 Avril 2025",
+    category: "Vente",
+    readTime: "6 min de lecture",
     content: `
-      <p class="mb-4">When selling your home, first impressions matter enormously. Proper staging can highlight your home's strengths, minimize its weaknesses, and help potential buyers envision themselves living in the space.</p>
+      <p class="mb-4">Lors de la vente de votre maison, les premières impressions comptent énormément. Une mise en scène appropriée peut mettre en valeur les points forts de votre maison, minimiser ses faiblesses et aider les acheteurs potentiels à s'imaginer vivre dans l'espace.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">Declutter Thoroughly</h2>
-      <p class="mb-4">The first and most crucial step in home staging is decluttering. Remove personal items, excess furniture, and anything that makes spaces look smaller or disorganized. Consider renting a storage unit for items you want to keep but don't need in the home while it's on the market.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">Désencombrez Soigneusement</h2>
+      <p class="mb-4">La première étape et la plus cruciale dans la mise en scène d'une maison est le désencombrement. Retirez les objets personnels, les meubles excédentaires et tout ce qui fait paraître les espaces plus petits ou désorganisés. Envisagez de louer un garde-meuble pour les objets que vous souhaitez conserver mais dont vous n'avez pas besoin dans la maison pendant qu'elle est sur le marché.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">Deep Clean Everything</h2>
-      <p class="mb-4">A spotless home gives the impression that the property has been well-maintained. Pay special attention to kitchens and bathrooms. Clean windows to allow maximum natural light, steam clean carpets, and don't forget often-overlooked areas like baseboards and ceiling fans.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">Nettoyez Tout en Profondeur</h2>
+      <p class="mb-4">Une maison impeccable donne l'impression que la propriété a été bien entretenue. Portez une attention particulière aux cuisines et aux salles de bains. Nettoyez les fenêtres pour permettre un maximum de lumière naturelle, nettoyez à la vapeur les tapis et n'oubliez pas les zones souvent négligées comme les plinthes et les ventilateurs de plafond.</p>
       
-      <h2 class="text-2xl font-bold mt-8 mb-4">Make Necessary Repairs</h2>
-      <p class="mb-4">Fix anything that's broken or visibly worn – leaky faucets, cracked tiles, scuffed walls, or doors that don't close properly. These small issues can signal to buyers that the home hasn't been well-maintained and could have larger problems.</p>
+      <h2 class="text-2xl font-bold mt-8 mb-4">Faites les Réparations Nécessaires</h2>
+      <p class="mb-4">Réparez tout ce qui est cassé ou visiblement usé – robinets qui fuient, carreaux fissurés, murs abîmés ou portes qui ne ferment pas correctement. Ces petits problèmes peuvent signaler aux acheteurs que la maison n'a pas été bien entretenue et pourrait avoir des problèmes plus importants.</p>
     `
   }
 ];
@@ -100,9 +100,9 @@ const BlogPost = () => {
         <Header />
         <main className="flex-1 container mx-auto px-6 py-24">
           <div className="text-center">
-            <h1 className="text-2xl font-bold">Blog post not found</h1>
+            <h1 className="text-2xl font-bold">Article de blog non trouvé</h1>
             <Link to="/blog">
-              <Button className="mt-4">Return to Blog</Button>
+              <Button className="mt-4 bg-realestate-red hover:bg-realestate-darkred">Retour au Blog</Button>
             </Link>
           </div>
         </main>
@@ -120,16 +120,16 @@ const BlogPost = () => {
           {/* Back to blog link */}
           <Link 
             to="/blog" 
-            className="inline-flex items-center text-realestate-blue mb-6 hover:underline"
+            className="inline-flex items-center text-realestate-red mb-6 hover:underline"
             data-aos="fade-right"
           >
             <ArrowLeft size={16} className="mr-2" />
-            Back to all articles
+            Retour aux articles
           </Link>
           
           {/* Post header */}
           <div className="mb-8" data-aos="fade-up">
-            <Badge className="bg-realestate-lightblue text-realestate-blue mb-4">
+            <Badge className="bg-realestate-lightred text-realestate-red mb-4">
               {post.category}
             </Badge>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
@@ -177,7 +177,7 @@ const BlogPost = () => {
           
           {/* Author bio */}
           <div 
-            className="mt-12 p-6 bg-gray-50 rounded-lg"
+            className="mt-12 p-6 bg-realestate-lightred rounded-lg"
             data-aos="fade-up"
             data-aos-delay="300"
           >
@@ -189,9 +189,9 @@ const BlogPost = () => {
                 />
               </Avatar>
               <div>
-                <h4 className="text-xl font-semibold mb-1">About {post.author}</h4>
+                <h4 className="text-xl font-semibold mb-1">À propos de {post.author}</h4>
                 <p className="text-gray-600">
-                  Real estate expert with over 10 years of experience helping clients find their perfect homes and investment properties.
+                  Expert immobilier avec plus de 10 ans d'expérience aidant les clients à trouver leurs maisons parfaites et propriétés d'investissement.
                 </p>
               </div>
             </div>

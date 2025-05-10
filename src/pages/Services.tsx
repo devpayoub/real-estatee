@@ -42,59 +42,59 @@ const Services = () => {
       <main className="flex-1 pt-24">
         <section className="container mx-auto px-6 py-12">
           <div className="text-center mb-12" data-aos="fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Nos Services</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Whether you're looking to rent or buy, we have the perfect property options for you.
+              Que vous cherchiez à louer ou à acheter, nous avons les options de propriétés parfaites pour vous.
             </p>
           </div>
           
           <Tabs defaultValue={activeTab} onValueChange={handleTabChange} className="w-full">
             <div className="flex justify-center mb-8" data-aos="fade-up" data-aos-delay="100">
               <TabsList className="grid grid-cols-2 w-[400px]">
-                <TabsTrigger value="rent" className="data-[state=active]:bg-realestate-blue data-[state=active]:text-white">
-                  Rent a House
+                <TabsTrigger value="rent" className="data-[state=active]:bg-realestate-red data-[state=active]:text-white">
+                  Louer une Maison
                 </TabsTrigger>
-                <TabsTrigger value="buy" className="data-[state=active]:bg-realestate-blue data-[state=active]:text-white">
-                  Buy a House
+                <TabsTrigger value="buy" className="data-[state=active]:bg-realestate-red data-[state=active]:text-white">
+                  Acheter une Maison
                 </TabsTrigger>
               </TabsList>
             </div>
             
             <TabsContent value="rent" className="mt-0">
-              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
-                <h2 className="text-2xl font-bold mb-3">Renting with Ozalams</h2>
+              <div className="mb-8 bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
+                <h2 className="text-2xl font-bold mb-3">Louer avec Kais Khayati</h2>
                 <p className="text-gray-700 mb-4">
-                  Renting a house has never been easier. We offer a variety of rental properties to suit your needs and budget.
+                  Louer une maison n'a jamais été aussi facile. Nous offrons une variété de propriétés locatives pour répondre à vos besoins et à votre budget.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mt-6">
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
                     <div className="bg-white p-2 rounded-full">
-                      <Home className="text-realestate-blue h-5 w-5" />
+                      <Home className="text-realestate-red h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Wide Selection</h3>
-                      <p className="text-sm text-gray-600">Browse through our extensive collection of rental properties.</p>
+                      <h3 className="font-semibold">Large Sélection</h3>
+                      <p className="text-sm text-gray-600">Parcourez notre vaste collection de propriétés locatives.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
                     <div className="bg-white p-2 rounded-full">
-                      <DollarSign className="text-realestate-blue h-5 w-5" />
+                      <DollarSign className="text-realestate-red h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Flexible Terms</h3>
-                      <p className="text-sm text-gray-600">Find rental agreements that work for your situation.</p>
+                      <h3 className="font-semibold">Conditions Flexibles</h3>
+                      <p className="text-sm text-gray-600">Trouvez des contrats de location adaptés à votre situation.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
                     <div className="bg-white p-2 rounded-full">
-                      <Map className="text-realestate-blue h-5 w-5" />
+                      <Map className="text-realestate-red h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Prime Locations</h3>
-                      <p className="text-sm text-gray-600">Discover properties in the most desirable neighborhoods.</p>
+                      <h3 className="font-semibold">Emplacements de Choix</h3>
+                      <p className="text-sm text-gray-600">Découvrez des propriétés dans les quartiers les plus désirables.</p>
                     </div>
                   </div>
                 </div>
@@ -110,40 +110,40 @@ const Services = () => {
             </TabsContent>
             
             <TabsContent value="buy" className="mt-0">
-              <div className="mb-8 bg-realestate-lightblue p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
-                <h2 className="text-2xl font-bold mb-3">Buying with Ozalams</h2>
+              <div className="mb-8 bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="150">
+                <h2 className="text-2xl font-bold mb-3">Acheter avec Kais Khayati</h2>
                 <p className="text-gray-700 mb-4">
-                  Find your dream home with our expert guidance. We'll help you through every step of the buying process.
+                  Trouvez votre maison de rêve avec nos conseils d'expert. Nous vous aiderons à chaque étape du processus d'achat.
                 </p>
                 
                 <div className="grid md:grid-cols-3 gap-6 mt-6">
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="200">
                     <div className="bg-white p-2 rounded-full">
-                      <Building className="text-realestate-blue h-5 w-5" />
+                      <Building className="text-realestate-red h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Property Expertise</h3>
-                      <p className="text-sm text-gray-600">Benefit from our deep knowledge of the local real estate market.</p>
+                      <h3 className="font-semibold">Expertise Immobilière</h3>
+                      <p className="text-sm text-gray-600">Bénéficiez de notre connaissance approfondie du marché immobilier local.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="250">
                     <div className="bg-white p-2 rounded-full">
-                      <DollarSign className="text-realestate-blue h-5 w-5" />
+                      <DollarSign className="text-realestate-red h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Financial Guidance</h3>
-                      <p className="text-sm text-gray-600">Get assistance with financing options and mortgage solutions.</p>
+                      <h3 className="font-semibold">Conseils Financiers</h3>
+                      <p className="text-sm text-gray-600">Obtenez de l'aide pour les options de financement et solutions hypothécaires.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3" data-aos="fade-up" data-aos-delay="300">
                     <div className="bg-white p-2 rounded-full">
-                      <Map className="text-realestate-blue h-5 w-5" />
+                      <Map className="text-realestate-red h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">Future Investment</h3>
-                      <p className="text-sm text-gray-600">Find properties with excellent long-term value and potential.</p>
+                      <h3 className="font-semibold">Investissement Futur</h3>
+                      <p className="text-sm text-gray-600">Trouvez des propriétés avec une excellente valeur à long terme et du potentiel.</p>
                     </div>
                   </div>
                 </div>

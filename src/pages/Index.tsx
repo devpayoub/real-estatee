@@ -73,9 +73,9 @@ const Index = () => {
         <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="400">
           <section className="container mx-auto px-6 py-16">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Featured Properties</h2>
+              <h2 className="text-3xl font-bold mb-4">Propriétés en Vedette</h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Explore our selection of premium properties available for rent or purchase
+                Explorez notre sélection de propriétés premium disponibles à la location ou à l'achat
               </p>
             </div>
             
@@ -89,8 +89,8 @@ const Index = () => {
             
             <div className="mt-12 text-center">
               <Link to="/services">
-                <Button className="bg-realestate-blue hover:bg-realestate-darkblue rounded-full">
-                  View All Properties
+                <Button className="bg-realestate-red hover:bg-realestate-darkred text-white rounded-full">
+                  Voir Toutes les Propriétés
                 </Button>
               </Link>
             </div>

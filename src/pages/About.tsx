@@ -21,66 +21,66 @@ const About = () => {
       <main className="flex-1 pt-24">
         <section className="container mx-auto px-6 py-12">
           <div className="text-center mb-12" data-aos="fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Our Agent</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">À Propos de Notre Agent</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              With years of experience and a passion for real estate, our agent is dedicated to finding the perfect home for you.
+              Avec des années d'expérience et une passion pour l'immobilier, notre agent se consacre à trouver le logement parfait pour vous.
             </p>
           </div>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1" data-aos="fade-right" data-aos-delay="100">
-              <h2 className="text-3xl font-bold mb-6">John Smith</h2>
+              <h2 className="text-3xl font-bold mb-6">Kais Khayati</h2>
               <p className="text-gray-700 mb-6">
-                With over 15 years of experience in the real estate industry, John has established himself as a trusted and knowledgeable agent in the market. His commitment to his clients and his extensive knowledge of local neighborhoods make him the perfect partner for your real estate journey.
+                Avec plus de 15 ans d'expérience dans le secteur immobilier, Kais s'est imposé comme un agent de confiance et compétent sur le marché. Son engagement envers ses clients et sa connaissance approfondie des quartiers locaux font de lui le partenaire idéal pour votre parcours immobilier.
               </p>
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3" data-aos="fade-up" data-aos-delay="150">
-                  <Calendar size={20} className="text-realestate-blue" />
+                  <Calendar size={20} className="text-realestate-red" />
                   <div>
-                    <p className="font-medium">15+ Years of Experience</p>
-                    <p className="text-sm text-gray-600">Started his career in 2008</p>
+                    <p className="font-medium">Plus de 15 ans d'expérience</p>
+                    <p className="text-sm text-gray-600">A débuté sa carrière en 2008</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3" data-aos="fade-up" data-aos-delay="200">
-                  <MapPin size={20} className="text-realestate-blue" />
+                  <MapPin size={20} className="text-realestate-red" />
                   <div>
-                    <p className="font-medium">Areas of Expertise</p>
-                    <p className="text-sm text-gray-600">Beverly Hills, Downtown, Suburban Areas</p>
+                    <p className="font-medium">Zones d'expertise</p>
+                    <p className="text-sm text-gray-600">Paris, Lyon, Régions Côtières</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3" data-aos="fade-up" data-aos-delay="250">
-                  <User size={20} className="text-realestate-blue" />
+                  <User size={20} className="text-realestate-red" />
                   <div>
-                    <p className="font-medium">200+ Satisfied Clients</p>
-                    <p className="text-sm text-gray-600">Helping families find their dream homes</p>
+                    <p className="font-medium">Plus de 200 clients satisfaits</p>
+                    <p className="text-sm text-gray-600">Aider les familles à trouver leurs maisons de rêve</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3" data-aos="fade-up" data-aos-delay="300">
-                  <Star size={20} className="text-realestate-blue" />
+                  <Star size={20} className="text-realestate-red" />
                   <div>
-                    <p className="font-medium">5-Star Rated</p>
-                    <p className="text-sm text-gray-600">Consistently receiving top reviews</p>
+                    <p className="font-medium">Noté 5 étoiles</p>
+                    <p className="text-sm text-gray-600">Reçoit constamment des avis excellents</p>
                   </div>
                 </div>
               </div>
               
               <h3 className="text-xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="350">Certifications</h3>
               <div className="flex flex-wrap gap-3 mb-8" data-aos="fade-up" data-aos-delay="400">
-                <div className="flex items-center gap-2 bg-gray-50 rounded-full px-4 py-2">
-                  <BadgeCheck size={16} className="text-realestate-blue" />
-                  <span>Licensed Real Estate Agent</span>
+                <div className="flex items-center gap-2 bg-realestate-lightred rounded-full px-4 py-2">
+                  <BadgeCheck size={16} className="text-realestate-red" />
+                  <span>Agent Immobilier Agréé</span>
                 </div>
-                <div className="flex items-center gap-2 bg-gray-50 rounded-full px-4 py-2">
-                  <BadgeCheck size={16} className="text-realestate-blue" />
-                  <span>Certified Residential Specialist</span>
+                <div className="flex items-center gap-2 bg-realestate-lightred rounded-full px-4 py-2">
+                  <BadgeCheck size={16} className="text-realestate-red" />
+                  <span>Spécialiste Résidentiel Certifié</span>
                 </div>
-                <div className="flex items-center gap-2 bg-gray-50 rounded-full px-4 py-2">
-                  <BadgeCheck size={16} className="text-realestate-blue" />
-                  <span>Accredited Buyer's Representative</span>
+                <div className="flex items-center gap-2 bg-realestate-lightred rounded-full px-4 py-2">
+                  <BadgeCheck size={16} className="text-realestate-red" />
+                  <span>Représentant Accrédité des Acheteurs</span>
                 </div>
               </div>
             </div>
@@ -89,12 +89,12 @@ const About = () => {
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Professional real estate agent" 
+                  alt="Agent immobilier professionnel" 
                   className="w-full rounded-lg shadow-lg"
                 />
                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
                   <div className="flex items-center justify-center gap-2">
-                    <Badge className="bg-realestate-blue">Top Agent 2024</Badge>
+                    <Badge className="bg-realestate-red text-white">Meilleur Agent 2025</Badge>
                   </div>
                 </div>
               </div>
@@ -102,21 +102,21 @@ const About = () => {
           </div>
           
           <div className="mt-20">
-            <h2 className="text-3xl font-bold mb-8 text-center" data-aos="fade-up" data-aos-delay="450">Career Highlights</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center" data-aos="fade-up" data-aos-delay="450">Points Forts de Carrière</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="500">
-                <h3 className="text-xl font-semibold mb-3">Early Career</h3>
-                <p className="text-gray-700">Started as an assistant agent and quickly rose through the ranks due to exceptional client service and market knowledge.</p>
+              <div className="bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="500">
+                <h3 className="text-xl font-semibold mb-3">Début de Carrière</h3>
+                <p className="text-gray-700">A débuté comme agent assistant et a rapidement gravi les échelons grâce à un service client exceptionnel et une connaissance approfondie du marché.</p>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="550">
-                <h3 className="text-xl font-semibold mb-3">Notable Projects</h3>
-                <p className="text-gray-700">Led the successful marketing and sale of the Parkview Residences, a high-end condominium development.</p>
+              <div className="bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="550">
+                <h3 className="text-xl font-semibold mb-3">Projets Notables</h3>
+                <p className="text-gray-700">A dirigé avec succès la commercialisation et la vente des Résidences Parkview, un ensemble de condominiums haut de gamme.</p>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="600">
-                <h3 className="text-xl font-semibold mb-3">Current Focus</h3>
-                <p className="text-gray-700">Specializing in luxury residential properties and helping international clients find their perfect homes.</p>
+              <div className="bg-realestate-lightred p-6 rounded-lg" data-aos="fade-up" data-aos-delay="600">
+                <h3 className="text-xl font-semibold mb-3">Focus Actuel</h3>
+                <p className="text-gray-700">Spécialisation dans les propriétés résidentielles de luxe et aide aux clients internationaux à trouver leurs maisons parfaites.</p>
               </div>
             </div>
           </div>

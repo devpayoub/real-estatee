@@ -12,57 +12,57 @@ import { useEffect } from "react";
 const blogPosts = [
   {
     id: "1",
-    title: "10 Tips for First-Time Home Buyers",
-    excerpt: "Buying your first home can be intimidating, but with these tips, you'll be prepared for success.",
+    title: "10 Conseils pour les Acheteurs d'une Première Maison",
+    excerpt: "Acheter votre première maison peut être intimidant, mais avec ces conseils, vous serez prêt pour réussir.",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1000&auto=format&fit=crop",
-    author: "John Smith",
-    date: "May 5, 2025",
-    category: "Buying"
+    author: "Kais Khayati",
+    date: "5 Mai 2025",
+    category: "Achat"
   },
   {
     id: "2",
-    title: "How to Stage Your Home for a Quick Sale",
-    excerpt: "Learn how to make your property more attractive to potential buyers and sell faster.",
+    title: "Comment Préparer Votre Maison pour une Vente Rapide",
+    excerpt: "Apprenez comment rendre votre propriété plus attrayante pour les acheteurs potentiels et vendre plus rapidement.",
     image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1000&auto=format&fit=crop",
-    author: "Emily Johnson",
-    date: "April 28, 2025",
-    category: "Selling"
+    author: "Émilie Martin",
+    date: "28 Avril 2025",
+    category: "Vente"
   },
   {
     id: "3",
-    title: "Understanding Mortgage Rates in Today's Market",
-    excerpt: "Navigate the complex world of mortgage rates and find the best deal for your new home.",
+    title: "Comprendre les Taux Hypothécaires dans le Marché Actuel",
+    excerpt: "Naviguez dans le monde complexe des taux hypothécaires et trouvez la meilleure offre pour votre nouvelle maison.",
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop",
-    author: "Michael Brown",
-    date: "April 15, 2025",
+    author: "Michel Dubois",
+    date: "15 Avril 2025",
     category: "Finance"
   },
   {
     id: "4",
-    title: "Luxury Home Trends for 2025",
-    excerpt: "Discover the latest trends in luxury real estate that are shaping the high-end market.",
+    title: "Tendances des Maisons de Luxe pour 2025",
+    excerpt: "Découvrez les dernières tendances en immobilier de luxe qui façonnent le marché haut de gamme.",
     image: "https://images.unsplash.com/photo-1600607687644-c7722199181b?q=80&w=1000&auto=format&fit=crop",
-    author: "Sophia Martinez",
-    date: "April 8, 2025",
-    category: "Luxury"
+    author: "Sophie Martinez",
+    date: "8 Avril 2025",
+    category: "Luxe"
   },
   {
     id: "5",
-    title: "Investing in Rental Properties: A Beginner's Guide",
-    excerpt: "Everything you need to know about starting your journey as a real estate investor.",
+    title: "Investir dans des Propriétés Locatives: Guide du Débutant",
+    excerpt: "Tout ce que vous devez savoir pour commencer votre parcours en tant qu'investisseur immobilier.",
     image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1000&auto=format&fit=crop",
     author: "David Wilson",
-    date: "March 30, 2025",
-    category: "Investing"
+    date: "30 Mars 2025",
+    category: "Investissement"
   },
   {
     id: "6",
-    title: "Home Renovation Projects with the Highest ROI",
-    excerpt: "Focus your renovation budget on these projects to maximize your return on investment.",
+    title: "Projets de Rénovation avec le Meilleur Retour sur Investissement",
+    excerpt: "Concentrez votre budget de rénovation sur ces projets pour maximiser votre retour sur investissement.",
     image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1000&auto=format&fit=crop",
     author: "Sarah Thompson",
-    date: "March 22, 2025",
-    category: "Renovation"
+    date: "22 Mars 2025",
+    category: "Rénovation"
   }
 ];
 
@@ -81,15 +81,15 @@ const Blog = () => {
       <main className="flex-1 pt-24">
         <section className="container mx-auto px-6 py-12">
           <div className="text-center mb-12" data-aos="fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Notre Blog</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Stay informed with the latest news, tips, and insights about the real estate market.
+              Restez informé avec les dernières nouvelles, conseils et perspectives sur le marché immobilier.
             </p>
           </div>
           
           {/* Featured Post */}
           <div className="mb-16" data-aos="fade-up" data-aos-delay="100">
-            <Card className="overflow-hidden">
+            <Card className="overflow-hidden border-realestate-red/20 hover:border-realestate-red transition-colors duration-300">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="h-64 md:h-auto">
                   <img 
@@ -100,7 +100,7 @@ const Blog = () => {
                 </div>
                 <div className="p-6 flex flex-col justify-center">
                   <div className="mb-2">
-                    <span className="bg-realestate-lightblue text-realestate-blue px-3 py-1 rounded-full text-sm">
+                    <span className="bg-realestate-lightred text-realestate-red px-3 py-1 rounded-full text-sm">
                       {blogPosts[0].category}
                     </span>
                   </div>
@@ -113,8 +113,8 @@ const Blog = () => {
                     <span>{blogPosts[0].date}</span>
                   </div>
                   <Link to={`/blog/${blogPosts[0].id}`}>
-                    <Button className="w-fit bg-realestate-blue hover:bg-realestate-darkblue">
-                      Read More <ArrowRight size={16} className="ml-2" />
+                    <Button className="w-fit bg-realestate-red hover:bg-realestate-darkred">
+                      Lire Plus <ArrowRight size={16} className="ml-2" />
                     </Button>
                   </Link>
                 </div>
@@ -127,7 +127,7 @@ const Blog = () => {
             {blogPosts.slice(1).map((post, index) => (
               <Card 
                 key={post.id} 
-                className="overflow-hidden flex flex-col h-full"
+                className="overflow-hidden flex flex-col h-full border-realestate-red/20 hover:border-realestate-red transition-colors duration-300"
                 data-aos="fade-up"
                 data-aos-delay={150 + (index * 50)}
               >
@@ -140,7 +140,7 @@ const Blog = () => {
                 </div>
                 <CardContent className="pt-6 flex-grow">
                   <div className="mb-2">
-                    <span className="bg-realestate-lightblue text-realestate-blue px-3 py-1 rounded-full text-sm">
+                    <span className="bg-realestate-lightred text-realestate-red px-3 py-1 rounded-full text-sm">
                       {post.category}
                     </span>
                   </div>
@@ -155,8 +155,8 @@ const Blog = () => {
                 </CardContent>
                 <CardFooter className="pt-0">
                   <Link to={`/blog/${post.id}`}>
-                    <Button variant="link" className="p-0 text-realestate-blue">
-                      Read More <ArrowRight size={16} className="ml-1" />
+                    <Button variant="link" className="p-0 text-realestate-red">
+                      Lire Plus <ArrowRight size={16} className="ml-1" />
                     </Button>
                   </Link>
                 </CardFooter>
@@ -165,8 +165,8 @@ const Blog = () => {
           </div>
           
           <div className="mt-12 text-center" data-aos="fade-up" data-aos-delay="300">
-            <Button className="bg-realestate-blue hover:bg-realestate-darkblue">
-              Load More Articles
+            <Button className="bg-realestate-red hover:bg-realestate-darkred">
+              Charger Plus d'Articles
             </Button>
           </div>
         </section>

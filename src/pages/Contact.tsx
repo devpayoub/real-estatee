@@ -53,155 +53,155 @@ const Contact = () => {
       <main className="flex-1 pt-24">
         <section className="container mx-auto px-6 py-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contactez-Nous</h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions about our properties or services? We're here to help you find your perfect home.
+              Vous avez des questions sur nos propriétés ou services? Nous sommes là pour vous aider à trouver votre maison parfaite.
             </p>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12">
             <div>
               <div className="mb-8">
-                <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
+                <h2 className="text-2xl font-bold mb-6">Entrez en Contact</h2>
                 <p className="text-gray-700 mb-6">
-                  Fill out the form below, and our team will get back to you as soon as possible. We look forward to hearing from you.
+                  Remplissez le formulaire ci-dessous, et notre équipe vous répondra dès que possible. Nous sommes impatients de vous entendre.
                 </p>
                 
                 <form onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">Your Name</label>
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">Votre Nom</label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Smith"
+                        placeholder="Jean Dupont"
                         required
-                        className="w-full"
+                        className="w-full border-realestate-red/30 focus:border-realestate-red"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">Adresse Email</label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
+                        placeholder="jean@exemple.com"
                         required
-                        className="w-full"
+                        className="w-full border-realestate-red/30 focus:border-realestate-red"
                       />
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
+                      <label htmlFor="phone" className="block text-sm font-medium mb-2">Numéro de Téléphone</label>
                       <Input
                         id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="(123) 456-7890"
-                        className="w-full"
+                        placeholder="(+33) 01 23 45 67 89"
+                        className="w-full border-realestate-red/30 focus:border-realestate-red"
                       />
                     </div>
                     <div>
-                      <label htmlFor="subject" className="block text-sm font-medium mb-2">Subject</label>
+                      <label htmlFor="subject" className="block text-sm font-medium mb-2">Sujet</label>
                       <Input
                         id="subject"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
-                        placeholder="Property Inquiry"
+                        placeholder="Renseignements sur une propriété"
                         required
-                        className="w-full"
+                        className="w-full border-realestate-red/30 focus:border-realestate-red"
                       />
                     </div>
                   </div>
                   
                   <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">Your Message</label>
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">Votre Message</label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="I'm interested in learning more about..."
+                      placeholder="Je suis intéressé à en savoir plus sur..."
                       required
-                      className="w-full min-h-[150px]"
+                      className="w-full min-h-[150px] border-realestate-red/30 focus:border-realestate-red"
                     />
                   </div>
                   
                   {formSubmitted && (
                     <div className="bg-green-50 text-green-700 p-4 rounded-md mb-6">
-                      Thank you for your message! We'll get back to you shortly.
+                      Merci pour votre message! Nous vous répondrons sous peu.
                     </div>
                   )}
                   
-                  <Button type="submit" className="bg-realestate-blue hover:bg-realestate-darkblue rounded-full">
-                    Send Message <Send size={16} className="ml-2" />
+                  <Button type="submit" className="bg-realestate-red hover:bg-realestate-darkred rounded-full">
+                    Envoyer Message <Send size={16} className="ml-2" />
                   </Button>
                 </form>
               </div>
             </div>
             
             <div>
-              <div className="bg-gray-50 p-8 rounded-lg h-full">
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <div className="bg-realestate-lightred p-8 rounded-lg h-full">
+                <h2 className="text-2xl font-bold mb-6">Informations de Contact</h2>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-realestate-lightblue p-3 rounded-full">
-                      <MapPin className="text-realestate-blue h-6 w-6" />
+                    <div className="bg-white p-3 rounded-full">
+                      <MapPin className="text-realestate-red h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Office Address</h3>
-                      <p className="text-gray-600">123 Main Street, New York, NY 10001</p>
+                      <h3 className="font-semibold text-lg">Adresse du Bureau</h3>
+                      <p className="text-gray-600">123 Rue Principale, Paris, 75001</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-realestate-lightblue p-3 rounded-full">
-                      <Phone className="text-realestate-blue h-6 w-6" />
+                    <div className="bg-white p-3 rounded-full">
+                      <Phone className="text-realestate-red h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Phone Number</h3>
-                      <p className="text-gray-600">+123 456 7890</p>
-                      <p className="text-gray-600">+123 456 7891</p>
+                      <h3 className="font-semibold text-lg">Numéro de Téléphone</h3>
+                      <p className="text-gray-600">+33 01 23 45 67 89</p>
+                      <p className="text-gray-600">+33 01 23 45 67 90</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-realestate-lightblue p-3 rounded-full">
-                      <Mail className="text-realestate-blue h-6 w-6" />
+                    <div className="bg-white p-3 rounded-full">
+                      <Mail className="text-realestate-red h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Email Address</h3>
-                      <p className="text-gray-600">info@ozalams.com</p>
-                      <p className="text-gray-600">support@ozalams.com</p>
+                      <h3 className="font-semibold text-lg">Adresse Email</h3>
+                      <p className="text-gray-600">info@kaiskhayati.com</p>
+                      <p className="text-gray-600">support@kaiskhayati.com</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-realestate-lightblue p-3 rounded-full">
-                      <Clock className="text-realestate-blue h-6 w-6" />
+                    <div className="bg-white p-3 rounded-full">
+                      <Clock className="text-realestate-red h-6 w-6" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Working Hours</h3>
-                      <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                      <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
-                      <p className="text-gray-600">Sunday: Closed</p>
+                      <h3 className="font-semibold text-lg">Heures d'Ouverture</h3>
+                      <p className="text-gray-600">Lundi - Vendredi: 9h00 - 18h00</p>
+                      <p className="text-gray-600">Samedi: 10h00 - 16h00</p>
+                      <p className="text-gray-600">Dimanche: Fermé</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-8">
-                  <h3 className="font-semibold text-lg mb-4">Find Us on Map</h3>
-                  <div className="bg-gray-300 h-[200px] rounded-lg flex items-center justify-center">
-                    <p className="text-gray-600">Map placeholder - would be replaced with actual map integration</p>
+                  <h3 className="font-semibold text-lg mb-4">Trouvez-Nous sur la Carte</h3>
+                  <div className="bg-white h-[200px] rounded-lg flex items-center justify-center">
+                    <p className="text-gray-600">Emplacement de la carte - serait remplacé par une vraie intégration de carte</p>
                   </div>
                 </div>
               </div>
