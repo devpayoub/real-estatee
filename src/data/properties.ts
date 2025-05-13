@@ -5,7 +5,7 @@ export interface Property {
   id: string;
   title: string;
   description: string;
-  price: number;
+  price: number; // Keeping this in the type definition to avoid breaking existing code
   type: PropertyType;
   location: string;
   bedrooms: number;
@@ -22,7 +22,7 @@ export const properties: Property[] = [
     id: "1",
     title: "Modern Villa with Pool",
     description: "Beautiful modern villa with swimming pool, garden and amazing views. Perfect for a family looking for comfort and luxury.",
-    price: 850000,
+    price: 0, // Zeroed out prices
     type: "buy",
     location: "Beverly Hills, CA",
     bedrooms: 5,
@@ -36,7 +36,7 @@ export const properties: Property[] = [
     id: "2",
     title: "Downtown Apartment",
     description: "Modern apartment in the heart of the city. Close to restaurants, shops and public transportation.",
-    price: 2500,
+    price: 0, // Zeroed out prices
     type: "rent",
     location: "Downtown, NY",
     bedrooms: 2,
@@ -50,7 +50,7 @@ export const properties: Property[] = [
     id: "3",
     title: "Suburban Family Home",
     description: "Spacious family home in a quiet suburban neighborhood with schools and parks nearby.",
-    price: 450000,
+    price: 0, // Zeroed out prices
     type: "buy",
     location: "Pleasantville, CA",
     bedrooms: 4,
@@ -64,7 +64,7 @@ export const properties: Property[] = [
     id: "4",
     title: "Luxury Beachfront Condo",
     description: "Experience oceanfront living in this luxury condo with panoramic views of the beach and ocean.",
-    price: 4500,
+    price: 0, // Zeroed out prices
     type: "rent",
     location: "Miami Beach, FL",
     bedrooms: 3,
@@ -78,7 +78,7 @@ export const properties: Property[] = [
     id: "5",
     title: "Mountain Retreat",
     description: "Cozy cabin nestled in the mountains, perfect for nature lovers looking for peace and quiet.",
-    price: 350000,
+    price: 0, // Zeroed out prices
     type: "buy",
     location: "Aspen, CO",
     bedrooms: 3,
@@ -92,7 +92,7 @@ export const properties: Property[] = [
     id: "6",
     title: "Modern Townhouse",
     description: "Newly built townhouse with modern design and amenities in a gated community.",
-    price: 3200,
+    price: 0, // Zeroed out prices
     type: "rent",
     location: "Seattle, WA",
     bedrooms: 3,

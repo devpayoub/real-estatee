@@ -17,15 +17,6 @@ interface PropertyCardDetailedProps {
 }
 
 const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCardDetailedProps) => {
-  const formatPrice = (price: string | number, type: string) => {
-    if (typeof price === 'string') {
-      return price;
-    }
-    return type === 'rent' 
-      ? `$${price.toLocaleString()}/month` 
-      : `$${price.toLocaleString()}`;
-  };
-
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
       <div className="relative">
@@ -52,7 +43,7 @@ const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCard
         <div className="flex justify-between items-start">
           <h3 className="font-bold text-xl">{property.title}</h3>
           <span className="text-lg font-bold text-realestate-blue">
-            {formatPrice(property.price, property.type)}
+            Contactez-nous
           </span>
         </div>
         <div className="flex items-center text-gray-500 text-sm">

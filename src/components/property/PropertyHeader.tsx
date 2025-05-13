@@ -12,15 +12,6 @@ interface PropertyHeaderProps {
 }
 
 const PropertyHeader = ({ title, location, price, type }: PropertyHeaderProps) => {
-  const formatPrice = (price: number | string, type: PropertyType) => {
-    if (typeof price === 'string') {
-      return price;
-    }
-    return type === 'rent' 
-      ? `${price.toLocaleString()}€/mois` 
-      : `${price.toLocaleString()}€`;
-  };
-
   return (
     <div className="mb-6">
       <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -45,7 +36,7 @@ const PropertyHeader = ({ title, location, price, type }: PropertyHeaderProps) =
             {type === 'rent' ? 'À Louer' : 'À Vendre'}
           </Badge>
           <span className="text-2xl font-bold text-realestate-red">
-            {formatPrice(price, type)}
+            Contactez-nous pour le prix
           </span>
         </div>
       </div>

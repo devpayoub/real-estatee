@@ -25,10 +25,10 @@ const Services = () => {
     
     const filteredProperties = getPropertiesByType(activeTab);
     
-    // Convert properties to DisplayProperty type with string prices
+    // Convert properties to DisplayProperty type with contact text instead of price
     const displayProperties = filteredProperties.map(prop => ({
       ...prop,
-      price: "Contactez-nous"
+      price: "Contactez-nous pour le prix"
     }));
     
     setProperties(displayProperties);

@@ -6,15 +6,14 @@ const PropertyStepCard = ({
   title,
   location,
   beds, 
-  baths, 
-  price 
+  baths
 }: { 
   imageUrl: string;
   title: string;
   location: string;
   beds: number; 
   baths: number; 
-  price: string;
+  price?: string; // Made price optional
 }) => {
   return (
     <div className="flex flex-col bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
@@ -55,7 +54,7 @@ const PropertyStepCard = ({
               {baths} baths
             </span>
           </div>
-          <span className="font-bold text-realestate-blue">{price}</span>
+          <span className="font-bold text-realestate-blue">Contactez-nous</span>
         </div>
         <div className="mt-4 pt-4 border-t border-gray-100">
           <Button className="w-full bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full">
@@ -86,7 +85,6 @@ const StepsSection = () => {
           location="Beverly Hills"
           beds={4}
           baths={3}
-          price="$1.5M"
         />
         
         <PropertyStepCard 
@@ -95,7 +93,6 @@ const StepsSection = () => {
           location="San Francisco"
           beds={2}
           baths={2}
-          price="$850K"
         />
         
         <PropertyStepCard 
@@ -104,7 +101,6 @@ const StepsSection = () => {
           location="Miami Beach"
           beds={3}
           baths={2}
-          price="$920K"
         />
       </div>
       
