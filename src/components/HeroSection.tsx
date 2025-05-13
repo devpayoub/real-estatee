@@ -1,7 +1,5 @@
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CheckCircle, Star, Headphones } from "lucide-react";
 
 const HeroSection = () => {
@@ -39,38 +37,46 @@ const HeroSection = () => {
           </div>
         </div>
         
-        <div className="mt-10 bg-white p-5 rounded-xl shadow-lg max-w-[550px] border border-gray-100">
-          <div className="flex flex-wrap gap-4">
-            <div className="flex-1 min-w-[200px]">
-              <label className="text-sm text-gray-500">Emplacement</label>
-              <Input placeholder="Entrer l'emplacement" className="mt-1" />
+        <div className="mt-10 bg-gradient-to-r from-realestate-blue/10 to-realestate-red/10 p-6 rounded-xl shadow-lg max-w-[550px] border border-gray-100">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all">
+              <div className="bg-realestate-lightblue p-3 rounded-full mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-realestate-blue">Localisation</span>
+              <span className="text-xs text-gray-500 mt-1 text-center">Trouvez dans votre quartier</span>
             </div>
-            <div className="flex-1 min-w-[200px]">
-              <label className="text-sm text-gray-500">Type de Propriété</label>
-              <Select>
-                <SelectTrigger className="mt-1">
-                  <SelectValue placeholder="Sélectionner" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="apartment">Appartement</SelectItem>
-                  <SelectItem value="house">Maison</SelectItem>
-                  <SelectItem value="condo">Condo</SelectItem>
-                  <SelectItem value="villa">Villa</SelectItem>
-                </SelectContent>
-              </Select>
+            
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all">
+              <div className="bg-realestate-lightred p-3 rounded-full mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-red">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-realestate-red">Propriétés</span>
+              <span className="text-xs text-gray-500 mt-1 text-center">Options variées</span>
+            </div>
+            
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all">
+              <div className="bg-gradient-to-r from-realestate-lightblue to-realestate-lightred p-3 rounded-full mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-black">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
+                </svg>
+              </div>
+              <span className="text-sm font-semibold text-gray-800">Rapide</span>
+              <span className="text-xs text-gray-500 mt-1 text-center">Délais optimisés</span>
             </div>
           </div>
           
-          <div className="mt-4">
-            <label className="text-sm text-gray-500">Fourchette de Prix</label>
-            <div className="flex gap-3 mt-1">
-              <Input placeholder="Min" className="flex-1" />
-              <Input placeholder="Max" className="flex-1" />
-            </div>
-          </div>
-          
-          <div className="mt-4 flex">
-            <Button className="w-full bg-realestate-red hover:bg-realestate-darkred text-white">Rechercher</Button>
+          <div className="mt-6 flex">
+            <Button className="w-full bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white">
+              Commencer Maintenant
+            </Button>
           </div>
         </div>
       </div>
@@ -78,7 +84,7 @@ const HeroSection = () => {
       <div className="flex-1 relative mt-10 lg:mt-0">
         <div className="relative mx-auto max-w-[520px]">
           <div className="absolute -top-4 -right-4 bg-realestate-red text-white py-3 px-5 rounded-lg z-10 shadow-lg">
-            <span className="text-xl font-bold">Super Offres</span>
+            <span className="text-xl font-bold">Offres Spéciales</span>
           </div>
           <div className="bg-white rounded-3xl p-3 shadow-xl">
             <img 
@@ -89,7 +95,7 @@ const HeroSection = () => {
             <div className="p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold text-lg">Villa Moderne</h3>
-                <span className="font-bold text-realestate-red">1.5M€</span>
+                <span className="font-bold text-realestate-red">Exclusif</span>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center space-x-2">

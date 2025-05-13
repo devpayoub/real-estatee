@@ -114,7 +114,7 @@ const Services = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {properties.map((property, index) => (
                   <div key={property.id} data-aos="fade-up" data-aos-delay={350 + (index * 50)} className="transform transition-all hover:-translate-y-1 hover:shadow-card-hover">
-                    <PropertyCardDetailed property={property} />
+                    <PropertyCardDetailed property={{...property, price: "Contactez-nous"}} />
                   </div>
                 ))}
               </div>
@@ -173,7 +173,7 @@ const Services = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {properties.map((property, index) => (
                   <div key={property.id} data-aos="fade-up" data-aos-delay={350 + (index * 50)} className="transform transition-all hover:-translate-y-1 hover:shadow-card-hover">
-                    <PropertyCardDetailed property={property} />
+                    <PropertyCardDetailed property={{...property, price: "Contactez-nous"}} />
                   </div>
                 ))}
               </div>
