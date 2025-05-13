@@ -6,13 +6,21 @@ import { Link } from "react-router-dom";
 import { Property } from "@/data/properties";
 import { MapPin, Bed, Bath, Square, Users } from "lucide-react";
 
+// Extend the Property type to allow string prices
+interface ExtendedProperty extends Omit<Property, 'price'> {
+  price: string | number;
+}
+
 interface PropertyCardDetailedProps {
-  property: Property;
+  property: ExtendedProperty;
   showVisitButton?: boolean;
 }
 
 const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCardDetailedProps) => {
-  const formatPrice = (price: number, type: string) => {
+  const formatPrice = (price: string | number, type: string) => {
+    if (typeof price === 'string') {
+      return price;
+    }
     return type === 'rent' 
       ? `$${price.toLocaleString()}/month` 
       : `$${price.toLocaleString()}`;

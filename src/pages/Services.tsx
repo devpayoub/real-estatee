@@ -10,6 +10,11 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Home, Building, DollarSign, Map, Shield, Award, MapPin } from "lucide-react";
 
+// Define extended property type that can have a string price for display
+interface DisplayProperty extends Omit<Property, 'price'> {
+  price: string | number;
+}
+
 const Services = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [activeTab, setActiveTab] = useState<PropertyType>("rent");
@@ -34,6 +39,12 @@ const Services = () => {
     setActiveTab(value as PropertyType);
     setSearchParams({ type: value });
   };
+
+  // Convert properties to DisplayProperty type with string prices
+  const displayProperties: DisplayProperty[] = properties.map(prop => ({
+    ...prop,
+    price: "Contactez-nous"
+  }));
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
@@ -112,9 +123,9 @@ const Services = () => {
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {properties.map((property, index) => (
+                {displayProperties.map((property, index) => (
                   <div key={property.id} data-aos="fade-up" data-aos-delay={350 + (index * 50)} className="transform transition-all hover:-translate-y-1 hover:shadow-card-hover">
-                    <PropertyCardDetailed property={{...property, price: "Contactez-nous"}} />
+                    <PropertyCardDetailed property={property} />
                   </div>
                 ))}
               </div>
@@ -171,9 +182,9 @@ const Services = () => {
               </div>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {properties.map((property, index) => (
+                {displayProperties.map((property, index) => (
                   <div key={property.id} data-aos="fade-up" data-aos-delay={350 + (index * 50)} className="transform transition-all hover:-translate-y-1 hover:shadow-card-hover">
-                    <PropertyCardDetailed property={{...property, price: "Contactez-nous"}} />
+                    <PropertyCardDetailed property={property} />
                   </div>
                 ))}
               </div>
@@ -199,3 +210,4 @@ const Services = () => {
 };
 
 export default Services;
+
