@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, Search, X, ChevronDown, User } from "lucide-react";
+import { Menu, Search, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -90,12 +90,7 @@ const Header = () => {
               Contactez-nous
             </Button>
           </Link>
-          <Link to={isAuthenticated ? "/admin/dashboard" : "/login"}>
-            <Button variant="outline" className="rounded-full flex items-center gap-1">
-              <User size={16} />
-              {isAuthenticated ? "Admin" : "Login"}
-            </Button>
-          </Link>
+          {/* Login button has been removed */}
         </div>
         <button 
           className="lg:hidden text-gray-600 hover:text-realestate-red"
@@ -126,9 +121,7 @@ const Header = () => {
             
             <Link to="/facilities" className="font-medium hover:text-realestate-red transition-colors">Installations</Link>
             <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
-            <Link to={isAuthenticated ? "/admin/dashboard" : "/login"} className="font-medium hover:text-realestate-red transition-colors">
-              {isAuthenticated ? "Admin Dashboard" : "Login"}
-            </Link>
+            {/* Removed login link from mobile menu as well */}
             <div className="pt-3 flex flex-col space-y-3">
               <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full w-full">
                 Visiter Maintenant

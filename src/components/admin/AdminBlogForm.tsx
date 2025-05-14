@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 
 interface AdminBlogFormProps {
   post: BlogPost | null;
@@ -22,7 +24,7 @@ const AdminBlogForm = ({ post, onClose }: AdminBlogFormProps) => {
     content: "",
     image: "",
     author: "",
-    category: "",
+    category: "Achat",
   });
 
   useEffect(() => {
@@ -41,6 +43,10 @@ const AdminBlogForm = ({ post, onClose }: AdminBlogFormProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleRadioChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, category: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -100,17 +106,24 @@ const AdminBlogForm = ({ post, onClose }: AdminBlogFormProps) => {
             />
           </div>
           
-          <div className="space-y-2">
-            <label htmlFor="category" className="text-sm font-medium">
+          <div className="space-y-3">
+            <label className="text-sm font-medium block">
               Catégorie
             </label>
-            <Input
-              id="category"
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-            />
+            <RadioGroup 
+              value={formData.category} 
+              onValueChange={handleRadioChange}
+              className="flex space-x-4"
+            >
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Achat" id="achat" />
+                <Label htmlFor="achat">Achat</Label>
+              </div>
+              <div className="flex items-center space-x-2">
+                <RadioGroupItem value="Vente" id="vente" />
+                <Label htmlFor="vente">Vente</Label>
+              </div>
+            </RadioGroup>
           </div>
         </div>
         
