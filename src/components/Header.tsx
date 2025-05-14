@@ -1,14 +1,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, Search, X, ChevronDown } from "lucide-react";
+import { Menu, Search, X, ChevronDown, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -16,6 +16,7 @@ import {
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,10 +56,10 @@ const Header = () => {
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[200px] bg-white">
                     <Link to="/services?type=rent" className="block p-2 hover:bg-realestate-lightred rounded-md">
-                      Louer une Propriété
+                      Vendre une Maison
                     </Link>
                     <Link to="/services?type=buy" className="block p-2 hover:bg-realestate-lightred rounded-md">
-                      Acheter une Propriété
+                      Acheter une Maison
                     </Link>
                   </div>
                 </NavigationMenuContent>
@@ -89,6 +90,12 @@ const Header = () => {
               Contactez-nous
             </Button>
           </Link>
+          <Link to={isAuthenticated ? "/admin/dashboard" : "/login"}>
+            <Button variant="outline" className="rounded-full flex items-center gap-1">
+              <User size={16} />
+              {isAuthenticated ? "Admin" : "Login"}
+            </Button>
+          </Link>
         </div>
         <button 
           className="lg:hidden text-gray-600 hover:text-realestate-red"
@@ -109,16 +116,19 @@ const Header = () => {
               <div className="font-medium">Services</div>
               <div className="pl-4 space-y-2">
                 <Link to="/services?type=rent" className="block text-sm hover:text-realestate-red">
-                  Louer une Propriété
+                  Vendre une Maison
                 </Link>
                 <Link to="/services?type=buy" className="block text-sm hover:text-realestate-red">
-                  Acheter une Propriété
+                  Acheter une Maison
                 </Link>
               </div>
             </div>
             
             <Link to="/facilities" className="font-medium hover:text-realestate-red transition-colors">Installations</Link>
             <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
+            <Link to={isAuthenticated ? "/admin/dashboard" : "/login"} className="font-medium hover:text-realestate-red transition-colors">
+              {isAuthenticated ? "Admin Dashboard" : "Login"}
+            </Link>
             <div className="pt-3 flex flex-col space-y-3">
               <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full w-full">
                 Visiter Maintenant
