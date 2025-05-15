@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, Search, X, ChevronDown } from "lucide-react";
+import { Menu, Search, X, ChevronDown, LogIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -67,8 +67,8 @@ const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
           
-          <Link to="/facilities" className="font-medium hover:text-realestate-red transition-colors">Installations</Link>
           <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
+          <Link to="/contact" className="font-medium hover:text-realestate-red transition-colors">Contact</Link>
         </div>
       </nav>
       
@@ -82,15 +82,17 @@ const Header = () => {
           <Search className="absolute left-2 h-4 w-4 text-gray-500" />
         </div>
         <div className="hidden md:flex items-center gap-3">
-          <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full">
-            Visiter Maintenant
-          </Button>
+          <Link to="/login">
+            <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full flex items-center gap-2">
+              <LogIn size={16} />
+              Login
+            </Button>
+          </Link>
           <Link to="/contact">
             <Button className="bg-realestate-red hover:bg-realestate-darkred text-white rounded-full">
               Contactez-nous
             </Button>
           </Link>
-          {/* Login button has been removed */}
         </div>
         <button 
           className="lg:hidden text-gray-600 hover:text-realestate-red"
@@ -119,13 +121,16 @@ const Header = () => {
               </div>
             </div>
             
-            <Link to="/facilities" className="font-medium hover:text-realestate-red transition-colors">Installations</Link>
             <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
-            {/* Removed login link from mobile menu as well */}
+            <Link to="/contact" className="font-medium hover:text-realestate-red transition-colors">Contact</Link>
+            
             <div className="pt-3 flex flex-col space-y-3">
-              <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full w-full">
-                Visiter Maintenant
-              </Button>
+              <Link to="/login" className="w-full">
+                <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full w-full flex items-center justify-center gap-2">
+                  <LogIn size={16} />
+                  Login
+                </Button>
+              </Link>
               <Link to="/contact" className="w-full">
                 <Button className="bg-realestate-red hover:bg-realestate-darkred text-white rounded-full w-full">
                   Contactez-nous
