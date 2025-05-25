@@ -4,8 +4,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useBlog } from "@/contexts/BlogContext";
 import { useNavigate } from "react-router-dom";
 import { BlogPost } from "@/types/blog";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import {
   Table,
   TableHeader,
@@ -20,6 +18,8 @@ import { Edit, Trash2, LogOut, Plus, LayoutDashboard } from "lucide-react";
 import AdminBlogForm from "@/components/admin/AdminBlogForm";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/admin/AppSidebar";
 
 const AdminDashboard = () => {
   const { isAuthenticated, logout } = useAuth();
@@ -87,38 +87,32 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <Header />
-      
-      <main className="flex-1 pt-24 px-6 lg:px-12 pb-16">
-        <div className="container mx-auto">
-          <Card className="mb-8 shadow-md border-none">
-            <CardHeader className="bg-gradient-to-r from-realestate-blue to-blue-600 text-white">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
-                  <LayoutDashboard size={24} />
-                  <CardTitle className="text-2xl font-bold">
-                    Tableau de Bord Admin
-                  </CardTitle>
-                </div>
-                <Button
-                  onClick={handleLogout}
-                  variant="outline"
-                  className="bg-white text-blue-700 hover:bg-blue-50 border-none"
-                >
-                  <LogOut size={16} className="mr-2" />
-                  Déconnexion
-                </Button>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full bg-gray-50">
+        <AppSidebar />
+        
+        <main className="flex-1 p-6">
+          <div className="flex items-center gap-4 mb-8">
+            <SidebarTrigger />
+            <div className="flex-1 flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <LayoutDashboard size={24} className="text-realestate-blue" />
+                <h1 className="text-2xl font-bold text-gray-800">
+                  Tableau de Bord Admin
+                </h1>
               </div>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <p className="text-gray-600">
-                Bienvenue dans votre tableau de bord d'administration. Ici, vous pouvez gérer les articles du blog.
-              </p>
-            </CardContent>
-          </Card>
+              <Button
+                onClick={handleLogout}
+                variant="outline"
+                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300"
+              >
+                <LogOut size={16} className="mr-2" />
+                Déconnexion
+              </Button>
+            </div>
+          </div>
           
-          <div className="mb-12">
+          <div className="mb-8">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-semibold text-gray-800">
                 Gérer les Articles de Blog
@@ -237,11 +231,9 @@ const AdminDashboard = () => {
               </Card>
             )}
           </div>
-        </div>
-      </main>
-      
-      <Footer />
-    </div>
+        </main>
+      </div>
+    </SidebarProvider>
   );
 };
 
