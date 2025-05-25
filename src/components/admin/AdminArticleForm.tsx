@@ -66,14 +66,14 @@ const AdminArticleForm = ({ article, onClose }: AdminArticleFormProps) => {
     if (article) {
       updateArticle(article.id, articleData);
       toast({
-        title: "Article modifié",
-        description: "L'article a été modifié avec succès",
+        title: "Propriété modifiée",
+        description: "La propriété a été modifiée avec succès",
       });
     } else {
       addArticle(articleData);
       toast({
-        title: "Article créé",
-        description: "L'article a été créé avec succès",
+        title: "Propriété créée",
+        description: "La propriété a été créée avec succès",
       });
     }
 
@@ -91,7 +91,7 @@ const AdminArticleForm = ({ article, onClose }: AdminArticleFormProps) => {
     <div className="bg-white p-6">
       <div className="flex justify-between items-center mb-6">
         <h3 className="text-xl font-semibold">
-          {article ? "Modifier l'article" : "Nouvel article"}
+          {article ? "Modifier la propriété" : "Nouvelle propriété"}
         </h3>
         <Button
           variant="ghost"
@@ -109,7 +109,7 @@ const AdminArticleForm = ({ article, onClose }: AdminArticleFormProps) => {
           <Input
             value={formData.title}
             onChange={(e) => handleChange("title", e.target.value)}
-            placeholder="Titre de l'article"
+            placeholder="Titre de la propriété"
             required
           />
         </div>
@@ -144,7 +144,7 @@ const AdminArticleForm = ({ article, onClose }: AdminArticleFormProps) => {
           <Textarea
             value={formData.excerpt}
             onChange={(e) => handleChange("excerpt", e.target.value)}
-            placeholder="Bref résumé de l'article"
+            placeholder="Bref résumé de la propriété"
             rows={2}
             required
           />
@@ -160,11 +160,11 @@ const AdminArticleForm = ({ article, onClose }: AdminArticleFormProps) => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium mb-1">Contenu</label>
+          <label className="block text-sm font-medium mb-1">Description</label>
           <Textarea
             value={formData.content}
             onChange={(e) => handleChange("content", e.target.value)}
-            placeholder="Contenu de l'article"
+            placeholder="Description de la propriété"
             rows={8}
             required
           />

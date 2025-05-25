@@ -51,8 +51,8 @@ const AdminArticles = () => {
     deleteArticle(id);
     setSelectedArticles(prev => prev.filter(articleId => articleId !== id));
     toast({
-      title: "Article supprimé",
-      description: "L'article a été supprimé avec succès",
+      title: "Propriété supprimée",
+      description: "La propriété a été supprimée avec succès",
     });
   };
 
@@ -64,8 +64,8 @@ const AdminArticles = () => {
     });
     
     toast({
-      title: "Articles supprimés",
-      description: `${selectedArticles.length} article(s) supprimé(s) avec succès`,
+      title: "Propriétés supprimées",
+      description: `${selectedArticles.length} propriété(s) supprimée(s) avec succès`,
     });
     
     setSelectedArticles([]);
@@ -97,7 +97,7 @@ const AdminArticles = () => {
               <div className="flex items-center gap-3">
                 <LayoutDashboard size={24} className="text-realestate-blue" />
                 <h1 className="text-2xl font-bold text-gray-800">
-                  Gestion des Articles
+                  Gestion des Propriétés
                 </h1>
               </div>
               <Button
@@ -114,7 +114,7 @@ const AdminArticles = () => {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-semibold text-gray-800">
-                Gérer les Articles
+                Gérer les Propriétés
               </h2>
               <div className="flex gap-3">
                 {selectedArticles.length > 0 && (
@@ -132,7 +132,7 @@ const AdminArticles = () => {
                   className="bg-realestate-blue hover:bg-realestate-darkblue flex items-center gap-2"
                 >
                   <Plus size={16} />
-                  Nouvel Article
+                  Nouvelle Propriété
                 </Button>
               </div>
             </div>
@@ -175,7 +175,7 @@ const AdminArticles = () => {
                       {articles.length === 0 ? (
                         <TableRow>
                           <TableCell colSpan={6} className="text-center py-8">
-                            <p className="text-gray-500">Aucun article trouvé. Créez votre premier article!</p>
+                            <p className="text-gray-500">Aucune propriété trouvée. Créez votre première propriété!</p>
                           </TableCell>
                         </TableRow>
                       ) : (

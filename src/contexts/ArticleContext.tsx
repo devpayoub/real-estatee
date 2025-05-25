@@ -15,22 +15,22 @@ export const ArticleProvider = ({ children }: { children: ReactNode }) => {
   const [articles, setArticles] = useState<Article[]>([
     {
       id: '1',
-      title: 'Guide du marché immobilier 2024',
-      content: 'Analyse complète du marché immobilier français en 2024...',
+      title: 'Villa moderne avec piscine',
+      content: 'Magnifique villa moderne avec piscine, jardin et vue imprenable...',
       category: 'Marché',
-      author: 'Expert Immobilier',
+      author: 'Agent Immobilier',
       date: '2024-01-15',
-      excerpt: 'Découvrez les tendances du marché immobilier français',
+      excerpt: 'Découvrez cette villa exceptionnelle dans un cadre privilégié',
       imageUrl: '/placeholder.svg'
     },
     {
       id: '2',
-      title: 'Investissement locatif : conseils pratiques',
-      content: 'Les meilleures stratégies pour investir dans l\'immobilier locatif...',
+      title: 'Appartement centre-ville',
+      content: 'Bel appartement au cœur de la ville, proche de toutes commodités...',
       category: 'Investissement',
-      author: 'Conseiller Financier',
+      author: 'Conseiller Immobilier',
       date: '2024-01-10',
-      excerpt: 'Maximisez vos revenus locatifs avec nos conseils d\'experts',
+      excerpt: 'Investissement rentable en centre-ville',
       imageUrl: '/placeholder.svg'
     }
   ]);

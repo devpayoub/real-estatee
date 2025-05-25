@@ -30,13 +30,13 @@ export function AppSidebar() {
       ],
     },
     {
-      title: "View Article",
+      title: "View Propriétés",
       icon: FileText,
       url: "/admin/articles",
       subItems: [
-        { title: "Add Article", icon: Plus, url: "/admin/articles?action=add" },
-        { title: "Edit Articles", icon: Edit, url: "/admin/articles?action=edit" },
-        { title: "Delete Articles", icon: Trash2, url: "/admin/articles?action=delete" },
+        { title: "Add Propriété", icon: Plus, url: "/admin/articles?action=add" },
+        { title: "Edit Propriétés", icon: Edit, url: "/admin/articles?action=edit" },
+        { title: "Delete Propriétés", icon: Trash2, url: "/admin/articles?action=delete" },
       ],
     },
   ];
