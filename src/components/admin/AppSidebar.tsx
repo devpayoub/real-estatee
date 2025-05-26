@@ -1,5 +1,4 @@
-
-import { FileText, BookOpen, Edit, Plus, Trash2 } from "lucide-react";
+import { FileText, BookOpen } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Sidebar,
@@ -10,9 +9,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 
 export function AppSidebar() {
@@ -23,21 +19,11 @@ export function AppSidebar() {
       title: "View Blog",
       icon: BookOpen,
       url: "/admin/dashboard",
-      subItems: [
-        { title: "Add Post", icon: Plus, url: "/admin/dashboard?action=add" },
-        { title: "Edit Posts", icon: Edit, url: "/admin/dashboard?action=edit" },
-        { title: "Delete Posts", icon: Trash2, url: "/admin/dashboard?action=delete" },
-      ],
     },
     {
       title: "View Propriétés",
       icon: FileText,
       url: "/admin/articles",
-      subItems: [
-        { title: "Add Propriété", icon: Plus, url: "/admin/articles?action=add" },
-        { title: "Edit Propriétés", icon: Edit, url: "/admin/articles?action=edit" },
-        { title: "Delete Propriétés", icon: Trash2, url: "/admin/articles?action=delete" },
-      ],
     },
   ];
 
@@ -56,18 +42,6 @@ export function AppSidebar() {
                       <span>{item.title}</span>
                     </Link>
                   </SidebarMenuButton>
-                  <SidebarMenuSub>
-                    {item.subItems.map((subItem) => (
-                      <SidebarMenuSubItem key={subItem.title}>
-                        <SidebarMenuSubButton asChild>
-                          <Link to={subItem.url}>
-                            <subItem.icon />
-                            <span>{subItem.title}</span>
-                          </Link>
-                        </SidebarMenuSubButton>
-                      </SidebarMenuSubItem>
-                    ))}
-                  </SidebarMenuSub>
                 </SidebarMenuItem>
               ))}
             </SidebarMenu>
