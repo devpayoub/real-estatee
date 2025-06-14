@@ -19,3 +19,5 @@ export interface Property {
 export interface DisplayProperty extends Property {
   // Additional display properties can be added here
 }
+
+export type PropertyType = "buy" | "rent";
