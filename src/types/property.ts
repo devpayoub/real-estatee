@@ -11,6 +11,9 @@ export interface Property {
   price: number;
   images: string[];
   featured?: boolean;
+  image?: string; // For backward compatibility
+  features?: string[]; // Additional features
+  amenities?: string[]; // Property amenities
 }
 
 export interface DisplayProperty extends Property {

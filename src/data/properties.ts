@@ -1,6 +1,8 @@
 
 import { Property } from "@/types/property";
 
+export type PropertyType = "buy" | "rent";
+
 export const properties: Property[] = [
   {
     id: "1",
@@ -75,5 +77,41 @@ export const properties: Property[] = [
     ]
   }
 ];
+
+// Filter properties by type
+export const getPropertiesByType = (type: PropertyType): Property[] => {
+  return properties.filter(property => property.type === type);
+};
+
+// Get property by ID
+export const getPropertyById = (id: string): Property | undefined => {
+  return properties.find(property => property.id === id);
+};
+
+// CRUD operations for admin
+export const addProperty = (property: Omit<Property, 'id'>): Property => {
+  const newProperty = {
+    ...property,
+    id: Math.random().toString(36).substr(2, 9)
+  };
+  properties.push(newProperty);
+  return newProperty;
+};
+
+export const updateProperty = (id: string, updates: Partial<Property>): Property | null => {
+  const index = properties.findIndex(property => property.id === id);
+  if (index === -1) return null;
+  
+  properties[index] = { ...properties[index], ...updates };
+  return properties[index];
+};
+
+export const deleteProperty = (id: string): boolean => {
+  const index = properties.findIndex(property => property.id === id);
+  if (index === -1) return false;
+  
+  properties.splice(index, 1);
+  return true;
+};
 
 export { type Property } from "@/types/property";
