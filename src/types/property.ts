@@ -1,7 +1,18 @@
 
-import { Property } from "@/data/properties";
+export interface Property {
+  id: string;
+  title: string;
+  description: string;
+  location: string;
+  bedrooms: number;
+  bathrooms: number;
+  area: number;
+  type: "buy" | "rent";
+  price: number;
+  images: string[];
+  featured?: boolean;
+}
 
-// Define extended property type that can have a string price for display
-export interface DisplayProperty extends Omit<Property, 'price'> {
-  price: string | number;
+export interface DisplayProperty extends Property {
+  // Additional display properties can be added here
 }
