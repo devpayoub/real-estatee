@@ -1,95 +1,206 @@
 
-import React from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search, MapPin, Home, Building } from "lucide-react";
+import { CheckCircle, Star, Headphones, MapPin, Home, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-realestate-blue via-blue-600 to-realestate-red overflow-hidden">
-      <div className="absolute inset-0 bg-black/20"></div>
-      <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop')"
-        }}
-      ></div>
-      
-      <div className="relative z-10 container mx-auto px-6 text-center text-white">
-        <div className="max-w-4xl mx-auto" data-aos="fade-up">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            Trouvez Votre
-            <span className="block text-yellow-300">Maison de Rêve</span>
+    <div className="relative flex flex-col w-full pt-28 pb-16 px-6 md:px-12 overflow-hidden">
+      {/* Moving Background Images */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-transparent to-black/30"></div>
+        
+        {/* Moving Image 1 */}
+        <div 
+          className="absolute top-0 left-0 w-full h-full bg-cover bg-center animate-[slide-x_20s_linear_infinite]"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        ></div>
+        
+        {/* Moving Image 2 */}
+        <div 
+          className="absolute top-0 left-full w-full h-full bg-cover bg-center animate-[slide-x_20s_linear_infinite]"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        ></div>
+        
+        {/* Moving Image 3 */}
+        <div 
+          className="absolute top-0 left-[200%] w-full h-full bg-cover bg-center animate-[slide-x_20s_linear_infinite]"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        ></div>
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-10">
+        {/* Main Hero Content - Text-Focused */}
+        <div className="text-center mb-16" data-aos="fade-up">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white drop-shadow-2xl">
+            Votre Partenaire Immobilier <br />
+            de Confiance avec <span className="text-realestate-red">Kais Khayati</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed opacity-90">
-            Découvrez les meilleures propriétés au Canada avec notre service immobilier expert
+          <p className="text-xl text-white/90 max-w-4xl mx-auto mb-8 leading-relaxed drop-shadow-lg">
+            Spécialiste de l'immobilier avec une approche canadienne basée sur la transparence, 
+            l'information détaillée et l'accompagnement personnalisé. Nous vous aidons à naviguer 
+            le marché immobilier avec confiance et sérénité.
           </p>
           
-          <div className="bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-2xl mb-12 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <Input
-                  type="text"
-                  placeholder="Localisation"
-                  className="pl-10 h-12 border-gray-200 focus:border-realestate-blue text-gray-800"
-                />
+          {/* Two Main Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
+            <Link to="/services?type=buy">
+              <Button className="bg-gradient-to-r from-realestate-blue to-realestate-blue/80 hover:from-realestate-darkblue hover:to-realestate-blue text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                <Home className="mr-3 h-6 w-6" />
+                Acheter
+              </Button>
+            </Link>
+            <Link to="/services?type=rent">
+              <Button className="bg-gradient-to-r from-realestate-red to-realestate-red/80 hover:from-realestate-darkred hover:to-realestate-red text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                <MapPin className="mr-3 h-6 w-6" />
+                Vendre
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-12" data-aos="fade-up" data-aos-delay="400">
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="bg-realestate-lightred p-3 rounded-full">
+                <Star className="text-realestate-red h-6 w-6" />
               </div>
-              <div className="relative">
-                <Home className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <Input
-                  type="text"
-                  placeholder="Type de propriété"
-                  className="pl-10 h-12 border-gray-200 focus:border-realestate-blue text-gray-800"
-                />
+              <div className="text-left">
+                <span className="font-semibold block">Excellence Reconnue</span>
+                <span className="text-sm text-gray-600">Plus de 15 ans d'expérience</span>
               </div>
-              <div className="relative">
-                <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <Input
-                  type="text"
-                  placeholder="Budget max"
-                  className="pl-10 h-12 border-gray-200 focus:border-realestate-blue text-gray-800"
-                />
+            </div>
+            
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="bg-realestate-lightred p-3 rounded-full">
+                <CheckCircle className="text-realestate-red h-6 w-6" />
               </div>
-              <Link to="/services" className="w-full">
-                <Button className="w-full h-12 bg-realestate-red hover:bg-realestate-darkred text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all">
-                  <Search className="mr-2 h-5 w-5" />
-                  Rechercher
+              <div className="text-left">
+                <span className="font-semibold block">Transactions Sécurisées</span>
+                <span className="text-sm text-gray-600">Processus transparent et légal</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div className="bg-realestate-lightred p-3 rounded-full">
+                <Headphones className="text-realestate-red h-6 w-6" />
+              </div>
+              <div className="text-left">
+                <span className="font-semibold block">Accompagnement 24/7</span>
+                <span className="text-sm text-gray-600">Support continu et personnalisé</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Detailed Services Grid - Text Heavy */}
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 mb-16">
+            {/* Left Column - Services */}
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300" data-aos="fade-right" data-aos-delay="600">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">Services Complets</h2>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="bg-realestate-lightblue p-3 rounded-lg">
+                    <Home className="text-realestate-blue h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Recherche Personnalisée</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Analyse approfondie de vos besoins, recherche ciblée dans notre base de données 
+                      étendue et présélection des propriétés correspondant exactement à vos critères.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-realestate-lightred p-3 rounded-lg">
+                    <MapPin className="text-realestate-red h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Expertise Locale</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Connaissance approfondie des quartiers, tendances du marché local, 
+                      évaluation précise des propriétés et conseils sur les opportunités d'investissement.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="bg-gradient-to-r from-realestate-lightblue to-realestate-lightred p-3 rounded-lg">
+                    <Users className="text-gray-700 h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">Réseau Professionnel</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Collaboration avec un réseau établi d'inspecteurs, notaires, évaluateurs 
+                      et institutions financières pour faciliter toutes vos démarches.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Process */}
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300" data-aos="fade-left" data-aos-delay="800">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">Notre Approche</h2>
+              <div className="space-y-6">
+                <div className="border-l-4 border-realestate-blue pl-6 hover:bg-realestate-lightblue/20 p-4 rounded-r-lg transition-colors">
+                  <h3 className="font-semibold text-lg mb-2 text-realestate-blue">1. Consultation Initiale</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Entretien détaillé pour comprendre vos objectifs, contraintes financières 
+                    et préférences. Établissement d'une stratégie personnalisée.
+                  </p>
+                </div>
+                
+                <div className="border-l-4 border-realestate-red pl-6 hover:bg-realestate-lightred/20 p-4 rounded-r-lg transition-colors">
+                  <h3 className="font-semibold text-lg mb-2 text-realestate-red">2. Recherche Active</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Utilisation de notre réseau étendu et de nos outils de recherche avancés 
+                    pour identifier les meilleures opportunités du marché.
+                  </p>
+                </div>
+                
+                <div className="border-l-4 border-gray-400 pl-6 hover:bg-gray-50 p-4 rounded-r-lg transition-colors">
+                  <h3 className="font-semibold text-lg mb-2 text-gray-700">3. Accompagnement Complet</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Support continu depuis la première visite jusqu'à la signature finale, 
+                    incluant négociation, inspections et coordination des professionnels.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Call to Action */}
+          <div className="text-center bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="1000">
+            <h3 className="text-2xl font-bold mb-4">Prêt à Commencer Votre Projet Immobilier?</h3>
+            <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+              Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment 
+              notre expertise peut vous aider à réaliser vos objectifs immobiliers.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button className="bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  Consultation Gratuite
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button variant="outline" className="border-realestate-blue text-realestate-blue hover:bg-realestate-blue hover:text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  Voir Nos Propriétés
                 </Button>
               </Link>
             </div>
           </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
-            <Link to="/services?type=buy">
-              <Button 
-                size="lg"
-                className="px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30 rounded-full font-semibold transition-all duration-300 hover:scale-105"
-              >
-                <Home className="mr-2 h-5 w-5" />
-                Acheter une Maison
-              </Button>
-            </Link>
-            <Link to="/services?type=rent">
-              <Button 
-                size="lg"
-                className="px-8 py-4 bg-realestate-red hover:bg-realestate-darkred text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-              >
-                <Building className="mr-2 h-5 w-5" />
-                Vendre une Maison
-              </Button>
-            </Link>
-          </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 
