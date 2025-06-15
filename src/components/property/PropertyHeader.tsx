@@ -11,6 +11,16 @@ interface PropertyHeaderProps {
   type: PropertyType;
 }
 
+const formatCanadianPrice = (price: string | number) => {
+  const numericPrice = typeof price === 'string' ? parseFloat(price.toString().replace(/[^0-9.]/g, '')) : price;
+  return new Intl.NumberFormat('en-CA', {
+    style: 'currency',
+    currency: 'CAD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(numericPrice);
+};
+
 const PropertyHeader = ({ title, location, price, type }: PropertyHeaderProps) => {
   return (
     <div className="mb-6">
@@ -36,7 +46,7 @@ const PropertyHeader = ({ title, location, price, type }: PropertyHeaderProps) =
             {type === 'rent' ? 'À Louer' : 'À Vendre'}
           </Badge>
           <span className="text-2xl font-bold text-realestate-red">
-            Contactez-nous pour le prix
+            {formatCanadianPrice(price)}
           </span>
         </div>
       </div>
