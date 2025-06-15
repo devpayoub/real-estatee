@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Star, Headphones, MapPin, Home, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -37,7 +38,7 @@ const HeroSection = () => {
       {/* Content Overlay */}
       <div className="relative z-10">
         {/* Main Hero Content - Text-Focused */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white drop-shadow-2xl">
             Votre Partenaire Immobilier <br />
             de Confiance avec <span className="text-realestate-red">Kais Khayati</span>
@@ -49,20 +50,24 @@ const HeroSection = () => {
           </p>
           
           {/* Two Main Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-            <Button className="bg-gradient-to-r from-realestate-blue to-realestate-blue/80 hover:from-realestate-darkblue hover:to-realestate-blue text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-              <Home className="mr-3 h-6 w-6" />
-              Acheter
-            </Button>
-            <Button className="bg-gradient-to-r from-realestate-red to-realestate-red/80 hover:from-realestate-darkred hover:to-realestate-red text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-              <MapPin className="mr-3 h-6 w-6" />
-              Vendre
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12" data-aos="fade-up" data-aos-delay="200">
+            <Link to="/services?type=buy">
+              <Button className="bg-gradient-to-r from-realestate-blue to-realestate-blue/80 hover:from-realestate-darkblue hover:to-realestate-blue text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                <Home className="mr-3 h-6 w-6" />
+                Acheter
+              </Button>
+            </Link>
+            <Link to="/services?type=rent">
+              <Button className="bg-gradient-to-r from-realestate-red to-realestate-red/80 hover:from-realestate-darkred hover:to-realestate-red text-white px-12 py-4 rounded-full text-lg font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
+                <MapPin className="mr-3 h-6 w-6" />
+                Vendre
+              </Button>
+            </Link>
           </div>
           
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-12">
-            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 mb-12" data-aos="fade-up" data-aos-delay="400">
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="bg-realestate-lightred p-3 rounded-full">
                 <Star className="text-realestate-red h-6 w-6" />
               </div>
@@ -72,7 +77,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="bg-realestate-lightred p-3 rounded-full">
                 <CheckCircle className="text-realestate-red h-6 w-6" />
               </div>
@@ -82,7 +87,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg">
+            <div className="flex items-center gap-3 bg-white/90 backdrop-blur-sm p-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
               <div className="bg-realestate-lightred p-3 rounded-full">
                 <Headphones className="text-realestate-red h-6 w-6" />
               </div>
@@ -98,7 +103,7 @@ const HeroSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Left Column - Services */}
-            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl">
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300" data-aos="fade-right" data-aos-delay="600">
               <h2 className="text-3xl font-bold mb-6 text-gray-800">Services Complets</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -143,10 +148,10 @@ const HeroSection = () => {
             </div>
             
             {/* Right Column - Process */}
-            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl">
+            <div className="bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300" data-aos="fade-left" data-aos-delay="800">
               <h2 className="text-3xl font-bold mb-6 text-gray-800">Notre Approche</h2>
               <div className="space-y-6">
-                <div className="border-l-4 border-realestate-blue pl-6">
+                <div className="border-l-4 border-realestate-blue pl-6 hover:bg-realestate-lightblue/20 p-4 rounded-r-lg transition-colors">
                   <h3 className="font-semibold text-lg mb-2 text-realestate-blue">1. Consultation Initiale</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Entretien détaillé pour comprendre vos objectifs, contraintes financières 
@@ -154,7 +159,7 @@ const HeroSection = () => {
                   </p>
                 </div>
                 
-                <div className="border-l-4 border-realestate-red pl-6">
+                <div className="border-l-4 border-realestate-red pl-6 hover:bg-realestate-lightred/20 p-4 rounded-r-lg transition-colors">
                   <h3 className="font-semibold text-lg mb-2 text-realestate-red">2. Recherche Active</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Utilisation de notre réseau étendu et de nos outils de recherche avancés 
@@ -162,7 +167,7 @@ const HeroSection = () => {
                   </p>
                 </div>
                 
-                <div className="border-l-4 border-gray-400 pl-6">
+                <div className="border-l-4 border-gray-400 pl-6 hover:bg-gray-50 p-4 rounded-r-lg transition-colors">
                   <h3 className="font-semibold text-lg mb-2 text-gray-700">3. Accompagnement Complet</h3>
                   <p className="text-gray-600 leading-relaxed">
                     Support continu depuis la première visite jusqu'à la signature finale, 
@@ -174,19 +179,23 @@ const HeroSection = () => {
           </div>
           
           {/* Call to Action */}
-          <div className="text-center bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl">
+          <div className="text-center bg-white/90 backdrop-blur-sm p-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="1000">
             <h3 className="text-2xl font-bold mb-4">Prêt à Commencer Votre Projet Immobilier?</h3>
             <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
               Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment 
               notre expertise peut vous aider à réaliser vos objectifs immobiliers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white px-8 py-3 rounded-full">
-                Consultation Gratuite
-              </Button>
-              <Button variant="outline" className="border-realestate-blue text-realestate-blue hover:bg-realestate-blue hover:text-white px-8 py-3 rounded-full">
-                Voir Nos Propriétés
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  Consultation Gratuite
+                </Button>
+              </Link>
+              <Link to="/services">
+                <Button variant="outline" className="border-realestate-blue text-realestate-blue hover:bg-realestate-blue hover:text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  Voir Nos Propriétés
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

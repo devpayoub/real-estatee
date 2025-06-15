@@ -10,7 +10,7 @@ interface PropertiesGridProps {
 const PropertiesGrid = ({ properties }: PropertiesGridProps) => {
   if (properties.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-16" data-aos="fade-up">
         <div className="text-center">
           <h3 className="text-2xl font-semibold text-gray-600 mb-4">
             Aucune propriété trouvée
@@ -26,8 +26,20 @@ const PropertiesGrid = ({ properties }: PropertiesGridProps) => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {properties.map((property) => (
-          <PropertyCard key={property.id} {...property} />
+        {properties.map((property, index) => (
+          <div key={property.id} data-aos="fade-up" data-aos-delay={index * 100}>
+            <PropertyCard 
+              id={property.id}
+              title={property.title}
+              price={property.price.toString()}
+              location={property.location}
+              bedrooms={property.bedrooms}
+              bathrooms={property.bathrooms}
+              squareFeet={property.area}
+              imageUrl={property.images?.[0] || property.image || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"}
+              featured={property.featured}
+            />
+          </div>
         ))}
       </div>
     </div>
