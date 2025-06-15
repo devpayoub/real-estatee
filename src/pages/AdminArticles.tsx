@@ -85,27 +85,28 @@ const AdminArticles = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const propertyData = {
+    const newProperty: Omit<Property, 'id'> = {
       title: formData.title,
       description: formData.description,
       type: formData.type as "buy" | "rent",
       location: formData.location,
-      bedrooms: Number(formData.bedrooms),
-      bathrooms: Number(formData.bathrooms),
-      area: Number(formData.area),
-      image: formData.image,
-      features: formData.features.split(",").map(f => f.trim()),
-      amenities: formData.amenities.split(",").map(a => a.trim())
+      bedrooms: formData.bedrooms,
+      bathrooms: formData.bathrooms,
+      area: formData.area,
+      price: 0, // Add missing price field
+      images: [formData.image], // Convert single image to images array
+      features: formData.features,
+      amenities: formData.amenities
     };
 
     if (editingProperty) {
-      updateProperty(editingProperty.id, propertyData);
+      updateProperty(editingProperty.id, newProperty);
       toast({
         title: "Propriété modifiée",
         description: "La propriété a été modifiée avec succès",
       });
     } else {
-      addProperty(propertyData);
+      addProperty(newProperty);
       toast({
         title: "Propriété ajoutée",
         description: "La propriété a été ajoutée avec succès",
