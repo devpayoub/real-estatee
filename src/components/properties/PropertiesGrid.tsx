@@ -29,7 +29,6 @@ const PropertiesGrid = ({ properties }: PropertiesGridProps) => {
         {properties.map((property, index) => (
           <div key={property.id} data-aos="fade-up" data-aos-delay={index * 100}>
             <PropertyCard 
-              id={property.id}
               title={property.title}
               price={property.price.toString()}
               location={property.location}
