@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, Search, X, ChevronDown, LogIn } from "lucide-react";
@@ -58,7 +57,7 @@ const Header = () => {
                     <Link to="/services?type=rent" className="block p-2 hover:bg-realestate-lightred rounded-md">
                       Vendre une Maison
                     </Link>
-                    <Link to="/services?type=buy" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    <Link to="/buy" className="block p-2 hover:bg-realestate-lightred rounded-md">
                       Acheter une Maison
                     </Link>
                   </div>
@@ -115,7 +114,7 @@ const Header = () => {
                 <Link to="/services?type=rent" className="block text-sm hover:text-realestate-red">
                   Vendre une Maison
                 </Link>
-                <Link to="/services?type=buy" className="block text-sm hover:text-realestate-red">
+                <Link to="/buy" className="block text-sm hover:text-realestate-red">
                   Acheter une Maison
                 </Link>
               </div>
