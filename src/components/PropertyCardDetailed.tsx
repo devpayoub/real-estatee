@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,16 +15,6 @@ interface PropertyCardDetailedProps {
   property: ExtendedProperty;
   showVisitButton?: boolean;
 }
-
-const formatCanadianPrice = (price: string | number) => {
-  const numericPrice = typeof price === 'string' ? parseFloat(price.toString().replace(/[^0-9.]/g, '')) : price;
-  return new Intl.NumberFormat('en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(numericPrice);
-};
 
 const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCardDetailedProps) => {
   return (
@@ -52,7 +43,7 @@ const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCard
         <div className="flex justify-between items-start">
           <h3 className="font-bold text-xl">{property.title}</h3>
           <span className="text-lg font-bold text-realestate-blue">
-            {formatCanadianPrice(property.price)}
+            Contactez-nous
           </span>
         </div>
         <div className="flex items-center text-gray-500 text-sm">

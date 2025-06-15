@@ -16,16 +16,6 @@ interface PropertyCardProps {
   id?: string;
 }
 
-const formatCanadianPrice = (price: string | number) => {
-  const numericPrice = typeof price === 'string' ? parseFloat(price.replace(/[^0-9.]/g, '')) : price;
-  return new Intl.NumberFormat('en-CA', {
-    style: 'currency',
-    currency: 'CAD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(numericPrice);
-};
-
 const PropertyCard = ({ 
   imageUrl, 
   location, 
@@ -56,9 +46,7 @@ const PropertyCard = ({
             <MapPin size={16} />
             <span className="text-sm">{location}</span>
           </div>
-          <h3 className="text-xl font-bold text-realestate-blue mb-3">
-            {formatCanadianPrice(price)}
-          </h3>
+          <h3 className="text-xl font-bold text-realestate-blue mb-3">${price}</h3>
           <div className="flex items-center justify-between text-gray-600 text-sm">
             <div className="flex items-center gap-1">
               <Bed size={16} />
