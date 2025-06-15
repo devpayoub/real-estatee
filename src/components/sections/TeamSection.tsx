@@ -1,118 +1,136 @@
 
 import { Button } from "@/components/ui/button";
-import { Users, Award, TrendingUp, Shield, Phone, Mail } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const TeamSection = () => {
+  const navigate = useNavigate();
+
+  const handleAboutClick = () => {
+    navigate('/about');
+  };
+
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
-      {/* Dynamic Background */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-realestate-blue/95 via-realestate-blue/85 to-realestate-red/90"></div>
-        
-        {/* Animated shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-48 h-48 bg-white/5 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-realestate-red/20 rounded-full animate-pulse delay-500"></div>
+    <section className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, #003DA5 2px, transparent 2px),
+                           radial-gradient(circle at 75% 75%, #e4002b 2px, transparent 2px)`,
+          backgroundSize: '60px 60px'
+        }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      {/* Decorative Elements */}
+      <div className="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-realestate-blue/10 to-realestate-red/10 rounded-full animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-gradient-to-br from-realestate-red/10 to-realestate-blue/10 rounded-full animate-pulse delay-1000"></div>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full mb-6">
-            <span className="text-white font-semibold">RENCONTREZ NOTRE ÉQUIPE</span>
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-realestate-blue/10 to-realestate-red/10 rounded-full border border-realestate-blue/20 mb-6">
+            <Star className="w-4 h-4 text-realestate-blue" />
+            <span className="text-realestate-blue font-semibold text-sm">RENCONTREZ NOTRE ÉQUIPE</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            L'Excellence en
-            <br />
-            <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-              Action
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            Notre
+            <span className="bg-gradient-to-r from-realestate-blue to-realestate-red bg-clip-text text-transparent">
+              {" "}Expert
             </span>
           </h2>
-          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Plus de 15 ans d'expertise au service de votre réussite immobilière
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Team Info */}
-          <div className="space-y-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl flex items-center justify-center">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white">Kais Khayati</h3>
-                  <p className="text-white/80">Courtier Principal & Fondateur</p>
+        {/* Agent Card */}
+        <div className="flex justify-center">
+          <div className="group relative bg-white rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 overflow-hidden border border-gray-100 max-w-md w-full">
+            {/* Agent Image */}
+            <div className="relative h-80 overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')`
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              
+              {/* Professional Badge */}
+              <div className="absolute top-6 right-6">
+                <div className="bg-white/90 backdrop-blur-sm rounded-full px-4 py-2">
+                  <span className="text-realestate-blue font-semibold text-sm">Expert Certifié</span>
                 </div>
               </div>
               
-              <p className="text-white/90 text-lg leading-relaxed mb-6">
-                "Chaque client mérite une approche unique. Notre mission est de transformer 
-                vos rêves immobiliers en réalité grâce à notre expertise du marché canadien."
-              </p>
+              {/* Name Overlay */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <h3 className="text-3xl font-bold text-white mb-2">Kais Khayati</h3>
+                <p className="text-white/90 text-lg">Courtier Principal & Fondateur</p>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="p-8">
+              <div className="mb-6">
+                <p className="text-gray-600 leading-relaxed">
+                  "Chaque client mérite une approche unique. Notre mission est de transformer 
+                  vos rêves immobiliers en réalité."
+                </p>
+              </div>
               
-              <div className="flex items-center gap-4">
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 rounded-full">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Appeler
-                </Button>
-                <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 rounded-full">
-                  <Mail className="w-4 h-4 mr-2" />
-                  Email
-                </Button>
+              {/* Experience Highlights */}
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                <div className="text-center p-4 bg-gradient-to-br from-realestate-blue/5 to-realestate-blue/10 rounded-2xl">
+                  <div className="text-2xl font-bold text-realestate-blue">15+</div>
+                  <div className="text-sm text-gray-600">Années d'expérience</div>
+                </div>
+                <div className="text-center p-4 bg-gradient-to-br from-realestate-red/5 to-realestate-red/10 rounded-2xl">
+                  <div className="text-2xl font-bold text-realestate-red">500+</div>
+                  <div className="text-sm text-gray-600">Clients satisfaits</div>
+                </div>
               </div>
+              
+              {/* CTA Button */}
+              <Button 
+                onClick={handleAboutClick}
+                className="w-full bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-blue/90 hover:to-realestate-red/90 text-white rounded-2xl py-4 text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105"
+              >
+                <span>En Savoir Plus</span>
+                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-6">
-              <h4 className="text-xl font-bold text-white mb-4">Notre Mission</h4>
-              <p className="text-white/80 leading-relaxed">
-                Chez Le Vasco, nous croyons que chaque transaction immobilière est unique. 
-                Notre approche personnalisée combine l'expertise du marché canadien avec 
-                un service client d'exception.
-              </p>
-            </div>
-          </div>
-
-          {/* Achievement Cards */}
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all group">
-              <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Award className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="text-white font-bold text-lg mb-2">Certification</h4>
-              <p className="text-white/80 text-sm">Courtier certifié OACIQ</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all group">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <TrendingUp className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="text-white font-bold text-lg mb-2">Performance</h4>
-              <p className="text-white/80 text-sm">Top 5% au Canada</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all group col-span-2">
-              <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <h4 className="text-white font-bold text-lg mb-2">Garantie Satisfaction</h4>
-              <p className="text-white/80 text-sm">100% de nos clients recommandent nos services</p>
-            </div>
+            {/* Hover Effect Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-realestate-blue/5 to-realestate-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center mt-16">
-          <Button className="bg-gradient-to-r from-yellow-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-black font-bold px-8 py-4 rounded-full text-lg shadow-2xl hover:shadow-3xl transition-all">
-            Planifier une Consultation
-          </Button>
+        {/* Trust Indicators */}
+        <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
+            <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
+              <Star className="w-6 h-6 text-white" />
+            </div>
+            <h4 className="font-bold text-gray-900 mb-2">Certification OACIQ</h4>
+            <p className="text-gray-600 text-sm">Courtier certifié et reconnu</p>
+          </div>
+          
+          <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
+            <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
+              <Star className="w-6 h-6 text-white" />
+            </div>
+            <h4 className="font-bold text-gray-900 mb-2">Top 5% au Canada</h4>
+            <p className="text-gray-600 text-sm">Performance exceptionnelle</p>
+          </div>
+          
+          <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
+              <Star className="w-6 h-6 text-white" />
+            </div>
+            <h4 className="font-bold text-gray-900 mb-2">100% Satisfaction</h4>
+            <p className="text-gray-600 text-sm">Clients recommandent nos services</p>
+          </div>
         </div>
       </div>
     </section>

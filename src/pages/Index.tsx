@@ -1,16 +1,10 @@
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import SellSection from "@/components/SellSection";
-import BenefitsSection from "@/components/BenefitsSection";
-import StepsSection from "@/components/StepsSection";
-import TestimonialsCarousel from "@/components/TestimonialsCarousel";
 import Footer from "@/components/Footer";
 import FeaturedPropertiesSection from "@/components/sections/FeaturedPropertiesSection";
 import TeamSection from "@/components/sections/TeamSection";
 import ServicesCardsSection from "@/components/sections/ServicesCardsSection";
-import StatisticsSection from "@/components/sections/StatisticsSection";
-import ContactSection from "@/components/sections/ContactSection";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -63,30 +57,6 @@ const Index = () => {
 
         <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="300">
           <ServicesCardsSection />
-        </div>
-
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="400">
-          <StatisticsSection />
-        </div>
-        
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="500">
-          <SellSection />
-        </div>
-        
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="600">
-          <BenefitsSection />
-        </div>
-        
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="700">
-          <TestimonialsCarousel />
-        </div>
-        
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="800">
-          <StepsSection />
-        </div>
-        
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="900">
-          <ContactSection />
         </div>
       </main>
       <Footer />
