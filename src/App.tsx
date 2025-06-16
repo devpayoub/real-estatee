@@ -11,7 +11,7 @@ import ProtectedRoute from "@/components/admin/ProtectedRoute";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Buy from "./pages/Buy";
+import Calcule from "./pages/Calcule";
 import PropertyDetails from "./pages/PropertyDetails";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -36,7 +36,7 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/buy" element={<Buy />} />
+                <Route path="/calcule" element={<Calcule />} />
                 <Route path="/property/:id" element={<PropertyDetails />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:id" element={<BlogPost />} />
