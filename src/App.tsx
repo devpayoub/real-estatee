@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,6 +14,10 @@ import Services from "./pages/Services";
 import Buy from "./pages/Buy";
 import Sell from "./pages/Sell";
 import Calcule from "./pages/Calcule";
+import EvaluationGratuite from "./pages/EvaluationGratuite";
+import AlerteImmobiliere from "./pages/AlerteImmobiliere";
+import CalculatriceDroitMutation from "./pages/CalculatriceDroitMutation";
+import CalculatriceHypothecaire from "./pages/CalculatriceHypothecaire";
 import PropertyDetails from "./pages/PropertyDetails";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
@@ -40,6 +45,10 @@ const App = () => (
                 <Route path="/buy" element={<Buy />} />
                 <Route path="/sell" element={<Sell />} />
                 <Route path="/calcule" element={<Calcule />} />
+                <Route path="/evaluation-gratuite" element={<EvaluationGratuite />} />
+                <Route path="/alerte-immobiliere" element={<AlerteImmobiliere />} />
+                <Route path="/calculatrice-droit-mutation" element={<CalculatriceDroitMutation />} />
+                <Route path="/calculatrice-hypothecaire" element={<CalculatriceHypothecaire />} />
                 <Route path="/property/:id" element={<PropertyDetails />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:id" element={<BlogPost />} />

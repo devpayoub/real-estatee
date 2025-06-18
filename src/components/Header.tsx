@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Menu, Search, X, ChevronDown, LogIn } from "lucide-react";
@@ -59,6 +60,31 @@ const Header = () => {
                     </Link>
                     <Link to="/buy" className="block p-2 hover:bg-realestate-lightred rounded-md">
                       Acheter une Maison
+                    </Link>
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="font-medium hover:text-realestate-red bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent p-0">
+                  Outils <ChevronDown className="h-4 w-4 ml-1" />
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid gap-3 p-4 w-[250px] bg-white">
+                    <Link to="/calcule" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                      Calcule
+                    </Link>
+                    <Link to="/evaluation-gratuite" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                      Évaluation Gratuite
+                    </Link>
+                    <Link to="/alerte-immobiliere" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                      Alerte Immobilière
+                    </Link>
+                    <Link to="/calculatrice-droit-mutation" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                      Calculatrice Droit de Mutation
+                    </Link>
+                    <Link to="/calculatrice-hypothecaire" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                      Calculatrice Hypothécaire
                     </Link>
                   </div>
                 </NavigationMenuContent>
