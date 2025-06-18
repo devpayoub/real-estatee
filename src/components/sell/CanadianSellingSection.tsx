@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { DollarSign, Eye, FileText, Users, Shield, Clock } from "lucide-react";
@@ -47,7 +46,7 @@ const CanadianSellingSection = () => {
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Pourquoi choisir un 
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
               {" "}courtier immobilier ?
             </span>
           </h2>
@@ -60,7 +59,7 @@ const CanadianSellingSection = () => {
           {benefits.map((benefit, index) => (
             <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-none shadow-lg h-full" data-aos="fade-up" data-aos-delay={index * 100}>
               <CardContent className="p-8 h-full flex flex-col">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <benefit.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-800">{benefit.title}</h3>
@@ -73,7 +72,7 @@ const CanadianSellingSection = () => {
         </div>
 
         <div className="mt-16 text-center" data-aos="fade-up" data-aos-delay="600">
-          <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
+          <div className="bg-gradient-to-r from-red-50 to-red-100 rounded-2xl p-8 border border-red-200">
             <h3 className="text-2xl font-bold mb-4 text-gray-800">Protection OACIQ</h3>
             <p className="text-gray-600 leading-relaxed max-w-4xl mx-auto">
               En cas de faute, l'Organisme d'autoréglementation du courtage immobilier du Québec (OACIQ) 

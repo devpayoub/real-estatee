@@ -1,4 +1,3 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Home, TrendingUp, Star } from "lucide-react";
@@ -6,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const SellHeroSection = () => {
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-br from-red-600 via-orange-600 to-yellow-600 overflow-hidden">
+    <section className="relative py-20 px-6 bg-gradient-to-br from-red-600 via-red-500 to-red-400 overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551038247-3d9af20df552?w=1200&h=800&fit=crop')] bg-cover bg-center"></div>
       </div>
@@ -20,7 +19,7 @@ const SellHeroSection = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
               Vendre sa propriété
               <br />
-              <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-200 to-red-100 bg-clip-text text-transparent">
                 avec un courtier
               </span>
             </h1>
