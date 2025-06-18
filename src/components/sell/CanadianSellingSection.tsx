@@ -1,102 +1,86 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, Camera, Users, Zap } from "lucide-react";
+import { DollarSign, Eye, FileText, Users, Shield, Clock } from "lucide-react";
 
 const CanadianSellingSection = () => {
+  const benefits = [
+    {
+      icon: DollarSign,
+      title: "Vendre au juste prix",
+      description: "Le courtier immobilier vous aide à établir le juste prix de votre propriété. Un prix trop élevé pourrait faire fuir certains acheteurs et vous faire perdre un temps précieux. D'autre part, un prix trop bas n'est pas avantageux pour vous."
+    },
+    {
+      icon: Eye,
+      title: "Maximiser la visibilité et l'achalandage",
+      description: "Le courtier immobilier s'y connaît en mise en marché de propriété. Qui plus est, le courtier immobilier dispose d'une banque d'acheteurs sérieux et préqualifiés qui n'attendent qu'une chose : trouver une propriété comme la vôtre!"
+    },
+    {
+      icon: FileText,
+      title: "Être accompagné à chaque étape",
+      description: "Le courtier immobilier vous accompagne à toutes les étapes de la transaction immobilière, de la mise en marché à l'acte de vente, en passant par la coordination des visites et toute la paperasse importante. On serait fou de s'en passer !"
+    },
+    {
+      icon: Users,
+      title: "Profiter d'un réseau clé en main",
+      description: "La réussite de votre transaction immobilière repose sur l'expertise de plusieurs professionnels : représentant hypothécaire, inspecteur en bâtiment, notaire, etc. Votre courtier immobilier saura vous recommander les meilleures personnes."
+    },
+    {
+      icon: Shield,
+      title: "Profiter d'une sécurité et de protections",
+      description: "Une transaction immobilière est l'une des décisions les plus importantes d'une vie. C'est pourquoi l'Organisme d'autoréglementation du courtage immobilier du Québec (OACIQ) s'assure que tous les courtiers immobiliers respectent la loi sur le courtage."
+    },
+    {
+      icon: Clock,
+      title: "Économiser temps et énergie",
+      description: "Vendre sa propriété est une expérience qui peut être accompagnée de beaucoup de stress. Confiez la gestion de la transaction à un courtier immobilier vous permet de ralentir, et de vous concentrer sur votre déménagement."
+    }
+  ];
+
   return (
     <section className="py-24 px-6 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16" data-aos="fade-up">
           <Badge className="mb-4 px-4 py-2 bg-red-600/10 text-red-600">
-            <BarChart3 className="w-4 h-4 mr-2" />
-            VENTE OPTIMISÉE
+            <Users className="w-4 h-4 mr-2" />
+            AVANTAGES DU COURTIER
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Notre Stratégie de 
+            Pourquoi choisir un 
             <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-              {" "}Vente Gagnante
+              {" "}courtier immobilier ?
             </span>
           </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Découvrez tous les avantages de faire appel à un professionnel pour vendre votre propriété
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div data-aos="fade-right">
-            <h3 className="text-3xl font-bold mb-6">Expertise du Marché Canadien</h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Le marché immobilier canadien évolue rapidement. Nos agents spécialisés analysent 
-              en temps réel les tendances de votre secteur pour déterminer le prix optimal et 
-              la stratégie de vente la plus efficace.
-            </p>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Nous maîtrisons parfaitement les spécificités réglementaires canadiennes, 
-              les attentes des acheteurs locaux, et les meilleures périodes pour vendre 
-              selon votre région (Ontario, Québec, Colombie-Britannique, etc.).
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <BarChart3 className="w-5 h-5 text-red-600" />
-                <span className="font-medium">Analyse comparative de marché (CMA)</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Zap className="w-5 h-5 text-red-600" />
-                <span className="font-medium">Vente en moyenne 15% plus rapide</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Users className="w-5 h-5 text-red-600" />
-                <span className="font-medium">Réseau de 10 000+ acheteurs qualifiés</span>
-              </div>
-            </div>
-          </div>
-          
-          <div data-aos="fade-left">
-            <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop" 
-              alt="Analyse immobilière" 
-              className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
-            />
-          </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="group hover:shadow-2xl transition-all duration-500 border-none shadow-lg h-full" data-aos="fade-up" data-aos-delay={index * 100}>
+              <CardContent className="p-8 h-full flex flex-col">
+                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <benefit.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gray-800">{benefit.title}</h3>
+                <p className="text-gray-600 leading-relaxed flex-1">
+                  {benefit.description}
+                </p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          <Card className="group hover:shadow-2xl transition-all duration-500 border-none shadow-lg" data-aos="fade-up" data-aos-delay="100">
-            <CardContent className="p-8 text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                <Camera className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Marketing Professionnel</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Photos HD professionnelles, visites virtuelles 3D, et campagnes publicitaires 
-                ciblées sur les principales plateformes canadiennes (MLS, Realtor.ca).
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-2xl transition-all duration-500 border-none shadow-lg" data-aos="fade-up" data-aos-delay="200">
-            <CardContent className="p-8 text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                <BarChart3 className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Prix Optimisé</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Évaluation précise basée sur l'analyse de milliers de transactions récentes 
-                dans votre secteur. Stratégie de prix pour maximiser votre profit.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group hover:shadow-2xl transition-all duration-500 border-none shadow-lg" data-aos="fade-up" data-aos-delay="300">
-            <CardContent className="p-8 text-center">
-              <div className="w-20 h-20 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
-                <Zap className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Vente Rapide</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Grâce à notre réseau et notre expertise, 85% de nos propriétés se vendent 
-                dans les 30 premiers jours, souvent avec des offres multiples.
-              </p>
-            </CardContent>
-          </Card>
+        <div className="mt-16 text-center" data-aos="fade-up" data-aos-delay="600">
+          <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-2xl p-8 border border-red-100">
+            <h3 className="text-2xl font-bold mb-4 text-gray-800">Protection OACIQ</h3>
+            <p className="text-gray-600 leading-relaxed max-w-4xl mx-auto">
+              En cas de faute, l'Organisme d'autoréglementation du courtage immobilier du Québec (OACIQ) 
+              est doté d'un comité de discipline efficace pour protéger vos intérêts et garantir 
+              le respect des normes professionnelles les plus strictes.
+            </p>
+          </div>
         </div>
       </div>
     </section>

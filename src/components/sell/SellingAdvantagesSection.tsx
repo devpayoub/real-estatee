@@ -1,29 +1,29 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Award, Clock, DollarSign } from "lucide-react";
+import { Award, Users, TrendingUp, Clock } from "lucide-react";
 
 const SellingAdvantagesSection = () => {
-  const advantages = [
+  const stats = [
     {
-      icon: DollarSign,
-      title: "Commission Compétitive",
-      description: "Structure de commission transparente et compétitive. Pas de frais cachés, tout est inclus dans notre service complet."
+      number: "15 jours",
+      label: "Délai moyen de vente",
+      description: "Grâce à notre réseau et expertise"
     },
     {
-      icon: Clock,
-      title: "Disponibilité 7j/7",
-      description: "Notre équipe est disponible tous les jours pour répondre aux questions des acheteurs potentiels et organiser les visites."
+      number: "98%",
+      label: "Taux de satisfaction",
+      description: "De nos clients vendeurs"
     },
     {
-      icon: Shield,
-      title: "Garantie de Service",
-      description: "Si vous n'êtes pas satisfait de notre service dans les 30 premiers jours, nous vous remboursons intégralement."
+      number: "500+",
+      label: "Propriétés vendues",
+      description: "Au cours de la dernière année"
     },
     {
-      icon: Award,
-      title: "Experts Certifiés",
-      description: "Tous nos agents sont certifiés et spécialisés dans le marché immobilier canadien avec une moyenne de 8 ans d'expérience."
+      number: "24/7",
+      label: "Support disponible",
+      description: "Pour toutes vos questions"
     }
   ];
 
@@ -33,16 +33,16 @@ const SellingAdvantagesSection = () => {
         <div className="text-center mb-16" data-aos="fade-up">
           <Badge className="mb-4 px-4 py-2 bg-orange-600/10 text-orange-600">
             <Award className="w-4 h-4 mr-2" />
-            AVANTAGES EXCLUSIFS
+            NOTRE PERFORMANCE
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Pourquoi Nous Choisir
+            Des résultats qui
             <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-              {" "}Pour Vendre ?
+              {" "}parlent d'eux-mêmes
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Des avantages uniques qui font la différence pour maximiser la valeur de votre bien
+            Notre expertise et notre réseau professionnel garantissent des résultats exceptionnels
           </p>
         </div>
 
@@ -50,46 +50,50 @@ const SellingAdvantagesSection = () => {
           <div data-aos="fade-right">
             <img 
               src="https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=600&h=400&fit=crop" 
-              alt="Équipe d'experts immobiliers" 
+              alt="Équipe de courtiers immobiliers professionnels" 
               className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
             />
           </div>
           
           <div data-aos="fade-left">
-            <h3 className="text-3xl font-bold mb-6">Une Équipe d'Experts à Votre Service</h3>
+            <h3 className="text-3xl font-bold mb-6">Une équipe de professionnels à votre service</h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Notre équipe multidisciplinaire comprend des agents immobiliers certifiés, 
-              des photographes professionnels, des spécialistes marketing digital, 
-              et des conseillers juridiques spécialisés en droit immobilier canadien.
+              Notre équipe de courtiers immobiliers certifiés met son expertise au service de votre projet. 
+              Nous travaillons en collaboration avec un réseau de professionnels de confiance pour 
+              vous offrir un service complet et personnalisé.
             </p>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              Chaque membre de notre équipe travaille en synergie pour que votre vente 
-              se déroule dans les meilleures conditions. Du staging de votre propriété 
-              à la signature finale, nous gérons chaque détail.
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              De l'évaluation initiale à la signature de l'acte de vente, nous gérons chaque aspect 
+              de votre transaction avec professionnalisme et attention aux détails.
             </p>
-            <div className="grid grid-cols-2 gap-4 text-center">
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-2xl font-bold text-orange-600">500+</p>
-                <p className="text-sm text-gray-600">Ventes réalisées</p>
+            
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <Users className="w-5 h-5 text-red-600" />
+                <span className="font-medium">Réseau de professionnels qualifiés</span>
               </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <p className="text-2xl font-bold text-orange-600">24j</p>
-                <p className="text-sm text-gray-600">Délai moyen de vente</p>
+              <div className="flex items-center gap-3">
+                <TrendingUp className="w-5 h-5 text-red-600" />
+                <span className="font-medium">Stratégies de vente personnalisées</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <Clock className="w-5 h-5 text-red-600" />
+                <span className="font-medium">Suivi complet de A à Z</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {advantages.map((advantage, index) => (
-            <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-none shadow-lg" data-aos="fade-up" data-aos-delay={index * 100}>
-              <CardContent className="p-6 text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                  <advantage.icon className="w-8 h-8 text-white" />
+          {stats.map((stat, index) => (
+            <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-none shadow-lg text-center" data-aos="fade-up" data-aos-delay={index * 100}>
+              <CardContent className="p-8">
+                <div className="text-4xl font-bold text-red-600 mb-2 group-hover:scale-110 transition-transform">
+                  {stat.number}
                 </div>
-                <h3 className="text-lg font-bold mb-3">{advantage.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {advantage.description}
+                <h3 className="text-lg font-semibold mb-2 text-gray-800">{stat.label}</h3>
+                <p className="text-gray-600 text-sm">
+                  {stat.description}
                 </p>
               </CardContent>
             </Card>
