@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const BuyHeroSection = () => {
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-br from-green-600 via-blue-600 to-purple-600 overflow-hidden">
+    <section className="relative py-20 px-6 bg-gradient-to-br from-realestate-blue via-realestate-blue to-realestate-red overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=1200&h=800&fit=crop')] bg-cover bg-center"></div>
       </div>
@@ -30,7 +30,7 @@ const BuyHeroSection = () => {
               nous vous accompagnons dans l'acquisition de votre propriété idéale dans les meilleures conditions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-white text-green-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold shadow-xl">
+              <Button className="bg-white text-realestate-blue hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold shadow-xl">
                 <MapPin className="mr-2 h-5 w-5" />
                 Explorer les Propriétés
               </Button>

@@ -31,13 +31,13 @@ const BuyingProcessSection = () => {
     <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16" data-aos="fade-up">
-          <Badge className="mb-4 px-4 py-2 bg-blue-600/10 text-blue-600">
+          <Badge className="mb-4 px-4 py-2 bg-realestate-blue/10 text-realestate-blue">
             <FileText className="w-4 h-4 mr-2" />
             PROCESSUS D'ACHAT
           </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Notre Processus
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-realestate-blue to-realestate-red bg-clip-text text-transparent">
               {" "}Simplifié
             </span>
           </h2>
@@ -49,11 +49,11 @@ const BuyingProcessSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-500 border-none shadow-lg relative" data-aos="fade-up" data-aos-delay={index * 100}>
-              <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white font-bold z-10">
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-r from-realestate-blue to-realestate-red rounded-full flex items-center justify-center text-white font-bold z-10">
                 {index + 1}
               </div>
               <CardContent className="p-8 text-center pt-12">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 bg-gradient-to-r from-realestate-blue to-realestate-red rounded-full flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                   <step.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-4">{step.title}</h3>
