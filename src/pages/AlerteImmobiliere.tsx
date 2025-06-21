@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -186,7 +185,7 @@ const AlerteImmobiliere = () => {
                           <SelectValue placeholder="Aucune préférence" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="">Aucune préférence</SelectItem>
+                          <SelectItem value="any">Aucune préférence</SelectItem>
                           <SelectItem value="1">1+ chambre</SelectItem>
                           <SelectItem value="2">2+ chambres</SelectItem>
                           <SelectItem value="3">3+ chambres</SelectItem>
