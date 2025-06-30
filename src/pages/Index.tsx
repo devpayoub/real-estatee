@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import Footer from "@/components/Footer";
@@ -6,6 +5,10 @@ import FeaturedPropertiesSection from "@/components/sections/FeaturedPropertiesS
 import TeamSection from "@/components/sections/TeamSection";
 import ServicesCardsSection from "@/components/sections/ServicesCardsSection";
 import { useEffect } from "react";
+import PartenLogos from "@/components/PartenLogos";
+import SellSection from "@/components/SellSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import BenefitsSection from "@/components/BenefitsSection";
 
 const Index = () => {
   // Simulate scroll animations effect
@@ -50,15 +53,19 @@ const Index = () => {
         <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="100">
           <FeaturedPropertiesSection />
         </div>
+
         
-        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="200">
-          <TeamSection />
+        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="300">
+          <BenefitsSection />
+        </div>
+        <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="300">
+          <PartenLogos />
         </div>
 
         <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="300">
           <ServicesCardsSection />
         </div>
-      </main>
+              </main>
       <Footer />
     </div>
   );

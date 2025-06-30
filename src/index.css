@@ -93,6 +93,16 @@
   }
 }
 
+@keyframes slide-x {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-66.6666%);
+  }
+}
+
+
 @layer base {
   * {
     @apply border-border;

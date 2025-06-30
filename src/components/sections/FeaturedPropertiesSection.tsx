@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { MapPin, Bed, Bath, Square, Eye, Heart } from "lucide-react";
 

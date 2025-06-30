@@ -1,117 +1,83 @@
-
 import { Property } from "@/types/property";
 
-export type PropertyType = "buy" | "rent";
+export type PropertyType = 'rent' | 'buy';
 
+export interface Property {
+  id: string;
+  title: string;
+  description: string;
+  type: PropertyType;
+  location: string;
+  bedrooms: number;
+  bathrooms: number;
+  area: number;
+  image: string;
+  features: string[];
+  amenities: string[];
+}
+
+// Sample properties data
 export const properties: Property[] = [
   {
     id: "1",
-    title: "Maison Moderne à Toronto",
-    description: "Belle maison familiale avec jardin privé dans un quartier résidentiel calme. Architecture contemporaine avec finitions haut de gamme.",
-    location: "Toronto, Ontario",
-    bedrooms: 4,
-    bathrooms: 3,
-    area: 250,
+    title: "Villa Moderne avec Piscine",
+    description: "Magnifique villa moderne avec piscine, jardin et vue imprenable. Parfaite pour une famille à la recherche de confort et de luxe.",
     type: "buy",
-    price: 850000,
-    images: [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    ],
-    featured: true
-  },
-  {
-    id: "2", 
-    title: "Appartement de Luxe à Vancouver",
-    description: "Appartement spacieux avec vue sur les montagnes. Cuisine moderne équipée et balcon panoramique.",
-    location: "Vancouver, Colombie-Britannique",
-    bedrooms: 2,
-    bathrooms: 2,
-    area: 120,
-    type: "rent",
-    price: 3200,
-    images: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    ],
-    featured: true
-  },
-  {
-    id: "3",
-    title: "Condo Moderne à Montréal",
-    description: "Condo neuf dans le centre-ville avec tous les services à proximité. Parfait pour les professionnels.",
-    location: "Montréal, Québec",
-    bedrooms: 1,
-    bathrooms: 1,
-    area: 75,
-    type: "rent",
-    price: 2100,
-    images: [
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    ]
-  },
-  {
-    id: "4",
-    title: "Villa Familiale à Calgary",
-    description: "Grande maison familiale avec garage double et grand terrain. Idéale pour les familles nombreuses.",
-    location: "Calgary, Alberta",
+    location: "Paris 16ème",
     bedrooms: 5,
     bathrooms: 4,
-    area: 320,
-    type: "buy",
-    price: 720000,
-    images: [
-      "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    ]
+    area: 350,
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1000&auto=format&fit=crop",
+    features: ["Piscine", "Jardin", "Garage", "Terrasse"],
+    amenities: ["Climatisation", "Chauffage", "Système de Sécurité", "Domotique"]
   },
   {
-    id: "5",
-    title: "Loft Industriel à Ottawa",
-    description: "Loft au design industriel dans un ancien entrepôt rénové. Espace ouvert avec hauts plafonds.",
-    location: "Ottawa, Ontario",
+    id: "2",
+    title: "Appartement en Centre-Ville",
+    description: "Appartement moderne en plein cœur de la ville. Proche des restaurants, commerces et transports en commun.",
+    type: "rent",
+    location: "Lyon Centre",
     bedrooms: 2,
-    bathrooms: 2,
-    area: 140,
-    type: "buy",
-    price: 520000,
-    images: [
-      "https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-    ]
+    bathrooms: 1,
+    area: 75,
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1000&auto=format&fit=crop",
+    features: ["Balcon", "Ascenseur", "Cave"],
+    amenities: ["Climatisation", "Chauffage", "Lave-linge"]
   }
 ];
 
-// Filter properties by type
-export const getPropertiesByType = (type: PropertyType): Property[] => {
-  return properties.filter(property => property.type === type);
-};
-
-// Get property by ID
-export const getPropertyById = (id: string): Property | undefined => {
-  return properties.find(property => property.id === id);
-};
-
-// CRUD operations for admin
 export const addProperty = (property: Omit<Property, 'id'>): Property => {
   const newProperty = {
     ...property,
-    id: Math.random().toString(36).substr(2, 9)
+    id: Date.now().toString()
   };
   properties.push(newProperty);
   return newProperty;
 };
 
-export const updateProperty = (id: string, updates: Partial<Property>): Property | null => {
-  const index = properties.findIndex(property => property.id === id);
-  if (index === -1) return null;
-  
-  properties[index] = { ...properties[index], ...updates };
-  return properties[index];
+export const updateProperty = (id: string, property: Omit<Property, 'id'>): Property | null => {
+  const index = properties.findIndex(p => p.id === id);
+  if (index !== -1) {
+    const updatedProperty = { ...property, id };
+    properties[index] = updatedProperty;
+    return updatedProperty;
+  }
+  return null;
 };
 
 export const deleteProperty = (id: string): boolean => {
-  const index = properties.findIndex(property => property.id === id);
-  if (index === -1) return false;
-  
-  properties.splice(index, 1);
-  return true;
+  const index = properties.findIndex(p => p.id === id);
+  if (index !== -1) {
+    properties.splice(index, 1);
+    return true;
+  }
+  return false;
 };
 
-export { type Property } from "@/types/property";
+export const getPropertiesByType = (type: PropertyType): Property[] => {
+  return properties.filter(property => property.type === type);
+};
+
+export const getPropertyById = (id: string): Property | undefined => {
+  return properties.find(property => property.id === id);
+};

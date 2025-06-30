@@ -15,58 +15,58 @@ import {
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Thompson",
+    name: "Kaouthar Mahou",
     role: "Home Buyer",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop",
-    quote: "Ozalams helped me find my dream home in just two weeks! Their agent was extremely knowledgeable and understood exactly what I was looking for.",
+    quote: "J'ai eu le plaisir de travailler avec Mr. Kais khayati et je ne peux que recommander ses services. Sa patience, son écoute et son professionnalisme ont rendu toute l'expérience agréable et fluide. Il a su parfaitement comprendre mes attentes et m'orienter vers les meilleures options. Toujours disponible, il a su me guider à chaque étape. Un grand merci pour votre excellent accompagnement !",
     rating: 5
   },
   {
     id: 2,
-    name: "Michael Harris",
+    name: "Bensalem Al",
     role: "Property Seller",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
-    quote: "I was able to sell my property above asking price thanks to the excellent marketing strategy provided by the Ozalams team. Highly recommended!",
+    quote: "Mr Kais est quelqu'un très aimable, courtois et soucieux des intérêts de ses clients. N'hésite pas à présenter des conseils et explique les différents scénarios à ses clients.",
     rating: 5
   },
   {
     id: 3,
-    name: "Jennifer Rodriguez",
+    name: "Lassaad Toukabri",
     role: "First-time Buyer",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop",
-    quote: "As a first-time buyer, I was nervous about the process, but my agent walked me through every step with patience and expertise.",
+    quote: "Kais est un vrai professionnel avec son excellent travail,service,ses conseils et sa disponibilité.Il a su nous mettre en confiance et nous a très bien conseillé, il a joué un rôle important dans les négociations avec le courtier vendeur.",
     rating: 5
   },
   {
     id: 4,
-    name: "David Chen",
+    name: "Marie Reine Fatal",
     role: "Investor",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop",
-    quote: "I've worked with many real estate companies for my investments, but Ozalams stands out for their professionalism and market knowledge.",
-    rating: 4
+    quote: "Un très bon courtier immobilier, respectueux, patient, courtois, belle personnalité. J’ai eu un excellent service. Je le recommande fortement.",
+    rating: 5
   },
   {
     id: 5,
-    name: "Emily Wilson",
+    name: "Camélia Ezzina",
     role: "Home Seller",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=150&auto=format&fit=crop",
-    quote: "The selling process was seamless and stress-free. My agent handled everything professionally and kept me informed throughout.",
+    quote: "Je remercie infiniment Kais Khayati pour son dévouement et son précieux accompagnement,Merci de nous accompagner dans la réalisation de notre projet de Vie souhaité.Je te recommande vivement.",
     rating: 5
   },
   {
     id: 6,
-    name: "Robert Johnson",
+    name: "Taranpreet Singh",
     role: "Repeat Client",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop",
-    quote: "This is my third transaction with Ozalams. Their consistent service excellence keeps me coming back whenever I need real estate assistance.",
+    quote: "It was pleasure working with Kais. Kais was extremely patient with our questions. He shared great insights with us regarding the market and took personal interest in getting the house closed for us at the price well below the listed price.",
     rating: 5
   },
   {
     id: 7,
-    name: "Lisa Martinez",
+    name: "Anka Paradis",
     role: "Commercial Client",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop",
-    quote: "Finding the perfect commercial space for my business was challenging until I contacted Ozalams. They found exactly what I needed within my budget.",
+    quote: "Kaïs est très gentil. Le service a été superbe avec lui et facile! Il est très flexible et écoute très bien nos recommandations. Il est bilingue et je le recommande. Lorsqu’ont va acheter notre maison ses sur que je vais l’appeler. Un gros merci encore pour votre service imperméable!!.",
     rating: 5
   }
 ];

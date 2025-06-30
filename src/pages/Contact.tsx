@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const Contact = () => {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -26,24 +29,62 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form data submitted:", formData);
-    setFormSubmitted(true);
+    setIsSubmitting(true);
     
-    // Reset form after submission
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: ""
-    });
-    
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 5000);
+    try {
+      // Insert data into Supabase
+      const { data, error } = await supabase
+        .from('contact_messages')
+        .insert([
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+            created_at: new Date().toISOString()
+          }
+        ])
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      console.log("Contact form submitted:", data);
+      setFormSubmitted(true);
+      
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: ""
+      });
+      
+      toast({
+        title: "Message envoyé",
+        description: "Votre message a été envoyé avec succès. Nous vous répondrons sous peu.",
+      });
+      
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi de votre message. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -79,6 +120,7 @@ const Contact = () => {
                         placeholder="Jean Dupont"
                         required
                         className="w-full border-realestate-red/30 focus:border-realestate-red"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -92,6 +134,7 @@ const Contact = () => {
                         placeholder="jean@exemple.com"
                         required
                         className="w-full border-realestate-red/30 focus:border-realestate-red"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -106,6 +149,7 @@ const Contact = () => {
                         onChange={handleChange}
                         placeholder="(+33) 01 23 45 67 89"
                         className="w-full border-realestate-red/30 focus:border-realestate-red"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -118,6 +162,7 @@ const Contact = () => {
                         placeholder="Renseignements sur une propriété"
                         required
                         className="w-full border-realestate-red/30 focus:border-realestate-red"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -132,6 +177,7 @@ const Contact = () => {
                       placeholder="Je suis intéressé à en savoir plus sur..."
                       required
                       className="w-full min-h-[150px] border-realestate-red/30 focus:border-realestate-red"
+                      disabled={isSubmitting}
                     />
                   </div>
                   
@@ -141,8 +187,13 @@ const Contact = () => {
                     </div>
                   )}
                   
-                  <Button type="submit" className="bg-realestate-red hover:bg-realestate-darkred rounded-full">
-                    Envoyer Message <Send size={16} className="ml-2" />
+                  <Button 
+                    type="submit" 
+                    className="bg-realestate-red hover:bg-realestate-darkred rounded-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Envoi en cours..." : "Envoyer Message"} 
+                    <Send size={16} className="ml-2" />
                   </Button>
                 </form>
               </div>
@@ -159,7 +210,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Adresse du Bureau</h3>
-                      <p className="text-gray-600">123 Rue Principale, Paris, 75001</p>
+                      <p className="text-gray-600">Longueuil, QC, Canada, Quebec</p>
                     </div>
                   </div>
                   
@@ -169,8 +220,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Numéro de Téléphone</h3>
-                      <p className="text-gray-600">+33 01 23 45 67 89</p>
-                      <p className="text-gray-600">+33 01 23 45 67 90</p>
+                      <p className="text-gray-600">+1 514-659-8664</p>
                     </div>
                   </div>
                   
@@ -180,8 +230,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg">Adresse Email</h3>
-                      <p className="text-gray-600">info@kaiskhayati.com</p>
-                      <p className="text-gray-600">support@kaiskhayati.com</p>
+                      <p className="text-gray-600">Khayati.kaiss@gmail.com</p>
                     </div>
                   </div>
                   
@@ -200,8 +249,15 @@ const Contact = () => {
                 
                 <div className="mt-8">
                   <h3 className="font-semibold text-lg mb-4">Trouvez-Nous sur la Carte</h3>
-                  <div className="bg-white h-[200px] rounded-lg flex items-center justify-center">
-                    <p className="text-gray-600">Emplacement de la carte - serait remplacé par une vraie intégration de carte</p>
+                  <div className="rounded-lg overflow-hidden">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.755030675505!2d-73.4961578!3d45.4983485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc90522e1921549%3A0x13da86c1e722f387!2sKais%20khayati!5e0!3m2!1sfr!2sca!4v1680200115123!5m2!1sfr!2sca"
+                      width="100%"
+                      height="200"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    ></iframe>
                   </div>
                 </div>
               </div>
@@ -216,3 +272,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

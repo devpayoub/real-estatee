@@ -25,6 +25,23 @@ export function AppSidebar() {
       icon: FileText,
       url: "/admin/articles",
     },
+    {
+      title: "View Evaluations Form",
+      icon: FileText,
+      url: "/admin/evaluation-form",
+    },
+    {
+      title: "View Alerte Immobilière",
+      icon: FileText,
+      url: "/admin/alert-form",
+    },
+    {
+      title: "View Contact Mails",
+      icon: FileText,
+      url: "/admin/contact-mails",
+    },
+
+
   ];
 
   return (

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +50,7 @@ const TeamSection = () => {
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80')`
+                  backgroundImage: `url('/lovable-uploads/face.jpg')`
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -106,32 +105,7 @@ const TeamSection = () => {
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-16 grid md:grid-cols-3 gap-6">
-          <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
-            <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-              <Star className="w-6 h-6 text-white" />
-            </div>
-            <h4 className="font-bold text-gray-900 mb-2">Certification OACIQ</h4>
-            <p className="text-gray-600 text-sm">Courtier certifié et reconnu</p>
-          </div>
-          
-          <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-              <Star className="w-6 h-6 text-white" />
-            </div>
-            <h4 className="font-bold text-gray-900 mb-2">Top 5% au Canada</h4>
-            <p className="text-gray-600 text-sm">Performance exceptionnelle</p>
-          </div>
-          
-          <div className="text-center p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200">
-            <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-              <Star className="w-6 h-6 text-white" />
-            </div>
-            <h4 className="font-bold text-gray-900 mb-2">100% Satisfaction</h4>
-            <p className="text-gray-600 text-sm">Clients recommandent nos services</p>
-          </div>
-        </div>
+    
       </div>
     </section>
   );

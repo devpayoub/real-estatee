@@ -79,6 +79,20 @@ const AdminBlogForm = ({ post, onClose }: AdminBlogFormProps) => {
       });
     }
   };
+  
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData({
+          ...formData,
+          image: reader.result as string,
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
@@ -156,22 +170,26 @@ const AdminBlogForm = ({ post, onClose }: AdminBlogFormProps) => {
               required
             />
           </div>
+          </div>
           
           <div className="space-y-2">
-            <label htmlFor="image" className="text-sm font-medium">
-              URL de l'image
-            </label>
-            <Input
-              id="image"
-              name="image"
-              value={formData.image}
-              onChange={handleChange}
-              required
-              placeholder="https://example.com/image.jpg"
-            />
-          </div>
-        </div>
-        
+  <label htmlFor="image-upload" className="text-sm font-medium">
+    Upload Image
+  </label>
+  <input
+    type="file"
+    id="image-upload"
+    name="image"
+    accept="image/*"
+    onChange={handleFileChange}
+    className="block w-full text-sm text-gray-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-md file:border-0
+      file:text-sm file:font-semibold
+      file:bg-blue-50 file:text-blue-700
+      hover:file:bg-blue-100"
+  />
+</div>
         <div className="flex justify-end gap-3">
           <Button
             type="button"
@@ -189,7 +207,8 @@ const AdminBlogForm = ({ post, onClose }: AdminBlogFormProps) => {
         </div>
       </form>
     </div>
-  );
+    
+    );
 };
 
 export default AdminBlogForm;

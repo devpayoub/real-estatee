@@ -14,7 +14,7 @@ const PropertyContactCard = () => {
       <Separator className="my-4" />
       <div className="flex items-center gap-4 mb-4">
         <img 
-          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" 
+          src="../../lovable-uploads/face.jpg" 
           alt="Agent" 
           className="w-16 h-16 rounded-full object-cover"
         />
@@ -27,7 +27,7 @@ const PropertyContactCard = () => {
       <div className="space-y-4 mb-6">
         <div className="flex items-center gap-2">
           <MapPin size={16} className="text-realestate-red" />
-          <span className="text-sm">123 Rue Principale, Paris, 75001</span>
+          <span className="text-sm">Longueuil, QC, Canada, Quebec</span>
         </div>
       </div>
       

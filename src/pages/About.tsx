@@ -47,7 +47,7 @@ const About = () => {
                   <MapPin size={20} className="text-realestate-red" />
                   <div>
                     <p className="font-medium">Zones d'expertise</p>
-                    <p className="text-sm text-gray-600">Paris, Lyon, Régions Côtières</p>
+                    <p className="text-sm text-gray-600">Longueuil, QC, Canada, Quebec</p>
                   </div>
                 </div>
                 
@@ -88,7 +88,7 @@ const About = () => {
             <div className="order-1 md:order-2" data-aos="fade-left" data-aos-delay="100">
               <div className="relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1000&auto=format&fit=crop" 
+                  src="../../lovable-uploads/face.jpg" 
                   alt="Agent immobilier professionnel" 
                   className="w-full rounded-lg shadow-lg"
                 />

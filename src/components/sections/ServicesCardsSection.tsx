@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Home, TrendingUp, Users, ArrowRight, Star, CheckCircle } from "lucide-react";
 
@@ -12,7 +11,8 @@ const ServicesCardsSection = () => {
       features: ["Recherche personnalisée", "Négociation experte", "Accompagnement complet"],
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-500",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      url:"/buy?type=buy"
     },
     {
       icon: TrendingUp,
@@ -22,7 +22,8 @@ const ServicesCardsSection = () => {
       features: ["Évaluation précise", "Marketing digital", "Vente rapide"],
       color: "from-red-500 to-red-600",
       bgColor: "bg-red-500",
-      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      url:"/buy?type=rent"
     },
     {
       icon: Users,
@@ -30,9 +31,11 @@ const ServicesCardsSection = () => {
       subtitle: "Expertise sur mesure",
       description: "Bénéficiez de conseils personnalisés pour optimiser vos investissements immobiliers au Canada.",
       features: ["Analyse de marché", "Stratégie d'investissement", "Conseils juridiques"],
-      color: "from-green-500 to-green-600",
-      bgColor: "bg-green-500",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+      color: "from-blue-500 to-blue-600",
+      bgColor: "bg-blue-500",
+      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      url:"/contact"
+
     }
   ];
 
@@ -121,10 +124,13 @@ const ServicesCardsSection = () => {
                   </div>
                   
                   {/* CTA Button */}
+                  <a href={service.url}>
+
                   <Button className={`w-full ${service.bgColor} hover:opacity-90 text-white rounded-full py-3 group-hover:shadow-lg transition-all`}>
                     <span>Découvrir</span>
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
+                  </a>
                 </div>
 
                 {/* Hover Effect */}

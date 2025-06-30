@@ -1,70 +1,103 @@
 
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const BenefitsSection = () => {
+
+  const navigate = useNavigate();
+
+  const handleAboutClick = () => {
+    navigate('/about');
+  };
+
   return (
-    <div className="w-full py-16 px-6 md:px-12 bg-white">
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
-        <div className="flex-1">
-          <img 
-            src="https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
-            alt="Maison moderne" 
-            className="rounded-2xl shadow-lg w-full object-cover h-[450px]"
-          />
-        </div>
-        
-        <div className="flex-1">
-          <h2 className="text-3xl font-bold">
-            Nous Aidons les Gens à Trouver <br />
-            <span className="text-realestate-blue">des Maisons Parfaites</span>
+    <section className="relative py-24 px-6 overflow-hidden from-gray-50 via-white to-gray-100">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, #003DA5 2px, transparent 2px),
+                        radial-gradient(circle at 75% 75%, #e4002b 2px, transparent 2px)`,
+            backgroundSize: '60px 60px'
+          }}
+        />
+      </div>
+
+
+      {/* Decorative Elements */}
+      <div className="absolute top-10 left-10 w-24 h-24 bg-gradient-to-br from-realestate-blue/10 to-realestate-red/10 rounded-full animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-gradient-to-br from-realestate-red/10 to-realestate-blue/10 rounded-full animate-pulse delay-1000 pointer-events-none"></div>
+
+      <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-realestate-blue/10 to-realestate-red/10 rounded-full border border-realestate-blue/20 mb-6">
+            <Star className="w-4 h-4 text-realestate-blue" />
+            <span className="text-realestate-blue font-semibold text-sm">RENCONTREZ NOTRE ÉQUIPE</span>
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            Notre
+            <span className="bg-gradient-to-r from-realestate-blue to-realestate-red bg-clip-text text-transparent">
+              {" "}Expert
+            </span>
           </h2>
-          
-          <p className="mt-4 text-gray-600 max-w-[500px]">
+        </div>
+
+        <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-lg p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 relative z-10">
+        {/* Image with Hover Effect */}
+        <div className="flex-1 group relative w-full max-w-md mx-auto">
+          <img
+            src="/lovable-uploads/face.jpg"
+            alt="Kais Khayati - Courtier"
+            className="w-full h-[450px] object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-realestate-blue/5 to-realestate-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl" />
+        </div>
+
+        {/* Info Section */}
+        <div className="flex-1 text-center lg:text-left">
+          <h3 className="text-3xl font-bold">
+            Kais Khayati
+            <br />
+            <span className="text-realestate-blue text-xl font-medium">
+              Courtier Principal & Fondateur
+            </span>
+          </h3>
+
+          <p className="mt-4 text-gray-600 max-w-lg mx-auto lg:mx-0">
             Nos agents expérimentés et nos outils d'analyse de marché vous aident à trouver la propriété idéale ou à vendre votre maison au meilleur prix.
           </p>
-          
-          <div className="mt-10 space-y-8">
-            <div className="flex gap-4">
-              <div className="h-14 w-14 rounded-full bg-realestate-lightblue flex items-center justify-center flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-                  <line x1="4" x2="4" y1="22" y2="15"></line>
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Accès aux Annonces Exclusives</h3>
-                <p className="text-gray-600 mt-2">
-                  Obtenez un accès prioritaire aux propriétés nouvellement listées avant qu'elles ne soient sur le marché. Notre réseau vous donne un avantage concurrentiel.
-                </p>
-              </div>
+
+          {/* Badge */}
+          <div className="mt-4 inline-block bg-white/80 backdrop-blur-md rounded-full px-4 py-1 text-sm font-semibold text-realestate-blue border border-realestate-blue/10 shadow-sm">
+            Expert Certifié
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-6 mt-8 max-w-xs mx-auto lg:mx-0">
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-realestate-blue/5 to-realestate-blue/10 text-center">
+              <div className="text-3xl font-bold text-realestate-blue">15+</div>
+              <div className="text-sm text-gray-600">Années d'expérience</div>
             </div>
-            
-            <div className="flex gap-4">
-              <div className="h-14 w-14 rounded-full bg-realestate-lightblue flex items-center justify-center flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-realestate-blue">
-                  <path d="m7.5 4.27 9 5.15"></path>
-                  <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-                  <path d="m3.3 7 8.7 5 8.7-5"></path>
-                  <path d="M12 22V12"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 className="font-semibold text-lg">Évaluation Immobilière Experte</h3>
-                <p className="text-gray-600 mt-2">
-                  Nos algorithmes avancés et nos agents expérimentés fournissent des évaluations immobilières précises pour maximiser votre investissement.
-                </p>
-              </div>
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-realestate-red/5 to-realestate-red/10 text-center">
+              <div className="text-3xl font-bold text-realestate-red">500+</div>
+              <div className="text-sm text-gray-600">Clients satisfaits</div>
             </div>
-            
-            <div className="mt-8">
-              <Button className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full px-8">
-                En Savoir Plus
-              </Button>
-            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="mt-10">
+            <Button
+              onClick={handleAboutClick}
+              className="bg-realestate-blue hover:bg-realestate-darkblue text-white rounded-full px-8 py-3 flex items-center mx-auto lg:mx-0"
+            >
+              En Savoir Plus
+              <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

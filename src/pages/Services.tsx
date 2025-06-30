@@ -1,147 +1,78 @@
 
-import React, { useState, useEffect } from "react";
-import ServiceTabs from "@/components/services/ServiceTabs";
-import PropertiesGrid from "@/components/properties/PropertiesGrid";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getPropertiesByType, PropertyType } from "@/data/properties";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { PropertyType, getPropertiesByType } from "@/data/properties";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { DisplayProperty } from "@/types/property";
-import { Button } from "@/components/ui/button";
-import { Search, Filter, MapPin, Home } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import ServiceHeader from "@/components/services/ServiceHeader";
+import ServiceTabs from "@/components/services/ServiceTabs";
+import RentSection from "@/components/services/RentSection";
+import BuySection from "@/components/services/BuySection";
 
 const Services = () => {
-  const [displayProperties, setDisplayProperties] = useState<DisplayProperty[]>([]);
-  const [activeTab, setActiveTab] = useState<PropertyType>("buy");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredProperties, setFilteredProperties] = useState<DisplayProperty[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState<PropertyType>("rent");
+  const [properties, setProperties] = useState<DisplayProperty[]>([]);
 
   useEffect(() => {
+    const typeParam = searchParams.get("type") as PropertyType;
+    if (typeParam && (typeParam === "rent" || typeParam === "buy")) {
+      setActiveTab(typeParam);
+    }
+    
     const filteredProperties = getPropertiesByType(activeTab);
     
-    const convertedProperties: DisplayProperty[] = filteredProperties.map(property => ({
-      ...property,
-      price: property.price
+    // Convert properties to DisplayProperty type with contact text instead of price
+    const displayProperties = filteredProperties.map(prop => ({
+      ...prop,
+      price: "Contactez-nous pour le prix"
     }));
     
-    setDisplayProperties(convertedProperties);
-    setFilteredProperties(convertedProperties);
-  }, [activeTab]);
-
-  useEffect(() => {
-    if (searchTerm) {
-      const filtered = displayProperties.filter(property =>
-        property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        property.location.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-      setFilteredProperties(filtered);
-    } else {
-      setFilteredProperties(displayProperties);
+    setProperties(displayProperties);
+    
+    // Initialize AOS animations
+    if (typeof window !== 'undefined' && window.AOS) {
+      window.AOS.refresh();
     }
-  }, [searchTerm, displayProperties]);
+  }, [searchParams, activeTab]);
 
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab as PropertyType);
+  const handleTabChange = (value: string) => {
+    setActiveTab(value as PropertyType);
+    setSearchParams({ type: value });
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-white flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
       <Header />
-      <main className="flex-1 pt-16">
-        {/* Hero Section */}
-        <section className="relative py-20 px-6 bg-gradient-to-r from-realestate-blue to-realestate-red overflow-hidden">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop')] bg-cover bg-center"></div>
-          </div>
-          <div className="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              Nos Services Immobiliers
-            </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Découvrez nos services complets pour l'achat et la vente de propriétés au Canada
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                onClick={() => setActiveTab("buy")}
-                className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  activeTab === "buy" 
-                    ? "bg-white text-realestate-blue shadow-lg" 
-                    : "bg-white/20 text-white hover:bg-white/30"
-                }`}
-              >
-                <Home className="mr-2 h-5 w-5" />
-                Acheter
-              </Button>
-              <Button 
-                onClick={() => setActiveTab("rent")}
-                className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  activeTab === "rent" 
-                    ? "bg-white text-realestate-red shadow-lg" 
-                    : "bg-white/20 text-white hover:bg-white/30"
-                }`}
-              >
-                <MapPin className="mr-2 h-5 w-5" />
-                Vendre
-              </Button>
-            </div>
-          </div>
+      
+      <main className="flex-1 pt-24">
+        <section className="container mx-auto px-6 py-12">
+          <ServiceHeader 
+            title="Nos Services" 
+            description="Que vous cherchiez à louer ou à acheter, nous avons les options de propriétés parfaites pour vous."
+          />
+          
+          <Tabs defaultValue={activeTab} onValueChange={handleTabChange} className="w-full">
+            <ServiceTabs activeTab={activeTab} onTabChange={handleTabChange} />
+            
+            <TabsContent value="rent" className="mt-0">
+              <RentSection properties={properties} />
+            </TabsContent>
+            
+            <TabsContent value="buy" className="mt-0">
+              <BuySection properties={properties} />
+            </TabsContent>
+          </Tabs>
         </section>
-
-        {/* Search and Filter Section */}
-        <section className="py-8 px-6 bg-white border-b" data-aos="fade-up">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-              <div className="flex-1 max-w-md">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                  <Input
-                    type="text"
-                    placeholder="Rechercher par titre ou localisation..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 pr-4 py-3 border-gray-300 focus:border-realestate-blue focus:ring-realestate-blue/20 rounded-full"
-                  />
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <Button variant="outline" className="border-realestate-blue text-realestate-blue hover:bg-realestate-lightblue rounded-full">
-                  <Filter className="mr-2 h-4 w-4" />
-                  Filtres
-                </Button>
-                <span className="text-gray-600">
-                  {filteredProperties.length} propriété{filteredProperties.length !== 1 ? 's' : ''} trouvée{filteredProperties.length !== 1 ? 's' : ''}
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Tabs */}
-        <ServiceTabs activeTab={activeTab} onTabChange={handleTabChange} />
         
-        {/* Properties Grid */}
-        <PropertiesGrid properties={filteredProperties} />
-
-        {/* Call to Action */}
-        <section className="py-16 px-6 bg-gradient-to-r from-realestate-blue to-realestate-red" data-aos="fade-up">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Prêt à Commencer Votre Projet Immobilier?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Contactez-nous dès aujourd'hui pour une consultation gratuite et personnalisée
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-white text-realestate-blue hover:bg-gray-100 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all">
-                Consultation Gratuite
-              </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/20 px-8 py-3 rounded-full font-semibold">
-                Voir Plus de Propriétés
-              </Button>
-            </div>
-          </div>
-        </section>
+        <div className="py-8 bg-gradient-to-r from-realestate-blue/5 to-realestate-red/5">
+          <TestimonialsCarousel />
+        </div>
       </main>
+      
       <Footer />
     </div>
   );

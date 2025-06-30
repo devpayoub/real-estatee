@@ -1,6 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Menu, Search, X, ChevronDown, LogIn } from "lucide-react";
+import { Menu, Search, X, ChevronDown, LogIn, ChevronUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -28,6 +29,7 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   return (
     <header 
@@ -37,36 +39,40 @@ const Header = () => {
     >
       <div className="flex items-center">
         <Link to="/" className="flex items-center">
-          <img src="/public/lovable-uploads/4e52e5c8-184b-4b0b-8aaa-f4475a33e028.png" alt="Kais Khayati Logo" className="h-12 w-auto" />
+          <img src="/public/lovable-uploads/logo.png" alt="Kais Khayati Logo" className="h-12 w-auto" />
         </Link>
+        <p className="font-medium hover:text-realestate-red transition-colors">Kais Khayati</p>
       </div>
       
       <nav className="hidden lg:flex items-center justify-center flex-1">
         <div className="flex items-center space-x-8">
           <Link to="/" className="font-medium hover:text-realestate-red transition-colors">Accueil</Link>
           <Link to="/about" className="font-medium hover:text-realestate-red transition-colors">À Propos</Link>
-          
-          <NavigationMenu>
+
+          <Link to="/buy?type=buy" className="font-medium hover:text-realestate-red transition-colors">Acheter</Link>
+          <Link to="/buy?type=rent" className="font-medium hover:text-realestate-red transition-colors">Vendre</Link>
+          <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
+          {<NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="font-medium hover:text-realestate-red bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent p-0">
-                  Services <ChevronDown className="h-4 w-4 ml-1" />
+                  Outils <ChevronDown className="h-4 w-4 ml-1" />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid gap-3 p-4 w-[200px] bg-white">
-                    <Link to="/services?type=rent" className="block p-2 hover:bg-realestate-lightred rounded-md">
-                      Vendre une Maison
-                    </Link>
-                    <Link to="/buy" className="block p-2 hover:bg-realestate-lightred rounded-md">
-                      Acheter une Maison
-                    </Link>
+                    <Link to="/evaluation-gratuit" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Évaluation Gratuite                    </Link>
+                    <Link to="/alert-immobiliere" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Alerte Immobilière                    </Link>
+                    <Link to="/calculatrice-hypothecaire" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Calculatrice hypothécaire                    </Link>
+                    <Link to="/calculatrice-droit-mutation" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Calculatrice droit de mutation                    </Link>
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
-          </NavigationMenu>
-          
-          <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
+          </NavigationMenu> }
           <Link to="/contact" className="font-medium hover:text-realestate-red transition-colors">Contact</Link>
         </div>
       </nav>
@@ -103,26 +109,44 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-5 px-6 lg:hidden animate-fade-in">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-5 px-6 lg:hidden animate-fade-in z-50">
           <nav className="flex flex-col space-y-4">
             <Link to="/" className="font-medium hover:text-realestate-red transition-colors">Accueil</Link>
             <Link to="/about" className="font-medium hover:text-realestate-red transition-colors">À Propos</Link>
-            
-            <div className="space-y-2">
-              <div className="font-medium">Services</div>
-              <div className="pl-4 space-y-2">
-                <Link to="/services?type=rent" className="block text-sm hover:text-realestate-red">
-                  Vendre une Maison
-                </Link>
-                <Link to="/buy" className="block text-sm hover:text-realestate-red">
-                  Acheter une Maison
-                </Link>
-              </div>
-            </div>
-            
+            <Link to="/buy?type=buy" className="font-medium hover:text-realestate-red transition-colors">Acheter</Link>
+            <Link to="/buy?type=sell" className="font-medium hover:text-realestate-red transition-colors">Vendre</Link>
             <Link to="/blog" className="font-medium hover:text-realestate-red transition-colors">Blog</Link>
-            <Link to="/contact" className="font-medium hover:text-realestate-red transition-colors">Contact</Link>
-            
+
+            {/* Dropdown Toggle */}
+            <div>
+              <button
+                className="w-full flex justify-between items-center font-medium text-left hover:text-realestate-red transition-colors"
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+              >
+                Outils
+                {isServicesOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+              </button>
+
+              {/* Dropdown Content */}
+              {isServicesOpen && (
+                <div className="mt-2 pl-4 space-y-2 animate-fade-in">
+                  <Link to="/evaluation-gratuit" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Évaluation Gratuite
+                  </Link>
+                  <Link to="/alert-immobiliere" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Alerte Immobilière
+                  </Link>
+                  <Link to="/calculatrice-hypothecaire" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Calculatrice hypothécaire
+                  </Link>
+                  <Link to="/calculatrice-droit-mutation" className="block p-2 hover:bg-realestate-lightred rounded-md">
+                    Calculatrice droit de mutation
+                  </Link>
+                </div>
+              )}
+            </div>
+            <Link to="/Contact" className="font-medium hover:text-realestate-red transition-colors">Contact</Link>
+            {/* Buttons */}
             <div className="pt-3 flex flex-col space-y-3">
               <Link to="/login" className="w-full">
                 <Button className="bg-transparent hover:bg-realestate-lightred text-realestate-red border border-realestate-red rounded-full w-full flex items-center justify-center gap-2">

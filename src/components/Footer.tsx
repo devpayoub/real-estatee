@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Copyright } from "lucide-react";
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Copyright, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -16,15 +16,16 @@ const Footer = () => {
             Nous vous aidons à trouver votre maison de rêve selon votre budget et vos préférences. Connectez-vous avec les meilleurs agents de votre région.
           </p>
           <div className="mt-6 flex items-center gap-4">
-            <a href="#" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
+            <a href="https://www.facebook.com/KaisKhayatiImmo" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
               <Facebook size={18} />
             </a>
-            <a href="#" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
-              <Twitter size={18} />
-            </a>
-            <a href="#" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
+            <a href="https://www.instagram.com/kais_khayati/" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
               <Instagram size={18} />
             </a>
+            <a href="https://www.linkedin.com/in/kais-khayati-courtier-immobilier-a7645028/" className="text-gray-500 hover:text-realestate-red transition-colors bg-gray-100 p-2 rounded-full">
+              <Linkedin size={18} />
+            </a>
+
           </div>
         </div>
         
@@ -45,15 +46,18 @@ const Footer = () => {
           <ul className="space-y-3">
             <li className="flex items-center gap-3">
               <MapPin size={18} className="text-realestate-red" />
-              <span className="text-gray-600">123 Rue Principale, Paris, 75001</span>
+              <span className="text-gray-600">Longueuil, QC, Canada, Quebec
+              </span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-realestate-red" />
-              <span className="text-gray-600">+33 01 23 45 67 89</span>
+              <span className="text-gray-600">+1 514-659-8664
+              </span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-realestate-red" />
-              <span className="text-gray-600">info@kaiskhayati.com</span>
+              <span className="text-gray-600">Khayati.kaiss@gmail.com
+              </span>
             </li>
           </ul>
         </div>
