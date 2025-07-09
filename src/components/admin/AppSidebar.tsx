@@ -1,59 +1,52 @@
-import { FileText, BookOpen } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
+} from "@/components/ui/sidebar"
+import { LayoutDashboard, FileText, Building2 } from "lucide-react"
+import { Link, useLocation } from "react-router-dom"
+
+const items = [
+  {
+    title: "Tableau de Bord",
+    url: "/admin/dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "Articles Blog",
+    url: "/admin/dashboard",
+    icon: FileText,
+  },
+  {
+    title: "Propriétés",
+    url: "/admin/properties",
+    icon: Building2,
+  },
+]
 
 export function AppSidebar() {
-  const location = useLocation();
-
-  const menuItems = [
-    {
-      title: "View Blog",
-      icon: BookOpen,
-      url: "/admin/dashboard",
-    },
-    {
-      title: "View Propriétés",
-      icon: FileText,
-      url: "/admin/articles",
-    },
-    {
-      title: "View Evaluations Form",
-      icon: FileText,
-      url: "/admin/evaluation-form",
-    },
-    {
-      title: "View Alerte Immobilière",
-      icon: FileText,
-      url: "/admin/alert-form",
-    },
-    {
-      title: "View Contact Mails",
-      icon: FileText,
-      url: "/admin/contact-mails",
-    },
-
-
-  ];
+  const location = useLocation()
 
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Admin Dashboard</SidebarGroupLabel>
+          <SidebarGroupLabel>Administration</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {menuItems.map((item) => (
+              {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={location.pathname === item.url}
+                  >
                     <Link to={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -65,6 +58,11 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <div className="p-4 text-sm text-gray-500">
+          Admin Panel v1.0
+        </div>
+      </SidebarFooter>
     </Sidebar>
-  );
+  )
 }

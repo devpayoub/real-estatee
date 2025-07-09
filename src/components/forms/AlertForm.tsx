@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, FormEvent } from "react";
@@ -9,7 +10,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { ChevronLeft, ChevronRight, Mail, Eye, Loader, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/lib/supabase";
 
 interface AlertData {
   location: string;
@@ -71,24 +71,12 @@ const AlerteForm = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase.from("alerts").insert([
-        {
-          location: alertData.location,
-          property_type: alertData.propertyType,
-          min_price: alertData.minPrice ? parseInt(alertData.minPrice) : null,
-          max_price: alertData.maxPrice ? parseInt(alertData.maxPrice) : null,
-          min_bedrooms: alertData.minBedrooms === "any" ? null : parseInt(alertData.minBedrooms),
-          email: alertData.email,
-          frequency: alertData.frequency,
-          new_listings: alertData.notifications.newListings,
-          price_changes: alertData.notifications.priceChanges,
-          open_houses: alertData.notifications.openHouses,
-        },
-      ]);
-
-      if (error) throw error;
-
+      // Simulate form submission without database
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      console.log("Alert form submitted:", alertData);
       setIsSubmitted(true);
+      
       toast({
         title: "Alerte créée",
         description: "Votre alerte immobilière a été créée avec succès.",
@@ -96,7 +84,7 @@ const AlerteForm = () => {
     } catch (error: any) {
       toast({
         title: "Erreur",
-        description: error.message || "Une erreur est survenue.",
+        description: "Une erreur est survenue.",
         variant: "destructive",
       });
     } finally {

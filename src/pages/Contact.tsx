@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -34,26 +33,10 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Insert data into Supabase
-      const { data, error } = await supabase
-        .from('contact_messages')
-        .insert([
-          {
-            name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            subject: formData.subject,
-            message: formData.message,
-            created_at: new Date().toISOString()
-          }
-        ])
-        .select();
-
-      if (error) {
-        throw error;
-      }
-
-      console.log("Contact form submitted:", data);
+      // Simulate form submission without database
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      console.log("Contact form submitted:", formData);
       setFormSubmitted(true);
       
       // Reset form after successful submission
@@ -272,4 +255,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
