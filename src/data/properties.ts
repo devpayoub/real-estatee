@@ -1,4 +1,3 @@
-import { Property } from "@/types/property";
 
 export type PropertyType = 'rent' | 'buy';
 
@@ -11,9 +10,12 @@ export interface Property {
   bedrooms: number;
   bathrooms: number;
   area: number;
+  price: string | number;
   image: string;
+  images?: string[];
   features: string[];
   amenities: string[];
+  featured?: boolean;
 }
 
 // Sample properties data
@@ -27,9 +29,11 @@ export const properties: Property[] = [
     bedrooms: 5,
     bathrooms: 4,
     area: 350,
+    price: "Contactez-nous",
     image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1000&auto=format&fit=crop",
     features: ["Piscine", "Jardin", "Garage", "Terrasse"],
-    amenities: ["Climatisation", "Chauffage", "Système de Sécurité", "Domotique"]
+    amenities: ["Climatisation", "Chauffage", "Système de Sécurité", "Domotique"],
+    featured: true
   },
   {
     id: "2",
@@ -40,9 +44,11 @@ export const properties: Property[] = [
     bedrooms: 2,
     bathrooms: 1,
     area: 75,
+    price: "Contactez-nous",
     image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1000&auto=format&fit=crop",
     features: ["Balcon", "Ascenseur", "Cave"],
-    amenities: ["Climatisation", "Chauffage", "Lave-linge"]
+    amenities: ["Climatisation", "Chauffage", "Lave-linge"],
+    featured: false
   }
 ];
 

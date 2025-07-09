@@ -6,13 +6,8 @@ import { Link } from "react-router-dom";
 import { Property } from "@/data/properties";
 import { MapPin, Bed, Bath, Square, Users } from "lucide-react";
 
-// Extend the Property type to allow string prices
-interface ExtendedProperty extends Omit<Property, 'price'> {
-  price: string | number;
-}
-
 interface PropertyCardDetailedProps {
-  property: ExtendedProperty;
+  property: Property;
   showVisitButton?: boolean;
 }
 
@@ -43,7 +38,7 @@ const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCard
         <div className="flex justify-between items-start">
           <h3 className="font-bold text-xl">{property.title}</h3>
           <span className="text-lg font-bold text-realestate-blue">
-            Contactez-nous
+            {property.price || "Contactez-nous"}
           </span>
         </div>
         <div className="flex items-center text-gray-500 text-sm">
@@ -75,7 +70,7 @@ const PropertyCardDetailed = ({ property, showVisitButton = true }: PropertyCard
       </CardContent>
       
       <CardFooter className="pt-0 mt-auto">
-        <Link to={`/property/${property.id}`} className="w-full">
+        <Link to={`/properties/${property.id}`} className="w-full">
           <Button className="w-full rounded-full bg-realestate-blue hover:bg-realestate-darkblue">
             {showVisitButton ? "Visit Property" : "View Details"}
           </Button>

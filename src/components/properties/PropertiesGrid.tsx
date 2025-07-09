@@ -29,7 +29,7 @@ const PropertiesGrid = ({ properties }: PropertiesGridProps) => {
         {properties.map((property, index) => (
           <div key={property.id} data-aos="fade-up" data-aos-delay={index * 100}>
             <PropertyCard 
-              imageUrl={property.images?.[0] || property.image || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop"}
+              imageUrl={property.image}
               location={property.location}
               price={property.price.toString()}
               bathrooms={property.bathrooms}
