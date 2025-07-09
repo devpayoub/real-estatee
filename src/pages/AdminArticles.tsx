@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -42,6 +43,7 @@ const AdminArticles = () => {
     bedrooms: 0,
     bathrooms: 0,
     area: 0,
+    price: "",
     image: "",
     features: "",
     amenities: ""
@@ -75,6 +77,7 @@ const AdminArticles = () => {
       bedrooms: property.bedrooms,
       bathrooms: property.bathrooms,
       area: property.area,
+      price: property.price.toString(),
       image: property.image,
       features: property.features.join(", "),
       amenities: property.amenities.join(", ")
@@ -93,6 +96,7 @@ const AdminArticles = () => {
       bedrooms: Number(formData.bedrooms),
       bathrooms: Number(formData.bathrooms),
       area: Number(formData.area),
+      price: formData.price,
       image: formData.image,
       features: formData.features.split(",").map(f => f.trim()),
       amenities: formData.amenities.split(",").map(a => a.trim())
@@ -122,6 +126,7 @@ const AdminArticles = () => {
       bedrooms: 0,
       bathrooms: 0,
       area: 0,
+      price: "",
       image: "",
       features: "",
       amenities: ""
@@ -215,6 +220,27 @@ const AdminArticles = () => {
                       />
                     </div>
 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Localisation</label>
+                        <Input
+                          value={formData.location}
+                          onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
+                          required
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Prix</label>
+                        <Input
+                          value={formData.price}
+                          onChange={(e) => setFormData(prev => ({ ...prev, price: e.target.value }))}
+                          placeholder="ex: 450,000$ ou Contactez-nous"
+                          required
+                        />
+                      </div>
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div>
                         <label className="block text-sm font-medium mb-1">Chambres</label>
@@ -294,6 +320,7 @@ const AdminArticles = () => {
                         <TableHead>Titre</TableHead>
                         <TableHead>Type</TableHead>
                         <TableHead>Location</TableHead>
+                        <TableHead>Prix</TableHead>
                         <TableHead>Surface</TableHead>
                         <TableHead>Actions</TableHead>
                       </TableRow>
@@ -312,6 +339,7 @@ const AdminArticles = () => {
                             </span>
                           </TableCell>
                           <TableCell>{property.location}</TableCell>
+                          <TableCell>{property.price}</TableCell>
                           <TableCell>{property.area} m²</TableCell>
                           <TableCell>
                             <div className="flex gap-2">
