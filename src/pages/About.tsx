@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
@@ -123,64 +122,86 @@ const About = () => {
         </section>
         
         {/* Gallery Section */}
-        <section className="container mx-auto px-6 py-16">
-          <div className="text-center mb-12" data-aos="fade-up">
-            <h2 className="text-3xl font-bold mb-4">Galerie</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Découvrez quelques moments marquants de notre parcours professionnel
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="col-span-1 md:col-span-2 lg:col-span-2" data-aos="fade-up" data-aos-delay="100">
-              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" 
-                  alt="Maison moderne"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+        <section className="bg-gradient-to-br from-gray-50 to-white py-20">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16" data-aos="fade-up">
+              <h2 className="text-4xl font-bold mb-6 bg-gradient-blue-red bg-clip-text text-transparent">Galerie</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Découvrez quelques moments marquants de notre parcours professionnel à travers ces images exclusives
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-12 gap-4 max-w-7xl mx-auto">
+              {/* Large featured image */}
+              <div className="col-span-12 lg:col-span-8" data-aos="fade-up" data-aos-delay="100">
+                <div className="relative group overflow-hidden rounded-2xl shadow-2xl h-96">
+                  <img 
+                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" 
+                    alt="Maison moderne de luxe"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute bottom-6 left-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <h3 className="text-2xl font-bold mb-2">Villa de Prestige</h3>
+                    <p className="text-gray-200">Architecture contemporaine exclusive</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Two stacked images */}
+              <div className="col-span-12 lg:col-span-4 flex flex-col gap-4">
+                <div className="relative group overflow-hidden rounded-2xl shadow-xl h-44" data-aos="fade-up" data-aos-delay="200">
+                  <img 
+                    src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80" 
+                    alt="Intérieur élégant"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-realestate-red/20 to-realestate-blue/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+                
+                <div className="relative group overflow-hidden rounded-2xl shadow-xl h-44" data-aos="fade-up" data-aos-delay="300">
+                  <img 
+                    src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600&q=80" 
+                    alt="Bureau professionnel"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-realestate-blue/20 to-realestate-red/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </div>
+              </div>
+              
+              {/* Bottom row - two equal images */}
+              <div className="col-span-12 md:col-span-6" data-aos="fade-up" data-aos-delay="400">
+                <div className="relative group overflow-hidden rounded-2xl shadow-xl h-72">
+                  <img 
+                    src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80" 
+                    alt="Cuisine moderne"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 ring-4 ring-white/20 ring-inset rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Cuisine Design
+                  </div>
+                </div>
+              </div>
+              
+              <div className="col-span-12 md:col-span-6" data-aos="fade-up" data-aos-delay="500">
+                <div className="relative group overflow-hidden rounded-2xl shadow-xl h-72">
+                  <img 
+                    src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80" 
+                    alt="Salon contemporain"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 ring-4 ring-white/20 ring-inset rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 text-sm font-medium text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    Salon Premium
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="col-span-1" data-aos="fade-up" data-aos-delay="200">
-              <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=400&q=80" 
-                  alt="Intérieur élégant"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="col-span-1" data-aos="fade-up" data-aos-delay="300">
-              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=400&q=80" 
-                  alt="Bureau professionnel"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="col-span-1" data-aos="fade-up" data-aos-delay="400">
-              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&q=80" 
-                  alt="Cuisine moderne"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
-            
-            <div className="col-span-1" data-aos="fade-up" data-aos-delay="500">
-              <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=400&q=80" 
-                  alt="Salon contemporain"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-            </div>
+            {/* Decorative elements */}
+            <div className="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-realestate-red/10 to-realestate-blue/10 rounded-full blur-xl" />
+            <div className="absolute bottom-10 right-10 w-32 h-32 bg-gradient-to-tl from-realestate-blue/10 to-realestate-red/10 rounded-full blur-xl" />
           </div>
         </section>
         
