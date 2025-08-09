@@ -4,7 +4,7 @@ A modern, full-stack real estate platform built with React, TypeScript, and Supa
 
 ## 🖼️ Project HomePage
 
-![HomePage Screenshot](real-estatee.png)
+![HomePage Screenshot](public/real-estatee.png)
 
 ## ✨ Features
 
