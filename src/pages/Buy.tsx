@@ -1,73 +1,59 @@
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
+import { useState, useEffect } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent } from "@radix-ui/react-tabs";
 import {
-  Check,
-  Phone,
-  Mail,
-  ArrowRight,
-  Star,
-  Shield,
-  Clock,
-  Users,
-  Calculator,
-  FileText,
-  TrendingUp,
-  Award,
-  MapPin,
   Home,
-} from "lucide-react"
-import BuySection from "@/components/services/BuySection"
-import RentSection from "@/components/services/RentSection"
-import ServiceHeader from "@/components/services/ServiceHeader"
-import ServiceTabs from "@/components/services/ServiceTabs"
-import TestimonialsCarousel from "@/components/TestimonialsCarousel"
-import { getPropertiesByType, properties, PropertyType } from "@/data/properties"
-import { Tabs, TabsContent } from "@radix-ui/react-tabs"
-import Footer from "@/components/Footer";
+  MapPin
+} from "lucide-react";
+
+import { getPropertiesByType } from "@/data/properties";
+import { DisplayProperty } from "@/types/property";
+
+import BuySection from "@/components/services/BuySection";
+import RentSection from "@/components/services/RentSection";
+import ServiceHeader from "@/components/services/ServiceHeader";
+import ServiceTabs from "@/components/services/ServiceTabs";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import PartenLogos from "@/components/PartenLogos";
 import Header from "@/components/Header";
-
-import { useSearchParams } from "react-router-dom"
-import { DisplayProperty } from "@/types/property"
-import { useState, useEffect } from "react"
-import PartenLogos from "@/components/PartenLogos"
-
+import Footer from "@/components/Footer";
 
 const Buy = () => {
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [activeTab, setActiveTab] = useState<PropertyType>("rent");
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<'buy' | 'rent'>("rent");
   const [properties, setProperties] = useState<DisplayProperty[]>([]);
 
+  // Sync tab with URL
   useEffect(() => {
-    const typeParam = searchParams.get("type") as PropertyType;
-    if (typeParam && (typeParam === "rent" || typeParam === "buy")) {
+    const typeParam = searchParams.get("type") as 'buy' | 'rent';
+    if (typeParam === "rent" || typeParam === "buy") {
       setActiveTab(typeParam);
     }
+  }, [searchParams]);
 
+  // Update properties when tab changes
+  useEffect(() => {
     const filteredProperties = getPropertiesByType(activeTab);
 
-    // Convert properties to DisplayProperty type with contact text instead of price
-    const displayProperties = filteredProperties.map(prop => ({
+    const displayProperties = filteredProperties.map((prop) => ({
       ...prop,
-      price: "Contactez-nous pour le prix"
+      price: "Contactez-nous pour le prix",
     }));
 
     setProperties(displayProperties);
 
-    // Initialize AOS animations
-    if (typeof window !== 'undefined' && window.AOS) {
+    if (typeof window !== "undefined" && window.AOS) {
       window.AOS.refresh();
     }
-  }, [searchParams, activeTab]);
+  }, [activeTab]);
 
   const handleTabChange = (value: string) => {
-    setActiveTab(value as PropertyType);
-    setSearchParams({ type: value });
+    setActiveTab(value as 'buy' | 'rent');
+    navigate(`?type=${value}`);
   };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
@@ -86,20 +72,20 @@ const Buy = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                onClick={() => setActiveTab("rent")}
+                onClick={() => handleTabChange("rent")}
                 className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${activeTab === "rent"
-                    ? "bg-white text-realestate-blue shadow-lg"
-                    : "bg-white/20 text-white hover:bg-white/30"
+                  ? "bg-white text-realestate-blue shadow-lg"
+                  : "bg-white/20 text-white hover:bg-white/30"
                   }`}
               >
                 <Home className="mr-2 h-5 w-5" />
                 Vendre
               </Button>
               <Button
-                onClick={() => setActiveTab("buy")}
+                onClick={() => handleTabChange("buy")}
                 className={`px-8 py-3 rounded-full font-semibold transition-all duration-300 ${activeTab === "buy"
-                    ? "bg-white text-realestate-red shadow-lg"
-                    : "bg-white/20 text-white hover:bg-white/30"
+                  ? "bg-white text-realestate-red shadow-lg"
+                  : "bg-white/20 text-white hover:bg-white/30"
                   }`}
               >
                 <MapPin className="mr-2 h-5 w-5" />
@@ -109,14 +95,13 @@ const Buy = () => {
           </div>
         </section>
 
-
         <section className="container mx-auto px-6 py-12">
           <ServiceHeader
             title="Nos Services"
             description="Que vous cherchiez à louer ou à acheter, nous avons les options de propriétés parfaites pour vous."
           />
 
-          <Tabs defaultValue={activeTab} onValueChange={handleTabChange} className="w-full">
+          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
             <ServiceTabs activeTab={activeTab} onTabChange={handleTabChange} />
 
             <TabsContent value="rent" className="mt-0">
@@ -128,7 +113,7 @@ const Buy = () => {
             </TabsContent>
           </Tabs>
         </section>
-        
+
         <div className="animate-on-scroll opacity-0" data-aos="fade-up" data-aos-delay="300">
           <PartenLogos />
         </div>
@@ -137,12 +122,10 @@ const Buy = () => {
           <TestimonialsCarousel />
         </div>
       </main>
-      
-      <Footer />
 
+      <Footer />
     </div>
   );
-
 };
 
 export default Buy;

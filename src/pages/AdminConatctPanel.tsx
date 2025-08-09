@@ -155,20 +155,22 @@ const AdminContactPanel = () => {
       <div className="min-h-screen flex w-full bg-gray-50">
         <AppSidebar />
         
-        <main className="flex-1 p-6">
-          <div className="flex items-center gap-4 mb-8">
-            <SidebarTrigger />
-            <div className="flex-1 flex justify-between items-center">
+        <main className="flex-1 p-4 md:p-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+            <div className="flex items-center gap-4">
+              <SidebarTrigger />
               <div className="flex items-center gap-3">
                 <LayoutDashboard size={24} className="text-realestate-blue" />
-                <h1 className="text-2xl font-bold text-gray-800">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-800">
                   Messages de Contact
                 </h1>
               </div>
+            </div>
+            <div className="flex-1 flex justify-end">
               <Button
                 onClick={handleLogout}
                 variant="outline"
-                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300"
+                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300 w-full md:w-auto"
               >
                 <LogOut size={16} className="mr-2" />
                 Déconnexion
@@ -177,7 +179,7 @@ const AdminContactPanel = () => {
           </div>
 
           {/* Statistics Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total</CardTitle>
@@ -228,11 +230,11 @@ const AdminContactPanel = () => {
           </div>
           
           <div className="mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Gérer les Messages de Contact
+            <div className="flex flex-col md:flex-row justify-between md:items-center mb-6 gap-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
+                Gérer les Messages
               </h2>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   onClick={fetchContactMessages}
                   variant="outline"
@@ -254,39 +256,41 @@ const AdminContactPanel = () => {
             </div>
 
             {/* Search and Filter */}
-            <div className="flex gap-4 mb-6">
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
                 <Input
-                  placeholder="Rechercher par nom, email ou sujet..."
+                  placeholder="Rechercher..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 w-full"
                 />
               </div>
-              <Select value={filterSubject} onValueChange={setFilterSubject}>
-                <SelectTrigger className="w-48">
-                  <Filter size={16} className="mr-2" />
-                  <SelectValue placeholder="Filtrer par sujet" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Tous les sujets</SelectItem>
-                  <SelectItem value="propriété">Renseignements propriété</SelectItem>
-                  <SelectItem value="service">Questions service</SelectItem>
-                  <SelectItem value="général">Demande générale</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Select value={filterSubject} onValueChange={setFilterSubject}>
+                  <SelectTrigger className="w-full sm:w-48">
+                    <Filter size={16} className="mr-2" />
+                    <SelectValue placeholder="Filtrer par sujet" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les sujets</SelectItem>
+                    <SelectItem value="propriété">Renseignements propriété</SelectItem>
+                    <SelectItem value="service">Questions service</SelectItem>
+                    <SelectItem value="général">Demande générale</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
             
-            <Card className="shadow-lg border-none overflow-hidden">
-              <div className="rounded-lg overflow-hidden">
+            <Card className="shadow-lg border-none">
+              <div className="rounded-lg overflow-x-auto">
                 <Table>
                   <TableHeader className="bg-gray-100">
                     <TableRow>
-                      <TableHead>Date</TableHead>
+                      <TableHead className="hidden md:table-cell">Date</TableHead>
                       <TableHead>Nom</TableHead>
-                      <TableHead>Contact</TableHead>
-                      <TableHead>Sujet</TableHead>
+                      <TableHead className="hidden sm:table-cell">Contact</TableHead>
+                      <TableHead className="hidden md:table-cell">Sujet</TableHead>
                       <TableHead>Message</TableHead>
                       <TableHead>Actions</TableHead>
                     </TableRow>
@@ -310,32 +314,31 @@ const AdminContactPanel = () => {
                     ) : (
                       filteredMessages.map((message) => (
                         <TableRow key={message.id} className="hover:bg-gray-50">
-                          <TableCell className="font-medium">
+                          <TableCell className="font-medium hidden md:table-cell">
                             {new Date(message.created_at).toLocaleDateString('fr-CA')}
                           </TableCell>
                           <TableCell>
-                            <div className="font-medium">
-                              {message.name}
-                            </div>
+                            <div className="font-medium truncate max-w-[150px]">{message.name}</div>
+                            <div className="text-sm text-gray-500 sm:hidden">{message.email}</div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden sm:table-cell">
                             <div className="text-sm">
                               <div>{message.email}</div>
                               {message.phone && <div className="text-gray-500">{message.phone}</div>}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden md:table-cell">
                             <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
                               {message.subject}
                             </span>
                           </TableCell>
                           <TableCell>
-                            <div className="text-sm max-w-xs truncate">
+                            <div className="text-sm max-w-[100px] sm:max-w-xs truncate">
                               {message.message}
                             </div>
                           </TableCell>
                           <TableCell>
-                            <div className="flex gap-2">
+                            <div className="flex gap-1">
                               <Dialog>
                                 <DialogTrigger asChild>
                                   <Button
@@ -347,20 +350,20 @@ const AdminContactPanel = () => {
                                     <Eye size={16} />
                                   </Button>
                                 </DialogTrigger>
-                                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                                <DialogContent className="max-w-md md:max-w-4xl max-h-[90vh] overflow-y-auto">
                                   <DialogHeader>
                                     <DialogTitle>
                                       Message de {message.name}
                                     </DialogTitle>
                                   </DialogHeader>
                                   {selectedMessage && (
-                                    <div className="space-y-6">
-                                      <div className="grid grid-cols-2 gap-6">
+                                    <div className="space-y-6 p-1">
+                                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                           <h4 className="font-semibold text-realestate-blue mb-3">Informations Contact</h4>
                                           <div className="space-y-2 text-sm">
                                             <p><strong>Nom:</strong> {selectedMessage.name}</p>
-                                            <p><strong>Email:</strong> {selectedMessage.email}</p>
+                                            <p><strong>Email:</strong> <span className="break-all">{selectedMessage.email}</span></p>
                                             {selectedMessage.phone && <p><strong>Téléphone:</strong> {selectedMessage.phone}</p>}
                                             <p><strong>Date:</strong> {new Date(selectedMessage.created_at).toLocaleString('fr-CA')}</p>
                                           </div>
@@ -409,4 +412,3 @@ const AdminContactPanel = () => {
 };
 
 export default AdminContactPanel;
-

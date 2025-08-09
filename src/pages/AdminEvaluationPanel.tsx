@@ -176,20 +176,22 @@ const AdminEvaluationPanel = () => {
       <div className="min-h-screen flex w-full bg-gray-50">
         <AppSidebar />
         
-        <main className="flex-1 p-6">
-          <div className="flex items-center gap-4 mb-8">
-            <SidebarTrigger />
-            <div className="flex-1 flex justify-between items-center">
+        <main className="flex-1 p-4 md:p-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+            <div className="flex items-center gap-4">
+              <SidebarTrigger />
               <div className="flex items-center gap-3">
                 <LayoutDashboard size={24} className="text-realestate-blue" />
-                <h1 className="text-2xl font-bold text-gray-800">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-800">
                   Demandes d'Évaluation
                 </h1>
               </div>
+            </div>
+            <div className="flex-1 flex justify-end">
               <Button
                 onClick={handleLogout}
                 variant="outline"
-                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300"
+                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300 w-full md:w-auto"
               >
                 <LogOut size={16} className="mr-2" />
                 Déconnexion
@@ -198,7 +200,7 @@ const AdminEvaluationPanel = () => {
           </div>
 
           {/* Statistics Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total</CardTitle>
@@ -249,11 +251,11 @@ const AdminEvaluationPanel = () => {
           </div>
           
           <div className="mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-800">
-                Gérer les Demandes d'Évaluation
+            <div className="flex flex-col md:flex-row justify-between md:items-center mb-6 gap-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
+                Gérer les Demandes
               </h2>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   onClick={fetchEvaluations}
                   variant="outline"
@@ -275,57 +277,58 @@ const AdminEvaluationPanel = () => {
             </div>
 
             {/* Search and Filter */}
-            <div className="flex gap-4 mb-6">
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
                 <Input
-                  placeholder="Rechercher par nom, email ou adresse..."
+                  placeholder="Rechercher..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 w-full"
                 />
               </div>
-              <Select value={filterType} onValueChange={setFilterType}>
-                <SelectTrigger className="w-48">
-                  <Filter size={16} className="mr-2" />
-                  <SelectValue placeholder="Filtrer par type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Tous les types</SelectItem>
-                  <SelectItem value="maison">Maison unifamiliale</SelectItem>
-                  <SelectItem value="condo">Condominium</SelectItem>
-                  <SelectItem value="duplex">Duplex</SelectItem>
-                  <SelectItem value="triplex">Triplex</SelectItem>
-                  <SelectItem value="terrain">Terrain</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Select value={filterType} onValueChange={setFilterType}>
+                  <SelectTrigger className="w-full sm:w-48">
+                    <Filter size={16} className="mr-2" />
+                    <SelectValue placeholder="Filtrer par type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les types</SelectItem>
+                    <SelectItem value="maison">Maison unifamiliale</SelectItem>
+                    <SelectItem value="condo">Condominium</SelectItem>
+                    <SelectItem value="duplex">Duplex</SelectItem>
+                    <SelectItem value="triplex">Triplex</SelectItem>
+                    <SelectItem value="terrain">Terrain</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
             
-            <Card className="shadow-lg border-none overflow-hidden">
-              <div className="rounded-lg overflow-hidden">
+            <Card className="shadow-lg border-none">
+              <div className="rounded-lg overflow-x-auto">
                 <Table>
                   <TableHeader className="bg-gray-100">
                     <TableRow>
-                      <TableHead>Date</TableHead>
+                      <TableHead className="hidden md:table-cell">Date</TableHead>
                       <TableHead>Client</TableHead>
-                      <TableHead>Contact</TableHead>
-                      <TableHead>Adresse</TableHead>
-                      <TableHead>Type</TableHead>
-                      <TableHead>Détails</TableHead>
+                      <TableHead className="hidden sm:table-cell">Contact</TableHead>
+                      <TableHead className="hidden lg:table-cell">Adresse</TableHead>
+                      <TableHead className="hidden sm:table-cell">Type</TableHead>
                       <TableHead>Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {loading ? (
                       <TableRow>
-                        <TableCell colSpan={7} className="text-center py-8">
+                        <TableCell colSpan={6} className="text-center py-8">
                           <RefreshCw className="animate-spin mx-auto mb-2" size={24} />
                           Chargement des évaluations...
                         </TableCell>
                       </TableRow>
                     ) : filteredEvaluations.length === 0 ? (
                       <TableRow>
-                        <TableCell colSpan={7} className="text-center py-8 text-gray-500">
+                        <TableCell colSpan={6} className="text-center py-8 text-gray-500">
                           {searchTerm || filterType !== "all" 
                             ? "Aucune évaluation trouvée avec ces critères" 
                             : "Aucune évaluation disponible"}
@@ -334,39 +337,34 @@ const AdminEvaluationPanel = () => {
                     ) : (
                       filteredEvaluations.map((evaluation) => (
                         <TableRow key={evaluation.id} className="hover:bg-gray-50">
-                          <TableCell className="font-medium">
+                          <TableCell className="font-medium hidden md:table-cell">
                             {new Date(evaluation.created_at).toLocaleDateString('fr-CA')}
                           </TableCell>
                           <TableCell>
-                            <div className="font-medium">
+                            <div className="font-medium truncate max-w-[150px]">
                               {evaluation.first_name} {evaluation.last_name}
                             </div>
+                            <div className="text-sm text-gray-500 lg:hidden">{evaluation.address}</div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden sm:table-cell">
                             <div className="text-sm">
                               <div>{evaluation.email}</div>
                               <div className="text-gray-500">{evaluation.phone}</div>
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden lg:table-cell">
                             <div className="text-sm">
                               {evaluation.address}
                               {evaluation.apt && <div className="text-gray-500">{evaluation.apt}</div>}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden sm:table-cell">
                             <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
                               {getPropertyTypeLabel(evaluation.property_type)}
                             </span>
                           </TableCell>
                           <TableCell>
-                            <div className="text-sm">
-                              <div>{evaluation.bedrooms} ch, {evaluation.bathrooms} sdb</div>
-                              <div className="text-gray-500">{evaluation.living_area}</div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex gap-2">
+                            <div className="flex gap-1">
                               <Dialog>
                                 <DialogTrigger asChild>
                                   <Button
@@ -378,29 +376,29 @@ const AdminEvaluationPanel = () => {
                                     <Eye size={16} />
                                   </Button>
                                 </DialogTrigger>
-                                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                                <DialogContent className="max-w-sm md:max-w-2xl lg:max-w-4xl max-h-[90vh] overflow-y-auto rounded-lg">
                                   <DialogHeader>
-                                    <DialogTitle>
-                                      Détails de l'évaluation - {evaluation.first_name} {evaluation.last_name}
+                                    <DialogTitle className="text-lg md:text-xl">
+                                      Détails de l'évaluation
                                     </DialogTitle>
                                   </DialogHeader>
                                   {selectedEvaluation && (
-                                    <div className="space-y-6">
-                                      <div className="grid grid-cols-2 gap-6">
-                                        <div>
-                                          <h4 className="font-semibold text-realestate-blue mb-3">Informations Client</h4>
-                                          <div className="space-y-2 text-sm">
+                                    <div className="space-y-4 pt-4">
+                                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                                        <div className="space-y-4">
+                                          <h4 className="font-semibold text-realestate-blue text-base md:text-lg border-b pb-2">Informations Client</h4>
+                                          <div className="space-y-1 text-sm">
                                             <p><strong>Nom:</strong> {selectedEvaluation.first_name} {selectedEvaluation.last_name}</p>
-                                            <p><strong>Email:</strong> {selectedEvaluation.email}</p>
+                                            <p><strong>Email:</strong> <span className="break-all">{selectedEvaluation.email}</span></p>
                                             <p><strong>Téléphone:</strong> {selectedEvaluation.phone}</p>
-                                            <p><strong>Date de demande:</strong> {new Date(selectedEvaluation.created_at).toLocaleString('fr-CA')}</p>
+                                            <p><strong>Date:</strong> {new Date(selectedEvaluation.created_at).toLocaleString('fr-CA')}</p>
                                           </div>
                                         </div>
-                                        <div>
-                                          <h4 className="font-semibold text-realestate-blue mb-3">Propriété</h4>
-                                          <div className="space-y-2 text-sm">
+                                        <div className="space-y-4">
+                                          <h4 className="font-semibold text-realestate-blue text-base md:text-lg border-b pb-2">Propriété</h4>
+                                          <div className="space-y-1 text-sm">
                                             <p><strong>Adresse:</strong> {selectedEvaluation.address}</p>
-                                            {selectedEvaluation.apt && <p><strong>Appartement:</strong> {selectedEvaluation.apt}</p>}
+                                            {selectedEvaluation.apt && <p><strong>Apt:</strong> {selectedEvaluation.apt}</p>}
                                             <p><strong>Type:</strong> {getPropertyTypeLabel(selectedEvaluation.property_type)}</p>
                                             {selectedEvaluation.construction_year && <p><strong>Année:</strong> {selectedEvaluation.construction_year}</p>}
                                             {selectedEvaluation.living_area && <p><strong>Superficie:</strong> {selectedEvaluation.living_area}</p>}
@@ -408,38 +406,38 @@ const AdminEvaluationPanel = () => {
                                         </div>
                                       </div>
                                       
-                                      <div className="grid grid-cols-2 gap-6">
-                                        <div>
-                                          <h4 className="font-semibold text-realestate-blue mb-3">Détails</h4>
-                                          <div className="space-y-2 text-sm">
+                                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+                                        <div className="space-y-4">
+                                          <h4 className="font-semibold text-realestate-blue text-base md:text-lg border-b pb-2">Détails</h4>
+                                          <div className="space-y-1 text-sm">
                                             <p><strong>Chambres:</strong> {selectedEvaluation.bedrooms}</p>
                                             <p><strong>Salles de bain:</strong> {selectedEvaluation.bathrooms}</p>
                                             <p><strong>Stationnement:</strong> {selectedEvaluation.parking_spaces}</p>
                                             <p><strong>Garages:</strong> {selectedEvaluation.garages}</p>
                                           </div>
                                         </div>
-                                        <div>
-                                          <h4 className="font-semibold text-realestate-blue mb-3">Vente</h4>
-                                          <div className="space-y-2 text-sm">
+                                        <div className="space-y-4">
+                                          <h4 className="font-semibold text-realestate-blue text-base md:text-lg border-b pb-2">Vente</h4>
+                                          <div className="space-y-1 text-sm">
                                             <p><strong>Raison:</strong> {selectedEvaluation.sale_reason}</p>
                                           </div>
                                         </div>
                                       </div>
 
                                       {selectedEvaluation.renovations && (
-                                        <div>
-                                          <h4 className="font-semibold text-realestate-blue mb-3">Rénovations</h4>
-                                          <p className="text-sm bg-gray-50 p-3 rounded">{selectedEvaluation.renovations}</p>
+                                        <div className="space-y-2">
+                                          <h4 className="font-semibold text-realestate-blue text-base md:text-lg border-b pb-2">Rénovations</h4>
+                                          <p className="text-sm bg-gray-50 p-3 rounded-md">{selectedEvaluation.renovations}</p>
                                         </div>
                                       )}
 
                                       {selectedEvaluation.property_photo_url && (
-                                        <div>
-                                          <h4 className="font-semibold text-realestate-blue mb-3">Photo de la propriété</h4>
+                                        <div className="space-y-2">
+                                          <h4 className="font-semibold text-realestate-blue text-base md:text-lg border-b pb-2">Photo</h4>
                                           <img 
                                             src={selectedEvaluation.property_photo_url} 
                                             alt="Propriété" 
-                                            className="max-w-full h-auto rounded-lg"
+                                            className="w-full h-auto rounded-lg shadow-md"
                                           />
                                         </div>
                                       )}
@@ -472,4 +470,3 @@ const AdminEvaluationPanel = () => {
 };
 
 export default AdminEvaluationPanel;
-

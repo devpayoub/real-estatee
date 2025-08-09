@@ -94,10 +94,10 @@ const CalculatriceHypothecaire = () => {
         {/* Calculator Section */}
         <section className="py-12 px-4 sm:px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Calculator Form */}
               <div data-aos="fade-right">
-                <Card className="shadow-2xl border-0">
+                <Card className="shadow-2xl border-0 rounded-lg">
                   <CardContent className="p-6 sm:p-8">
                     <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
                       <span className="bg-gradient-to-r from-realestate-blue to-realestate-red bg-clip-text text-transparent">
@@ -105,35 +105,37 @@ const CalculatriceHypothecaire = () => {
                       </span>
                     </h2>
 
-                    <div className="space-y-6">
-                      <div>
-                        <Label htmlFor="propertyPrice" className="text-realestate-blue font-semibold">
-                          Prix de la propriété
-                        </Label>
-                        <Input
-                          id="propertyPrice"
-                          placeholder="ex: 400,000"
-                          value={mortgageData.propertyPrice}
-                          onChange={(e) => setMortgageData({ ...mortgageData, propertyPrice: e.target.value })}
-                          className="border-gray-300 focus:border-realestate-blue"
-                        />
+                    <div className="space-y-4 md:space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="propertyPrice" className="text-realestate-blue font-semibold text-sm">
+                            Prix de la propriété
+                          </Label>
+                          <Input
+                            id="propertyPrice"
+                            placeholder="ex: 400,000"
+                            value={mortgageData.propertyPrice}
+                            onChange={(e) => setMortgageData({ ...mortgageData, propertyPrice: e.target.value })}
+                            className="border-gray-300 focus:border-realestate-blue mt-1"
+                          />
+                        </div>
+
+                        <div>
+                          <Label htmlFor="downPayment" className="text-realestate-blue font-semibold text-sm">
+                            Mise de fonds
+                          </Label>
+                          <Input
+                            id="downPayment"
+                            placeholder="ex: 80,000"
+                            value={mortgageData.downPayment}
+                            onChange={(e) => setMortgageData({ ...mortgageData, downPayment: e.target.value })}
+                            className="border-gray-300 focus:border-realestate-blue mt-1"
+                          />
+                        </div>
                       </div>
 
                       <div>
-                        <Label htmlFor="downPayment" className="text-realestate-blue font-semibold">
-                          Mise de fonds
-                        </Label>
-                        <Input
-                          id="downPayment"
-                          placeholder="ex: 80,000"
-                          value={mortgageData.downPayment}
-                          onChange={(e) => setMortgageData({ ...mortgageData, downPayment: e.target.value })}
-                          className="border-gray-300 focus:border-realestate-blue"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="interestRate" className="text-realestate-blue font-semibold">
+                        <Label htmlFor="interestRate" className="text-realestate-blue font-semibold text-sm">
                           Taux d'intérêt annuel (%)
                         </Label>
                         <Input
@@ -141,52 +143,54 @@ const CalculatriceHypothecaire = () => {
                           placeholder="ex: 5.25"
                           value={mortgageData.interestRate}
                           onChange={(e) => setMortgageData({ ...mortgageData, interestRate: e.target.value })}
-                          className="border-gray-300 focus:border-realestate-blue"
+                          className="border-gray-300 focus:border-realestate-blue mt-1"
                         />
                       </div>
 
-                      <div>
-                        <Label htmlFor="amortization" className="text-realestate-blue font-semibold">
-                          Période d'amortissement
-                        </Label>
-                        <Select
-                          value={mortgageData.amortization}
-                          onValueChange={(value) => setMortgageData({ ...mortgageData, amortization: value })}
-                        >
-                          <SelectTrigger className="w-full border-gray-300 focus:border-realestate-blue">
-                            <SelectValue placeholder="Choisir la période" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="15">15 ans</SelectItem>
-                            <SelectItem value="20">20 ans</SelectItem>
-                            <SelectItem value="25">25 ans</SelectItem>
-                            <SelectItem value="30">30 ans</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <Label htmlFor="amortization" className="text-realestate-blue font-semibold text-sm">
+                            Période d'amortissement
+                          </Label>
+                          <Select
+                            value={mortgageData.amortization}
+                            onValueChange={(value) => setMortgageData({ ...mortgageData, amortization: value })}
+                          >
+                            <SelectTrigger className="w-full border-gray-300 focus:border-realestate-blue mt-1">
+                              <SelectValue placeholder="Choisir la période" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="15">15 ans</SelectItem>
+                              <SelectItem value="20">20 ans</SelectItem>
+                              <SelectItem value="25">25 ans</SelectItem>
+                              <SelectItem value="30">30 ans</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
 
-                      <div>
-                        <Label htmlFor="paymentFrequency" className="text-realestate-blue font-semibold">
-                          Fréquence de paiement
-                        </Label>
-                        <Select
-                          value={mortgageData.paymentFrequency}
-                          onValueChange={(value) => setMortgageData({ ...mortgageData, paymentFrequency: value })}
-                        >
-                          <SelectTrigger className="w-full border-gray-300 focus:border-realestate-blue">
-                            <SelectValue placeholder="Fréquence" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="monthly">Mensuel</SelectItem>
-                            <SelectItem value="biweekly">Aux 2 semaines</SelectItem>
-                            <SelectItem value="weekly">Hebdomadaire</SelectItem>
-                          </SelectContent>
-                        </Select>
+                        <div>
+                          <Label htmlFor="paymentFrequency" className="text-realestate-blue font-semibold text-sm">
+                            Fréquence de paiement
+                          </Label>
+                          <Select
+                            value={mortgageData.paymentFrequency}
+                            onValueChange={(value) => setMortgageData({ ...mortgageData, paymentFrequency: value })}
+                          >
+                            <SelectTrigger className="w-full border-gray-300 focus:border-realestate-blue mt-1">
+                              <SelectValue placeholder="Fréquence" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="monthly">Mensuel</SelectItem>
+                              <SelectItem value="biweekly">Aux 2 semaines</SelectItem>
+                              <SelectItem value="weekly">Hebdomadaire</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
                       </div>
 
                       <Button
                         onClick={calculateMortgage}
-                        className="w-full bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white py-4 text-base sm:text-lg font-semibold"
+                        className="w-full bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white py-3 text-base sm:text-lg font-semibold rounded-lg"
                       >
                         <Calculator className="mr-2 h-5 w-5" />
                         Calculer les Paiements
@@ -197,73 +201,73 @@ const CalculatriceHypothecaire = () => {
               </div>
 
               {/* Results Panel */}
-              <div data-aos="fade-left" data-aos-delay="200">
+              <div data-aos="fade-left" data-aos-delay="200" className="flex items-center">
                 {result ? (
-                  <div className="space-y-6">
-                    <Card className="bg-gradient-to-r from-realestate-lightblue to-realestate-lightred border-realestate-blue/20">
-                      <CardContent className="p-6 sm:p-8">
-                        <div className="text-center">
-                          <Home className="w-12 h-12 text-realestate-blue mx-auto mb-4" />
-                          <h3 className="text-xl sm:text-2xl font-bold text-realestate-blue mb-4 text-center">
-                            Résultats de votre hypothèque
-                          </h3>
+                  <Card className="w-full bg-gradient-to-br from-realestate-blue to-realestate-darkblue text-white rounded-lg shadow-xl">
+                    <CardContent className="p-6 sm:p-8">
+                      <div className="text-center">
+                        <Home className="w-10 h-10 text-white mx-auto mb-4" />
+                        <h3 className="text-xl sm:text-2xl font-bold mb-6">
+                          Résultats de votre hypothèque
+                        </h3>
 
-                          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-md text-center">
-                              <h4 className="text-base sm:text-lg font-semibold text-realestate-blue mb-2">
-                                Paiement mensuel
-                              </h4>
-                              <p className="text-2xl sm:text-3xl font-bold text-realestate-red">
-                                {formatCurrency(result.monthlyPayment.toString())}
-                              </p>
-                            </div>
+                        <div className="space-y-6">
+                          <div className="bg-white/10 rounded-lg p-4 text-center">
+                            <h4 className="text-base font-semibold text-white/80 mb-1">
+                              Paiement mensuel
+                            </h4>
+                            <p className="text-3xl sm:text-4xl font-bold text-yellow-300">
+                              {formatCurrency(result.monthlyPayment.toString())}
+                            </p>
+                          </div>
 
-                            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-md text-center">
-                              <h4 className="text-base sm:text-lg font-semibold text-realestate-blue mb-2">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="bg-white/10 rounded-lg p-4 text-center">
+                              <h4 className="text-sm font-semibold text-white/80 mb-1">
                                 Total des intérêts
                               </h4>
-                              <p className="text-xl sm:text-2xl font-bold text-gray-700">
+                              <p className="text-xl sm:text-2xl font-bold">
                                 {formatCurrency(result.totalInterest.toString())}
                               </p>
                             </div>
 
-                            <div className="bg-white rounded-lg p-4 sm:p-6 shadow-md text-center">
-                              <h4 className="text-base sm:text-lg font-semibold text-realestate-blue mb-2">
+                            <div className="bg-white/10 rounded-lg p-4 text-center">
+                              <h4 className="text-sm font-semibold text-white/80 mb-1">
                                 Montant total payé
                               </h4>
-                              <p className="text-xl sm:text-2xl font-bold text-gray-700">
+                              <p className="text-xl sm:text-2xl font-bold">
                                 {formatCurrency(result.totalAmount.toString())}
                               </p>
                             </div>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 ) : (
-                  <Card className="border-realestate-blue/20">
+                  <Card className="w-full border-realestate-blue/20 rounded-lg">
                     <CardContent className="p-6 sm:p-8">
                       <div className="text-center">
-                        <PieChart className="w-16 h-16 text-realestate-blue mx-auto mb-6" />
-                        <h3 className="text-xl sm:text-2xl font-bold text-realestate-blue mb-4 text-center">
+                        <PieChart className="w-12 h-12 text-realestate-blue mx-auto mb-4" />
+                        <h3 className="text-xl sm:text-2xl font-bold text-realestate-blue mb-3">
                           Planifiez votre budget
                         </h3>
-                        <p className="text-gray-600 mb-6 text-base sm:text-lg">
+                        <p className="text-gray-600 mb-6 text-sm sm:text-base">
                           Remplissez le formulaire pour obtenir une estimation précise 
-                          de vos paiements hypothécaires mensuels.
+                          de vos paiements.
                         </p>
 
-                        <div className="space-y-4 text-left max-w-md mx-auto">
+                        <div className="space-y-3 text-left max-w-md mx-auto">
                           <div className="flex items-center gap-3">
-                            <TrendingUp className="w-5 h-5 text-realestate-red" />
+                            <TrendingUp className="w-5 h-5 text-realestate-red flex-shrink-0" />
                             <span className="text-sm">Calcul basé sur les taux actuels</span>
                           </div>
                           <div className="flex items-center gap-3">
-                            <Home className="w-5 h-5 text-realestate-red" />
+                            <Home className="w-5 h-5 text-realestate-red flex-shrink-0" />
                             <span className="text-sm">Estimation pour tous types de propriétés</span>
                           </div>
                           <div className="flex items-center gap-3">
-                            <Calculator className="w-5 h-5 text-realestate-red" />
+                            <Calculator className="w-5 h-5 text-realestate-red flex-shrink-0" />
                             <span className="text-sm">Résultats instantanés et précis</span>
                           </div>
                         </div>

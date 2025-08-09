@@ -91,20 +91,22 @@ const AdminDashboard = () => {
       <div className="min-h-screen flex w-full bg-gray-50">
         <AppSidebar />
         
-        <main className="flex-1 p-6">
-          <div className="flex items-center gap-4 mb-8">
-            <SidebarTrigger />
-            <div className="flex-1 flex justify-between items-center">
+        <main className="flex-1 p-4 md:p-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+            <div className="flex items-center gap-4">
+              <SidebarTrigger />
               <div className="flex items-center gap-3">
                 <LayoutDashboard size={24} className="text-realestate-blue" />
-                <h1 className="text-2xl font-bold text-gray-800">
-                  Tableau de Bord Admin
+                <h1 className="text-xl md:text-2xl font-bold text-gray-800">
+                  Tableau de Bord
                 </h1>
               </div>
+            </div>
+            <div className="flex-1 flex justify-end">
               <Button
                 onClick={handleLogout}
                 variant="outline"
-                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300"
+                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300 w-full md:w-auto"
               >
                 <LogOut size={16} className="mr-2" />
                 Déconnexion
@@ -113,11 +115,11 @@ const AdminDashboard = () => {
           </div>
           
           <div className="mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-800">
+            <div className="flex flex-col md:flex-row justify-between md:items-center mb-6 gap-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
                 Gérer les Articles de Blog
               </h2>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
                 {selectedPosts.length > 0 && (
                   <Button 
                     onClick={handleDeleteSelected}
@@ -148,8 +150,8 @@ const AdminDashboard = () => {
                 </CardContent>
               </Card>
             ) : (
-              <Card className="shadow-lg border-none overflow-hidden">
-                <div className="rounded-lg overflow-hidden">
+              <Card className="shadow-lg border-none">
+                <div className="rounded-lg overflow-x-auto">
                   <Table>
                     <TableHeader className="bg-gray-100">
                       <TableRow>
@@ -166,9 +168,9 @@ const AdminDashboard = () => {
                           />
                         </TableHead>
                         <TableHead>Titre</TableHead>
-                        <TableHead>Catégorie</TableHead>
-                        <TableHead>Auteur</TableHead>
-                        <TableHead>Date</TableHead>
+                        <TableHead className="hidden sm:table-cell">Catégorie</TableHead>
+                        <TableHead className="hidden md:table-cell">Auteur</TableHead>
+                        <TableHead className="hidden md:table-cell">Date</TableHead>
                         <TableHead className="text-right">Actions</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -188,8 +190,11 @@ const AdminDashboard = () => {
                                 onCheckedChange={() => toggleSelection(post.id)}
                               />
                             </TableCell>
-                            <TableCell className="font-medium">{post.title}</TableCell>
-                            <TableCell>
+                            <TableCell className="font-medium">
+                              <div className="truncate max-w-[150px] md:max-w-xs">{post.title}</div>
+                              <div className="text-xs text-gray-500 sm:hidden">{post.category} - {post.date}</div>
+                            </TableCell>
+                            <TableCell className="hidden sm:table-cell">
                               <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                                 post.category === "Achat" 
                                   ? "bg-blue-100 text-blue-700" 
@@ -198,10 +203,10 @@ const AdminDashboard = () => {
                                 {post.category}
                               </span>
                             </TableCell>
-                            <TableCell>{post.author}</TableCell>
-                            <TableCell>{post.date}</TableCell>
+                            <TableCell className="hidden md:table-cell">{post.author}</TableCell>
+                            <TableCell className="hidden md:table-cell">{post.date}</TableCell>
                             <TableCell className="text-right">
-                              <div className="flex justify-end gap-2">
+                              <div className="flex justify-end gap-1">
                                 <Button
                                   size="sm"
                                   variant="ghost"

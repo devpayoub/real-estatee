@@ -78,14 +78,14 @@ const CalculatriceDroitMutation = () => {
         </section>
 
         {/* Calculator Section */}
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <section className="py-12 md:py-20 px-4 sm:px-6 bg-white">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Calculator Form */}
               <div data-aos="fade-right">
-                <Card className="shadow-2xl border-0">
-                  <CardContent className="p-8">
-                    <h2 className="text-3xl font-bold mb-6 text-center">
+                <Card className="shadow-2xl border-0 rounded-lg">
+                  <CardContent className="p-6 md:p-8">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
                       <span className="bg-gradient-to-r from-realestate-blue to-realestate-red bg-clip-text text-transparent">
                         Calculatrice
                       </span>
@@ -93,7 +93,7 @@ const CalculatriceDroitMutation = () => {
                     
                     <div className="space-y-6">
                       <div>
-                        <Label htmlFor="price" className="text-realestate-blue font-semibold text-lg">
+                        <Label htmlFor="price" className="text-realestate-blue font-semibold text-base md:text-lg">
                           Prix d'achat de la propriété
                         </Label>
                         <Input
@@ -101,27 +101,27 @@ const CalculatriceDroitMutation = () => {
                           placeholder="ex: 400,000"
                           value={price}
                           onChange={(e) => setPrice(e.target.value)}
-                          className="border-gray-300 focus:border-realestate-blue text-lg h-14"
+                          className="border-gray-300 focus:border-realestate-blue text-base md:text-lg h-12 md:h-14 mt-1"
                         />
                       </div>
 
                       <Button 
                         onClick={calculateTransferTax}
-                        className="w-full bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white py-4 text-lg font-semibold"
+                        className="w-full bg-gradient-to-r from-realestate-blue to-realestate-red hover:from-realestate-darkblue hover:to-realestate-darkred text-white py-3 text-base md:text-lg font-semibold rounded-lg"
                       >
                         <Calculator className="mr-2 h-5 w-5" />
                         Calculer les Droits
                       </Button>
 
                       {result !== null && (
-                        <Card className="bg-gradient-to-r from-realestate-lightblue to-realestate-lightred border-realestate-blue/20" data-aos="fade-in">
+                        <Card className="bg-gradient-to-r from-realestate-lightblue to-realestate-lightred border-realestate-blue/20 rounded-lg" data-aos="fade-in">
                           <CardContent className="p-6">
                             <div className="text-center">
-                              <DollarSign className="w-12 h-12 text-realestate-blue mx-auto mb-4" />
-                              <h3 className="text-xl font-semibold text-realestate-blue mb-2">
+                              <DollarSign className="w-10 h-10 md:w-12 md:h-12 text-realestate-blue mx-auto mb-3" />
+                              <h3 className="text-lg md:text-xl font-semibold text-realestate-blue mb-2">
                                 Droits de mutation estimés
                               </h3>
-                              <p className="text-3xl font-bold text-realestate-red">
+                              <p className="text-2xl md:text-3xl font-bold text-realestate-red">
                                 {formatCurrency(result.toString())}
                               </p>
                             </div>
@@ -135,21 +135,21 @@ const CalculatriceDroitMutation = () => {
 
               {/* Information Panel */}
               <div data-aos="fade-left" data-aos-delay="200">
-                <Card className="border-realestate-blue/20">
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
-                      <Info className="w-6 h-6 text-realestate-blue mr-3" />
-                      <h3 className="text-2xl font-bold text-realestate-blue">
+                <Card className="border-realestate-blue/20 rounded-lg">
+                  <CardContent className="p-6 md:p-8">
+                    <div className="flex items-center mb-4">
+                      <Info className="w-6 h-6 text-realestate-blue mr-3 flex-shrink-0" />
+                      <h3 className="text-xl md:text-2xl font-bold text-realestate-blue">
                         Comment ça fonctionne ?
                       </h3>
                     </div>
                     
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold text-lg mb-3 text-realestate-red">
+                        <h4 className="font-semibold text-base md:text-lg mb-2 text-realestate-red">
                           Tranches de calcul au Québec :
                         </h4>
-                        <div className="space-y-2 text-gray-700">
+                        <div className="space-y-1 text-sm md:text-base text-gray-700">
                           <p>• 0 à 50 000$ : <span className="font-semibold">0,5%</span></p>
                           <p>• 50 001$ à 250 000$ : <span className="font-semibold">1,0%</span></p>
                           <p>• 250 001$ à 500 000$ : <span className="font-semibold">1,5%</span></p>
@@ -158,26 +158,26 @@ const CalculatriceDroitMutation = () => {
                       </div>
 
                       <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                        <h4 className="font-semibold text-realestate-blue mb-2">
+                        <h4 className="font-semibold text-realestate-blue mb-2 text-sm md:text-base">
                           Important à savoir :
                         </h4>
-                        <ul className="text-sm text-gray-700 space-y-1">
-                          <li>• Les droits sont payables lors de la signature chez le notaire</li>
-                          <li>• Certaines exemptions peuvent s'appliquer</li>
-                          <li>• Les premiers acheteurs peuvent bénéficier de réductions</li>
+                        <ul className="text-xs md:text-sm text-gray-700 space-y-1 list-disc list-inside">
+                          <li>Les droits sont payables lors de la signature chez le notaire.</li>
+                          <li>Certaines exemptions peuvent s'appliquer (ex: transfert entre conjoints).</li>
+                          <li>Les premiers acheteurs peuvent bénéficier de réductions dans certaines municipalités.</li>
                         </ul>
                       </div>
 
                       <div className="bg-realestate-lightblue p-4 rounded-lg border border-realestate-blue/20">
-                        <h4 className="font-semibold text-realestate-blue mb-2">
+                        <h4 className="font-semibold text-realestate-blue mb-2 text-sm md:text-base">
                           Besoin d'aide ?
                         </h4>
-                        <p className="text-sm text-gray-700 mb-3">
-                          Notre équipe peut vous aider à comprendre tous les coûts liés à votre achat immobilier.
+                        <p className="text-xs md:text-sm text-gray-700 mb-3">
+                          Notre équipe peut vous aider à comprendre tous les coûts liés à votre achat.
                         </p>
                         <Button 
                           variant="outline" 
-                          className="border-realestate-blue text-realestate-blue hover:bg-realestate-blue hover:text-white"
+                          className="w-full md:w-auto border-realestate-blue text-realestate-blue hover:bg-realestate-blue hover:text-white"
                         >
                           <FileText className="mr-2 h-4 w-4" />
                           Consultation Gratuite

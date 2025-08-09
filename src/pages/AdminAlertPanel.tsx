@@ -191,20 +191,22 @@ const AdminAlertsPanel = () => {
       <div className="min-h-screen flex w-full bg-gray-50">
         <AppSidebar />
         
-        <main className="flex-1 p-6">
-          <div className="flex items-center gap-4 mb-8">
-            <SidebarTrigger />
-            <div className="flex-1 flex justify-between items-center">
+        <main className="flex-1 p-4 md:p-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
+            <div className="flex items-center gap-4">
+              <SidebarTrigger />
               <div className="flex items-center gap-3">
                 <LayoutDashboard size={24} className="text-realestate-blue" />
-                <h1 className="text-2xl font-bold text-gray-800">
+                <h1 className="text-xl md:text-2xl font-bold text-gray-800">
                   Alertes Immobilières
                 </h1>
               </div>
+            </div>
+            <div className="flex-1 flex justify-end">
               <Button
                 onClick={handleLogout}
                 variant="outline"
-                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300"
+                className="bg-white text-blue-700 hover:bg-blue-50 border border-blue-300 w-full md:w-auto"
               >
                 <LogOut size={16} className="mr-2" />
                 Déconnexion
@@ -213,7 +215,7 @@ const AdminAlertsPanel = () => {
           </div>
 
           {/* Statistics Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total</CardTitle>
@@ -264,11 +266,11 @@ const AdminAlertsPanel = () => {
           </div>
           
           <div className="mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-800">
+            <div className="flex flex-col md:flex-row justify-between md:items-center mb-6 gap-4">
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-800">
                 Gérer les Alertes Immobilières
               </h2>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   onClick={fetchAlerts}
                   variant="outline"
@@ -290,52 +292,54 @@ const AdminAlertsPanel = () => {
             </div>
 
             {/* Search and Filter */}
-            <div className="flex gap-4 mb-6">
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
                 <Input
-                  placeholder="Rechercher par email, localisation ou type de bien..."
+                  placeholder="Rechercher..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 w-full"
                 />
               </div>
-              <Select value={filterFrequency} onValueChange={setFilterFrequency}>
-                <SelectTrigger className="w-48">
-                  <Filter size={16} className="mr-2" />
-                  <SelectValue placeholder="Filtrer par fréquence" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Toutes les fréquences</SelectItem>
-                  <SelectItem value="quotidienne">Quotidienne</SelectItem>
-                  <SelectItem value="hebdomadaire">Hebdomadaire</SelectItem>
-                  <SelectItem value="mensuelle">Mensuelle</SelectItem>
-                </SelectContent>
-              </Select>
-              <Select value={filterActive} onValueChange={setFilterActive}>
-                <SelectTrigger className="w-48">
-                  <SelectValue placeholder="Filtrer par statut" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Tous les statuts</SelectItem>
-                  <SelectItem value="active">Actives</SelectItem>
-                  <SelectItem value="inactive">Inactives</SelectItem>
-                </SelectContent>
-              </Select>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Select value={filterFrequency} onValueChange={setFilterFrequency}>
+                  <SelectTrigger className="w-full sm:w-48">
+                    <Filter size={16} className="mr-2" />
+                    <SelectValue placeholder="Fréquence" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Toutes les fréquences</SelectItem>
+                    <SelectItem value="quotidienne">Quotidienne</SelectItem>
+                    <SelectItem value="hebdomadaire">Hebdomadaire</SelectItem>
+                    <SelectItem value="mensuelle">Mensuelle</SelectItem>
+                  </SelectContent>
+                </Select>
+                <Select value={filterActive} onValueChange={setFilterActive}>
+                  <SelectTrigger className="w-full sm:w-48">
+                    <SelectValue placeholder="Statut" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les statuts</SelectItem>
+                    <SelectItem value="active">Actives</SelectItem>
+                    <SelectItem value="inactive">Inactives</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
             
-            <Card className="shadow-lg border-none overflow-hidden">
-              <div className="rounded-lg overflow-hidden">
+            <Card className="shadow-lg border-none">
+              <div className="rounded-lg overflow-x-auto">
                 <Table>
                   <TableHeader className="bg-gray-100">
                     <TableRow>
-                      <TableHead>Date</TableHead>
+                      <TableHead className="hidden md:table-cell">Date</TableHead>
                       <TableHead>Email</TableHead>
-                      <TableHead>Localisation</TableHead>
-                      <TableHead>Type</TableHead>
-                      <TableHead>Prix</TableHead>
-                      <TableHead>Fréquence</TableHead>
-                      <TableHead>Notifications</TableHead>
+                      <TableHead className="hidden lg:table-cell">Localisation</TableHead>
+                      <TableHead className="hidden sm:table-cell">Type</TableHead>
+                      <TableHead className="hidden md:table-cell">Prix</TableHead>
+                      <TableHead className="hidden lg:table-cell">Fréquence</TableHead>
+                      <TableHead className="hidden xl:table-cell">Notifications</TableHead>
                       <TableHead>Statut</TableHead>
                       <TableHead>Actions</TableHead>
                     </TableRow>
@@ -359,25 +363,24 @@ const AdminAlertsPanel = () => {
                     ) : (
                       filteredAlerts.map((alert) => (
                         <TableRow key={alert.id} className="hover:bg-gray-50">
-                          <TableCell className="font-medium">
+                          <TableCell className="font-medium hidden md:table-cell">
                             {new Date(alert.created_at).toLocaleDateString('fr-CA')}
                           </TableCell>
                           <TableCell>
-                            <div>
-                              {alert.email}
-                            </div>
+                            <div className="font-medium truncate max-w-[150px]">{alert.email}</div>
+                            <div className="text-sm text-gray-500 lg:hidden">{alert.location}</div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden lg:table-cell">
                             <div className="text-sm">
                               {alert.location}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden sm:table-cell">
                             <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
                               {alert.property_type}
                             </span>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden md:table-cell">
                             <div className="text-sm">
                               <div>{formatPriceRange(alert.min_price, alert.max_price)}</div>
                               {alert.min_bedrooms && (
@@ -385,12 +388,12 @@ const AdminAlertsPanel = () => {
                               )}
                             </div>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden lg:table-cell">
                             <Badge variant="outline" className="capitalize">
                               {alert.frequency}
                             </Badge>
                           </TableCell>
-                          <TableCell>
+                          <TableCell className="hidden xl:table-cell">
                             <div className="flex flex-wrap gap-1">
                               {getNotificationTypes(alert).map((type, index) => (
                                 <Badge key={index} variant="secondary" className="text-xs">
@@ -402,13 +405,13 @@ const AdminAlertsPanel = () => {
                           <TableCell>
                             <Badge 
                               variant={alert.is_active !== false ? "default" : "secondary"}
-                              className={alert.is_active !== false ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}
+                              className={`${alert.is_active !== false ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"} whitespace-nowrap`}
                             >
                               {alert.is_active !== false ? "Active" : "Inactive"}
                             </Badge>
                           </TableCell>
                           <TableCell>
-                            <div className="flex gap-2">
+                            <div className="flex gap-1">
                               <Dialog>
                                 <DialogTrigger asChild>
                                   <Button
@@ -420,19 +423,19 @@ const AdminAlertsPanel = () => {
                                     <Eye size={16} />
                                   </Button>
                                 </DialogTrigger>
-                                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                                <DialogContent className="max-w-md md:max-w-4xl max-h-[90vh] overflow-y-auto">
                                   <DialogHeader>
                                     <DialogTitle>
-                                      Détails de l'alerte - {alert.email}
+                                      Détails de l'alerte
                                     </DialogTitle>
                                   </DialogHeader>
                                   {selectedAlert && (
-                                    <div className="space-y-6">
-                                      <div className="grid grid-cols-2 gap-6">
+                                    <div className="space-y-6 p-1">
+                                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
                                           <h4 className="font-semibold text-realestate-blue mb-3">Informations générales</h4>
                                           <div className="space-y-2 text-sm">
-                                            <p><strong>Email:</strong> {selectedAlert.email}</p>
+                                            <p><strong>Email:</strong> <span className="break-all">{selectedAlert.email}</span></p>
                                             <p><strong>Créée le:</strong> {new Date(selectedAlert.created_at).toLocaleString('fr-CA')}</p>
                                             <p><strong>Fréquence:</strong> {selectedAlert.frequency}</p>
                                             <p><strong>Statut:</strong> {selectedAlert.is_active !== false ? "Active" : "Inactive"}</p>
@@ -452,9 +455,12 @@ const AdminAlertsPanel = () => {
                                       <div>
                                         <h4 className="font-semibold text-realestate-blue mb-3">Notifications activées</h4>
                                         <div className="flex flex-wrap gap-2">
-                                          {getNotificationTypes(selectedAlert).map((type, index) => (
-                                            <Badge key={index}>{type}</Badge>
-                                          ))}
+                                          {getNotificationTypes(selectedAlert).length > 0 ? 
+                                            getNotificationTypes(selectedAlert).map((type, index) => (
+                                              <Badge key={index}>{type}</Badge>
+                                            )) :
+                                            <p className="text-sm text-gray-500">Aucune</p>
+                                          }
                                         </div>
                                       </div>
                                     </div>
@@ -462,6 +468,14 @@ const AdminAlertsPanel = () => {
                                 </DialogContent>
                               </Dialog>
                               
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => handleToggleStatus(alert.id, alert.is_active !== false)}
+                                className={`h-8 w-8 p-0 ${alert.is_active !== false ? 'text-gray-500 hover:text-gray-600' : 'text-green-500 hover:text-green-600'}`}
+                              >
+                                {alert.is_active !== false ? <BellOff size={16} /> : <Bell size={16} />}
+                              </Button>
                               
                               <Button
                                 size="sm"
@@ -488,4 +502,3 @@ const AdminAlertsPanel = () => {
 };
 
 export default AdminAlertsPanel;
-
